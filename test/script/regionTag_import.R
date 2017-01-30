@@ -1,7 +1,8 @@
 
-UK.Wm.GB.2010.sp <- get.Spatial('UK.Wm.5th')
+GB.Wm.5th.sp <- get.Spatial('GB.Wm.5th')
+NI.Wm.5th.sp <- get.Spatial('NI.Wm.5th')
 
-UK.Wm.GB.2010.sp$NAME <- sapply(strsplit(as.character(UK.Wm.GB.2010.sp$NAME),' '),
+GB.Wm.5th.sp$NAME <- sapply(strsplit(as.character(GB.Wm.5th.sp$NAME),' '),
 	function(x){
 		paste(collapse=' ', gsub(',','',x[1:(length(x)-2)]))
 	}
@@ -13,6 +14,7 @@ GE2010 <- GE2010[order(rownames(GE2010)),]
 NIkey <- GE2010[,1]=="Northern Ireland"
 GBkey <- as.factor(GE2010[!NIkey,1])
 GBNames <- rownames(GE2010)[!NIkey]
+NINames <- rownames(GE2010)[NIkey]
 
 keycount <- plyr::count(GBkey)
 regionNames <- as.character(keycount$x)[order(keycount$freq)]
@@ -26,15 +28,14 @@ jobRegion <- as.list(regionNames)
 regionMasks <- lapply( jobRegion, 
 	function(r)fuzzyMatch(
 		GBNames[GBkey %in% r], 
-		UK.Wm.GB.2010.sp$NAME
+		GB.Wm.5th.sp$NAME
 	)
 )
-regionMasks[[which.max(jobNames=="GB")]] <- fuzzyMatch(GBNames,UK.Wm.GB.2010.sp$NAME)
+regionMasks[[which.max(jobNames=="GB")]] <- fuzzyMatch(GBNames,GB.Wm.5th.sp$NAME)
 regionTags <- paste(sep="","UK.",jobNames,".Wm.5th")
 rTitles <- sapply(regionTags,
 	function(name){
 		a <- strsplit(name,".",fixed=TRUE)[[1]][-seq(2)]
-		print(a)
 		year <- a[length(a)]
 		prettyName <- paste(collapse=" ",a[-length(a)])
 		if(prettyName=="GB")
@@ -48,7 +49,7 @@ lapply(seq_along(jobNames),
 	function(i){
 		regionTag(regionTags[i],
 			rTitles[i],
-			layerTag('UK.Wm.5th'),
+			layerTag('GB.Wm.5th'),
 			regionMasks[[i]]
 		)
 	}
@@ -72,4 +73,10 @@ regionTag('UK.Scotland.2014.SIR',
 	mask
 )
 
-	
+regionTag('UK.Northern.Ireland.Wm.5th',
+	paste(sep=", ","United Kingdom","Northern Ireland",
+		"Westminster","5th Review"
+	),
+	'NI.Wm.5th',
+	fuzzyMatch(NINames,NI.Wm.5th.sp$PC_NAME)
+)
