@@ -1,11 +1,13 @@
 load("test/data/elections.RData")
 
 GE2010 <- elections$GE2010
+Encoding(colnames(GE2010)) <- 'CP1252'
 GE2010 <- GE2010[order(rownames(GE2010)),-1]
 GE2010Names <- rownames(GE2010)
 key10 <- as.factor(elections$GE2010[,1])
 GE2015 <- elections$GE2015[,-1]
 GE2015Names <- rownames(GE2015)
+colnames(GE2015)[22]<-'Sinn Fein'
 Encoding(GE2015Names) <- "CP1252"
 GE2015Names <- iconv(GE2015Names, "CP1252", "UTF-8", sub='')
 GE2015 <- GE2015[fuzzyMatch(GE2010Names,GE2015Names),]
@@ -14,6 +16,17 @@ rownames(GE2015) <- rownames(GE2010)
 regionNames<-levels(key10)
 
 GBNames<-setdiff(regionNames,"Northern Ireland")
+NIkey <- key10 == "Northern Ireland"
+NI2010 <- GE2010[NIkey,]
+NI2015 <- GE2015[NIkey,]
+			title <- paste(sep=", ",
+				"United Kingdom",
+				'Northern Ireland',
+				"General Election",
+				c(2010,2015)
+			)
+ballotTag('UK.Northern.Ireland.2010.Wm',NI2010,title[1],'UK.Northern.Ireland.Wm.5th')
+ballotTag('UK.Northern.Ireland.2015.Wm',NI2015,title[2],'UK.Northern.Ireland.Wm.5th')
 
 filenames <- gsub(" ",".",regionNames)
 filenames <- gsub("&","and",filenames)

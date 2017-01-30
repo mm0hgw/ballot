@@ -10,7 +10,7 @@ ballotTag <- function(x,
 	bTitle=NULL,
 	bRegionTag=NULL
 ){
-	cat(paste('ballotTag',x,paste(collapse=':',class(x)),'\n'))
+#	cat(paste('ballotTag',x,paste(collapse=':',class(x)),'\n'))
 	stopifnot(is.valid.tag(x))
 	if(!is.null(bRegionTag)){
 		bRegionTag <- as.regionTag(bRegionTag)
@@ -105,7 +105,7 @@ as.ballotTag <- function(x){
 #'@importFrom graphics legend lines
 #'@importFrom sp plot
 plot.ballotTag <- function(x,...){
-	cat(paste('plot.ballotTag',x,'\n'))
+#	cat(paste('plot.ballotTag',x,'\n'))
 	arg<-densityArgList(...)
 	if(!("main" %in% names(arg)))
 		arg$main<-paste('Density Plot,',get.bTitle(x))
@@ -126,6 +126,13 @@ plot.ballotTag <- function(x,...){
 		)
 	}
 	sbList<-splitBallot(get.ballot(x))[slice]
+	len<-length(sbList)
+	if(length(grep('^V$',names(sbList)))>0){
+		len <- len + 1
+		sbList[['Abstainers']] <- sbList[['V']]
+		sbList[['Abstainers']][,2] <- sbList[['V']][,1]-sbList[['V']][,2]
+		sbList <- sbList[order(decreasing=TRUE,sapply(sbList,sbSum))]
+	}
 	dList<-lapply(sbList,function(x)sbDensity(x,norm=norm))
 	if(!("xlim" %in% names(arg)))
 		arg$xlim <- dListXlim(dList)
@@ -136,14 +143,15 @@ plot.ballotTag <- function(x,...){
 		)
 	}
 	do.call(sp::plot,arg)
-	len<-length(sbList)
 	col<-seq(len)+1
 	lapply(seq(len),
 		function(x){lines(dList[[x]],col=col[x],lwd=3)}
 	)
-	leg<-gsub('^V$','Overall Turnout',names(sbList))
+	leg<-paste(sapply(sbList,function(sb)charSum(sb[,2])),
+		gsub('^V$','Overall Turnout',names(sbList))
+	)
 	if(norm==TRUE){
-		leg<-c("Gaussian",leg)
+		leg<-c(paste(charSum(sbList[[1]][,1]),"Gaussian"),leg)
 		col<-c(1,col)
 		dx<-seq(arg$xlim[1],arg$xlim[2],length.out=512)
 		lines(dx,dnorm(dx),lwd=3)

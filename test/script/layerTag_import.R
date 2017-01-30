@@ -1,12 +1,12 @@
 
-layerTag('UK.Wm.5th',
+layerTag('GB.Wm.5th',
 	"Westminster constituencies, 5th review",
 	paste(sep="\n",
 		"#'@references",
 		"#' Boundary Line Dataset, Ordnance Survey",
 		"#'\\cr https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html"
 	),
-	"../../boundary-line/Data/GB/",
+	path.expand("~/git/boundary-line/Data/GB/"),
 	'westminster_const_region',
 	c("Na h-Eileanan an Iar Co Const", "Ross, Skye and Lochaber Co Const", 
 		"Caithness, Sutherland and Easter Ross Co Const", "Orkney and Shetland Co Const", 
@@ -20,6 +20,15 @@ layerTag('UK.Wm.5th',
 	'NAME'
 )
 
+layerTag('NI.Wm.5th',
+	"Westminster constituencies, 5th review",
+	'OSNI',
+	path.expand('~/git/OSNI/'),
+	ls.layers('NI.Wm.5th'),
+	'',
+	'PC_NAME'
+)
+
 layerTag('UK.Unitary.Regions',
 	"Scottish Independence Referendum 2014",
 	paste(sep="\n",
@@ -27,7 +36,7 @@ layerTag('UK.Unitary.Regions',
 		"#' Boundary Line Dataset, Ordnance Survey",
 		"#'\\cr https://www.ordnancesurvey.co.uk/business-and-government/products/boundary-line.html"
 	),
-	"../../boundary-line/Data/GB/",
+	path.expand("~/git/boundary-line/Data/GB/"),
 	'district_borough_unitary_region',
 	c( "Na h-Eileanan an Iar","Highland",
 		'Highland','Orkney Islands',
@@ -50,7 +59,7 @@ layerTag('TIGER2010.KS',
 		"#'\\cr via kansasgis.org
 		"#'\\cr https://www.kansasgis.org/catalog/index.cfm"
 	),
-	"../../TIGER2010.KS/",
+	path.expand("~/git/TIGER2010.KS/"),
 	'Tiger2010_Census_County',
 	'',
 	'NAME10'

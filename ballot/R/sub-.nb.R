@@ -1,10 +1,4 @@
-#'[.nb
-#'@param x target 'nb' object
-#'@param i index vector
-#'@importFrom spdep sym.attr.nb
-#'@method [ nb
-#'@export 
-'[.nb' <- function(x, i) {
+valid.nb.subset <- function(x,i){
 	if(!inherits(x, 'nb'))
 		stop('[.nb failed, supplied object not of class \'nb\'')
 	n <- length(x)
@@ -19,7 +13,7 @@
 		if(length(i)!=n)
 			stop('[.nb failed, logical vector length does not match \'nb\' object length')
 		else	
-			i <- seq(n)[i]
+			return(TRUE)
 	if(any(errormask <- i < 1 || i > n))
 		stop(paste('[.nb failed, indices',
 				paste(collapse=',',i[errormask]),
@@ -32,6 +26,19 @@
 				'duplicated'
 			)
 		)
+	return(TRUE)
+}
+
+#'[.nb
+#'@param x target 'nb' object
+#'@param i index vector
+#'@importFrom spdep sym.attr.nb
+#'@method [ nb
+#'@export 
+'[.nb' <- function(x, i) {
+	stopifnot(valid.nb.subset(x,i))
+	if(is.logical(i))
+		i <- seq(n)[i]
 	class(x) <- 'list'
 	out<-lapply(x[i],
 		function(y){
@@ -50,4 +57,20 @@
 	}
 	class(out) <- 'nb'
 	spdep::sym.attr.nb(out)
+}
+
+#'invade.nb
+#'@description Given the context of an 'nb' object and a 
+#'subset of occupied territory, return the territory outwith
+#'the input subset that borders the input subset.
+#'@param nb 'nb' object
+#'@param subset a 'vector' defining the currently occupied subset.
+#'@export
+invade.nb <- function(nb,subset){
+	stopifnot(valid.nb.subset(nb,subset))
+	if(is.logical(subset))
+		subset <- seq(length(nb))[subset]
+	v1 <- unique(sapply(subset,'[[',x=nb))
+	v2 <- setdiff(v1,c(0,subset))
+	sort(v2)
 }
