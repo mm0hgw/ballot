@@ -1,0 +1,13 @@
+Package: ballot
+Title: Ballot processimg routines
+Version: 0.0.0.9000
+Authors@R: person("Dale",  email = "dale@piratepress.org", role = c("aut", "cre", "cph"))
+Description: Code for running tests on ballots.
+Depends:
+    R (>= 3.3.2)
+Imports:
+    foreach,
+    ultraCombo
+License: GPL-2
+LazyData: true
+RoxygenNote: 5.0.1

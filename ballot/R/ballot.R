@@ -1,0 +1,29 @@
+#'	Ballot processing routines
+#'
+#'	@author Dale Potter, \email{dale@@piratepress.org}
+#'	
+#'	@description Data operations for ballots.
+#'
+#' 
+#' @section ballot :
+#'
+#' The ballot data type is a matrix or data.frame 
+#' containing ballot information. The rows of this 
+#' object are reporting areas from the ballot, and 
+#' the columns are various vote counts as reported 
+#' by the relevant authority. A column of registered 
+#' electorate is required to be the first column and 
+#' labelled "N" in accordance with the naming 
+#' conventions of "Spatial correlations in vote 
+#' statistics: a diffusive field model" (2010) 
+#' Borghesi & Bouchard. A "V" column of total votes 
+#' cast is typically present. Columns for vote 
+#' totals by party would usually be present. 
+#'
+#' @section sub-ballot :
+#'
+#' The sub-ballot datatype is a minimal sub-type 
+#' of the ballot datatype with only one vote count 
+#' along with the registered elector count.
+#'
+"_PACKAGE"
