@@ -17,9 +17,8 @@ regionTag <- function(x,
 	stopifnot(exists.rTitle(x))
 	stopifnot(exists.rLayerTag(x))
 	stopifnot(exists.rMask(x))
-	out <- x
-	class(out) <- c('regionTag','character')
-	out
+	class(x) <- c('regionTag','character')
+	x
 }
 
 #'@method format regionTag
@@ -55,18 +54,21 @@ is.regionTag <- function(x){
 #'@param x a 'regionTag' or 'character'
 #'@export
 as.regionTag <- function(x){
-	regionTag(x)
+	if(length(x)>1)return(sapply(x,as.regionTag))
+	if(is.regionTag(x)){x}else{regionTag(x)}
 }
 
 #'ls.regionTag
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.regionTag <- function(pattern=".*"){
-	grep(pattern,
-		gsub('\\.rLayerTag$','',
-			ls(envir=regionEnv,pattern='\\.rLayerTag$')
-		),
-		value=TRUE
+	as.regionTag(
+		grep(pattern,
+			gsub('\\.rLayerTag$','',
+				ls(envir=regionEnv,pattern='\\.rLayerTag$')
+			),
+			value=TRUE
+		)
 	)
 }
 

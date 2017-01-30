@@ -97,6 +97,7 @@ is.ballotTag <- function(x){
 #'@param x a 'character' or 'ballotTag'
 #'@export
 as.ballotTag <- function(x){
+	if(length(x)>1)return(sapply(x,as.ballotTag))
 	if(is.ballotTag(x))return(x)
 	ballotTag(x)
 }
@@ -163,11 +164,13 @@ plot.ballotTag <- function(x,...){
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.ballotTag <- function(pattern=".*"){
-	grep(pattern,
-		gsub('\\.ballot$','',
-			ls(envir=ballotEnv,pattern='\\.ballot$')
-		),
-		value=TRUE
+	as.ballotTag(
+		grep(pattern,
+			gsub('\\.ballot$','',
+				ls(envir=ballotEnv,pattern='\\.ballot$')
+			),
+			value=TRUE
+		)
 	)
 }
 

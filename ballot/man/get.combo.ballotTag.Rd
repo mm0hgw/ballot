@@ -6,6 +6,9 @@
 \usage{
 \method{get.combo}{ballotTag}(x)
 }
+\arguments{
+\item{x}{a '<foo>Tag' object}
+}
 \description{
 get.combo.ballotTag
 }
