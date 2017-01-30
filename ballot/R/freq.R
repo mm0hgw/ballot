@@ -1,5 +1,6 @@
 #'get.freq
 #'@param x a 'ballotTag'
+#'@param i an 'integer' index of sb
 #'@export
 get.freq <- function(x,i=1){
 	cat(paste('get.freq',x,i,'\n'))

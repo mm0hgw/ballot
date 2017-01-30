@@ -71,7 +71,8 @@ is.layerTag <- function(x){
 #'@param x a 'character' or 'regionTag'
 #'@export
 as.layerTag <- function(x){
-	if(inherits(x,'layerTag'))
+	if(length(x)>1)return(sapply(x,as.layerTag))
+	if(is.layerTag(x))
 		return(x)
 	layerTag(x)
 }
@@ -80,11 +81,13 @@ as.layerTag <- function(x){
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.layerTag <- function(pattern=".*"){
-	grep(pattern,
-		gsub('\\.layer$','',
-			ls(envir=layerEnv,pattern='\\.layer$')
-		),
-		value=TRUE
+	as.layerTag(
+		grep(pattern,
+			gsub('\\.layer$','',
+				ls(envir=layerEnv,pattern='\\.layer$')
+			),
+			value=TRUE
+		)
 	)
 }
 

@@ -12,7 +12,7 @@ invade.nb(nb, subset)
 \item{subset}{a 'vector' defining the currently occupied subset.}
 }
 \description{
-Given the context of an 'nb' object and a 
+Given the context of an 'nb' object and a
 subset of occupied territory, return the territory outwith
 the input subset that borders the input subset.
 }

@@ -6,6 +6,7 @@ get.combo <- function(x){
 }
 
 #'get.combo.ballotTag
+#'@inheritParams get.combo
 #'@method get.combo ballotTag
 #'@export
 get.combo.ballotTag <- function(x){

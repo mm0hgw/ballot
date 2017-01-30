@@ -8,6 +8,8 @@ run(x, ...)
 }
 \arguments{
 \item{x}{a Job definition object to run.}
+
+\item{...}{extra arguments}
 }
 \description{
 run

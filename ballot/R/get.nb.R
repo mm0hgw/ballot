@@ -12,13 +12,13 @@ get.nb <- function(x){
 #'@export
 get.nb.character <- function(x){
 	if(x %in% ls.ballotTag()){
-		get.nb(as.ballotTag(x))
+		return(get.nb(as.ballotTag(x)))
 	}
 	if(x %in% ls.regionTag()){
-		get.nb(as.regionTag(x))
+		return(get.nb(as.regionTag(x)))
 	}
 	if(x %in% ls.layerTag()){
-		get.nb(as.layerTag(x))
+		return(get.nb(as.layerTag(x)))
 	}
 }
 
@@ -38,7 +38,8 @@ get.nb.regionTag <- function(x){
 #	cat(paste('get.nb.regionTag',x,'\n'))
 	nb <- get.nb(get.rLayerTag(x))
 	i <- get.rMask(x)
-	nb[i]
+	out<-nb[i]
+	return(out)
 }
 
 #'get.nb.layerTag
