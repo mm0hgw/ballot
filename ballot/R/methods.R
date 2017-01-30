@@ -34,7 +34,7 @@ normalise <- function(
 #' @param center a 'numeric' the center from which to calculate standard deviation. length(center)==1
 #' @return a 'numeric' The standard deviation of the sample, measured from the center.
 #' @export
-customSd<-function(
+customSd <- function(
 	x,
 	center=mean(x)
 ){
@@ -49,7 +49,7 @@ customSd<-function(
 #' @description Sort ballot columns by descending total turnout
 #' @param b ballot to sort
 #' @export
-sortBallot<-function(b){
+sortBallot <- function(b){
 	b[,order(colSums(b),decreasing=TRUE)]
 }
 
@@ -60,21 +60,38 @@ sortBallot<-function(b){
 splitBallot <- function(
 	ballot
 ){
-	x<-	seq(ncol(ballot))[-1]
-	sblist<-lapply(
+	x <- seq(ncol(ballot))[-1]
+	sblist <- lapply(
 		x,
 		function(y){
 			ballot[,c(1,y)]
 		}
 	)
-	names(sblist)<-colnames(ballot)[x]
+	names(sblist) <- colnames(ballot)[x]
 	sblist	
 }
 
-get.lapply <- function(){
-	if(requireNamespace("mclapplyFunGen")){
-		mclapplyFunGen::mclapplyFunGen()
-	}else{
-		lapply
+#'is.valid.tag
+#'@param x an 'object' to test
+#'@export
+is.valid.tag <- function(x){
+	stopifnot(inherits(x,'character'))
+	stopifnot(length(x)==1)
+	return(TRUE)
+}
+
+densityArgList <- function(x,...){
+	arg <- list(x=0,type="n",...)
+	if(!("ylab" %in% names(arg))){
+		arg$ylab <- "Density"
 	}
+	arg
+}
+
+dListXlim <- function(dList){
+	do.call(range,lapply(dList,function(d){range(d$x)}))
+}
+
+dListYlim <- function(dList){
+	c(0,do.call(max,lapply(dList,function(d){max(d$y)})))
 }
