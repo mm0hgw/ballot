@@ -2,18 +2,6 @@
 #	Sub ballot processing routines
 #
 
-#' sbPopMean
-#' Calculate the population mean of a sub-ballot
-#' @param sb A sub-ballot
-#' @return The population mean
-#' @export
-sbPopMean <- function(
-	sb
-){
-	x<-colSums(sb)
-	x[2]/x[1]
-}
-
 #' sbSampMean
 #' Calculate the sample mean of a sub-ballot
 #' @inheritParams sbPopMean
@@ -80,7 +68,7 @@ sbCdfMeanIntercept <- function(
 #' @return x location of density peak of sample of sub-ballot
 #' @importFrom stats density
 #' @export
-sbDensityPeakX <- function(
+sbDensityPeakY <- function(
 	sb,
 	...
 ){
@@ -128,4 +116,16 @@ sbKurtosis <- function(
 	sb
 ){
 	moments::kurtosis(sbCalculateSample(sb))
+}
+
+#' sbPopMean
+#' Calculate the population mean of a sub-ballot
+#' @param sb A sub-ballot
+#' @return The population mean
+#' @export
+sbPopMean <- function(
+	sb
+){
+	x<-colSums(sb)
+	x[2]/x[1]
 }

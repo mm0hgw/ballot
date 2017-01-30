@@ -1,5 +1,12 @@
 # basic methods
 
+#' run
+#' @param x a Job definition object to run.
+#' @export
+run <-function(x,...){
+	UseMethod("run",x)
+}
+
 #' @title Sample normaliser
 #' @name normalise
 #' @description Normalise a sample
