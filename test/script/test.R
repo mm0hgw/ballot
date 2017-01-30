@@ -1,6 +1,7 @@
+system('mkdir -p test/pics/')
 lapply(ls.layerTag(),
 	function(layerTagName){
-		testFile <- paste(sep='','test/pics/layerTag_test_',layerTagName,'.png')
+		testFile <- paste(sep='','test/pics/',layerTagName,'_layerTag_test.png')
 		testPng(testFile)
 		plot(layerTag(layerTagName))
 		dev.off()
@@ -9,7 +10,7 @@ lapply(ls.layerTag(),
 )
 lapply(ls.regionTag(),
 	function(regionTagName){
-		testFile <- paste(sep='','test/pics/regionTag_test_',regionTagName,'.png')
+		testFile <- paste(sep='','test/pics/',regionTagName,'_regionTag_test.png')
 		testPng(testFile)
 		plot(regionTag(regionTagName))
 		dev.off()
@@ -19,24 +20,36 @@ lapply(ls.regionTag(),
 lapply(ls.ballotTag(),
 	function(ballotTagName){
 		x <- as.ballotTag(ballotTagName)
-		testFile <- paste(sep='','test/pics/ballotTag_test_',ballotTagName,'.png')
+		testFile <- paste(sep='','test/pics/',ballotTagName,'_ballotTag_test_0.1.png')
+		a<-strsplit(x,'\\.')[[1]]
+		year<-a[length(a)-1]
 		testPng(testFile)
 		plot(x)
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
 		sbList <- splitBallot(get.ballot(x))[seq(3)]
+		sampleList <- lapply(sbList,sbCalculateSample,norm=TRUE)
+		testFile <- paste(sep='','test/pics/',ballotTagName,'_ballotTag_test_0.2.png')
+		testPng(testFile)
+		do.call(rainbowPlot,sampleList)
+		dev.off()
+		if(buildPackageLoaded)gitAdd(print(testFile))		
 		lapply(seq_along(sbList),
 			function(i){
 				name <- sub('^V$','Overall Turnout',names(sbList)[i])
+				if(length(grep('^SF$|^Sinn',name))>0)
+					name <- 'Sinn Fein'
 				sb <- sbList[[i]]
 				testFile <- paste(sep='',
-					'test/pics/spatialPlot_',ballotTagName,'_',i,'_',
+					'test/pics/',ballotTagName,'_ballotTag_test_',i,'_',
 					gsub(' ','.',name),'.png'
 				)
+				title <- paste(sep=', ',name,year)
+				subTitle <- paste(sep='/',sbCharSum(sb),sbCharSumN(sb))
 				testPng(testFile)
 				spatialPlot(x,
 					sample=sbCalculateSample(sb,norm=TRUE),
-					main=paste(sep=', ',name,get.bTitle(x))
+					main=title, sub=subTitle
 				)
 				dev.off()
 				if(buildPackageLoaded)gitAdd(print(testFile))
