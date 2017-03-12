@@ -1,4 +1,3 @@
-#'@importFrom dplyr between
 splitCoords <- function(i.coords,j.coords){
 	i.coords<-matrix(i.coords,ncol=2)
 	j.coords<-matrix(j.coords,ncol=2)
@@ -17,12 +16,11 @@ splitCoords <- function(i.coords,j.coords){
 		bbox <- lapply(seq(2),function(x)range(i.coords[,x]))
 		deltas <- lapply(bbox,function(x){x[2]-x[1]})
 		splitCoord <- which.max(deltas)
-		splitValue <- c(bbox[[splitCoord]][1],
-			bbox[[splitCoord]][1]+deltas[[splitCoord]]/2
-		)
+		splitValue <- bbox[[splitCoord]][1]+deltas[[splitCoord]]/2
+
 	}
-	i.mask <- between(i.coords[,splitCoord],splitValue[1],splitValue[2])
-	j.mask <- between(j.coords[,splitCoord],splitValue[1],splitValue[2])
+	i.mask <- i.coords[,splitCoord]<splitValue
+	j.mask <- j.coords[,splitCoord]<splitValue
 	a.i.coords <- i.coords[i.mask,,drop=FALSE]
 	b.i.coords <- i.coords[!i.mask,,drop=FALSE]
 	a.j.coords <- j.coords[j.mask,,drop=FALSE]
