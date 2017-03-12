@@ -44,6 +44,8 @@ get.combo.regionTag <- function(x){
 #'@importFrom ultraCombo ultraCombo chunk.combo union.combo revCombnGG
 #'@importFrom get.lapply get.lapply get.chunkSize
 growCombo <- function(nb,k=7,seeds=0){
+	k <- as.integer(k)
+	seeds <- as.integer(seeds)
 	stopifnot(inherits(nb,'nb'))
 	stopifnot(is.integer(k))
 	stopifnot(length(k)==1)
