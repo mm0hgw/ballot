@@ -65,7 +65,7 @@ valid.nb.subset <- function(x,i){
 	spdep::sym.attr.nb(out)
 }
 
-#'invade.nb
+#'group.nb
 #'@description Given the context of an 'nb' object and a
 #'subset of occupied territory, return the territory outwith
 #'the input subset that borders the input subset.
@@ -73,7 +73,7 @@ valid.nb.subset <- function(x,i){
 #'@param subset a 'vector' defining the currently occupied subset.
 #'@importFrom sp plot
 #'@export
-invade.nb <- function(nb,subset){
+group.nb <- function(nb,subset){
 	stopifnot(valid.nb.subset(nb,subset))
 	if(is.logical(subset))
 		subset <- seq(length(nb))[subset]
@@ -83,12 +83,12 @@ invade.nb <- function(nb,subset){
 	sort(v2)
 }
 
-#'invade.nb.test
-#'@inheritParams invade.nb
+#'group.nb.test
+#'@inheritParams group.nb
 #'@export
-invade.nb.test <- function(x,subset){
+group.nb.test <- function(x,subset){
 	sp <- get.Spatial(x)
-	nb <- get.nb(x)
+	nb <- group.nb(x)
 	stopifnot(valid.nb.subset(nb,subset))
 	if(is.logical(subset))
 		subset <- seq(length(nb))[subset]
@@ -97,7 +97,7 @@ invade.nb.test <- function(x,subset){
 	plot(sp[subset,],border=NA,col=1,add=TRUE)
 	col <- 2
 	while(length(subset)<n){
-		invade <- invade.nb(nb,subset)
+		invade <- group.nb(nb,subset)
 		plot(sp[invade,],border=NA,col=col,add=TRUE)
 		subset <- union(subset,invade)
 		col <- col + 1
