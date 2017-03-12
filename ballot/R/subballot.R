@@ -207,4 +207,17 @@ sbReportGen <- function(
 		out
 	}
 }
-					
+
+#'sbSum
+#'@inheritParams sbPopMean
+#'@export
+sbSum <- function(sb){
+	sum(sb[,2])
+}
+
+#'sbSumN
+#'@inheritParams sbPopMean
+#'@export
+sbSumN <- function(sb){
+	sum(sb[,1])
+}
