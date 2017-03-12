@@ -28,7 +28,7 @@ get.combo.regionTag <- function(x){
 		nb <- get.nb(x)
 		n <- length(nb)
 		cat('nofile ',x,'\n')
-		combo <- growCombo(x,nb)
+		combo <- growCombo(nb)
 		assign(dataName, combo, envir=comboEnv)
 		save(file=fileName,envir=comboEnv,list=dataName)
 	}else{
@@ -38,5 +38,51 @@ get.combo.regionTag <- function(x){
 	}
 	print(combo)
 	cat('get.combo end\n')
+	combo
+}
+
+#'@importFrom ultraCombo ultraCombo chunk.combo union.combo
+#'@importFrom get.lapply get.lapply get.chunkSize
+growCombo <- function(nb,k=7,seeds=0){
+	stopifnot(inherits(nb,'nb'))
+	stopifnot(is.integer(k))
+	stopifnot(length(k)==1)
+	stopifnot(k>=0)
+	stopifnot(is.integer(seeds))
+	stopifnot(sum(duplicate(seeds))==0)
+	stopifnot(all(seeds==0)||all(seeds>0)||all(seeds<0))
+	n <- length(nb)
+	if(k==0)
+		return(ultraCombo(1,n,k))
+	if(length(seeds)==1 && seeds[1]==0)
+		seeds <- seq(n)
+	combo <- ultraCombo(seeds,n,1)
+	revCombnGen <- revCombnGG(n)
+	LAPPLYFUN <- get.lapply()
+	chunkSize <- get.chunkSize()
+	while(combo$k < k){
+		combo <- do.call(union.combo,
+			LAPPLYFUN(chunk.combo(combo,chunkSize),
+				function(combo){
+					i <- 1
+					out <- ultraCombo(vector(),n,combo$k+1)
+					while(i<=combo$Len){
+						x <- combo$Gen(i)
+						y <- group.nb(nb,x)
+						out <- union.combo(out,
+							revCombnGen(
+								do.call(rbind,
+									lapply(y,
+										function(z)c(z,x)
+									)
+								)
+							)
+						)
+					}
+					out
+				}
+			)
+		)
+	}
 	combo
 }
