@@ -68,16 +68,16 @@ growCombo <- function(nb,k=7,seeds=0){
 					out <- ultraCombo(vector(),n,combo$k+1)
 					while(i<=combo$Len){
 						x <- combo$Gen(i)
-						y <- group.nb(nb,x)
 						out <- union.combo(out,
 							revCombnGen(
 								do.call(rbind,
-									lapply(y,
+									lapply(group.nb(nb,x),
 										function(z)c(z,x)
 									)
 								)
 							)
 						)
+						i <- i+1
 					}
 					out
 				}
