@@ -84,6 +84,7 @@ invade.nb <- function(nb,subset){
 }
 
 #'invade.nb.test
+#'@inheritParams invade.nb
 #'@export
 invade.nb.test <- function(x,subset){
 	sp <- get.Spatial(x)
