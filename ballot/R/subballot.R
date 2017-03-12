@@ -49,7 +49,6 @@ sbCalculateSample<-function(
 	stopifnot(is.valid.subballot(sb))
 	stopifnot(is.logical(norm))
 	if(norm==TRUE){
-	if(norm==TRUE){
 		normalise(
 			sb[,2]/sb[,1],
 			center=sbPopMean(sb)
