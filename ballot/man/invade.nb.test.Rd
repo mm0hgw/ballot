@@ -6,6 +6,9 @@
 \usage{
 invade.nb.test(x, subset)
 }
+\arguments{
+\item{subset}{a 'vector' defining the currently occupied subset.}
+}
 \description{
 invade.nb.test
 }
