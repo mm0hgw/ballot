@@ -148,11 +148,11 @@ plot.ballotTag <- function(x,...){
 	lapply(seq(len),
 		function(x){lines(dList[[x]],col=col[x],lwd=3)}
 	)
-	leg<-paste(sapply(sbList,function(sb)charSum(sb[,2])),
+	leg<-paste(sapply(sbList,function(sb)sbSum(sb[,2])),
 		gsub('^V$','Overall Turnout',names(sbList))
 	)
 	if(norm==TRUE){
-		leg<-c(paste(charSum(sbList[[1]][,1]),"Gaussian"),leg)
+		leg<-c(paste(sbSum(sbList[[1]][,1]),"Gaussian"),leg)
 		col<-c(1,col)
 		dx<-seq(arg$xlim[1],arg$xlim[2],length.out=512)
 		lines(dx,dnorm(dx),lwd=3)
