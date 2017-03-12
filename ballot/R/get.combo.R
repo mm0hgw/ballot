@@ -63,6 +63,7 @@ growCombo <- function(nb,k=7,seeds=0){
 	LAPPLYFUN <- get.lapply()
 	chunkSize <- get.chunkSize()
 	while(combo$k < k){
+		print(combo)
 		combo <- do.call(union.combo,
 			LAPPLYFUN(chunk.combo(combo,chunkSize),
 				function(combo){
