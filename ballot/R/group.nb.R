@@ -17,7 +17,8 @@ group.nb <- function(nb,subset){
 }
 
 #'group.nb.test
-#'@inheritParams group.nb
+#'@param x a fooTag
+#'@param subset a subset of fooTag
 #'@export
 group.nb.test <- function(x,subset){
 	sp <- get.Spatial(x)
