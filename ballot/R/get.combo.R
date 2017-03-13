@@ -5,6 +5,15 @@ get.combo <- function(x){
 	UseMethod('get.combo',x)
 }
 
+#'get.combo.character
+#'@inheritParams get.combo
+#'@method get.combo character
+#'@export
+get.combo.character <- function(x){
+	cat(paste('get.combo.character',x,'\n'))
+	get.combo(as.regionTag(x))
+}
+
 #'get.combo.ballotTag
 #'@inheritParams get.combo
 #'@method get.combo ballotTag
