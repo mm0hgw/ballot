@@ -43,6 +43,9 @@ get.combo.regionTag <- function(x){
 #'growCombo
 #'@importFrom ultraCombo ultraCombo chunk.combo union.combo revCombnGG
 #'@importFrom get.lapply get.lapply get.chunkSize
+#'@param nb an 'nb' object
+#'@param k an 'integer' scalar. The k value to which to expand. Default is 7
+#'@param seeds an 'integer' vector. The indices of the elements to expand. Default is all.
 #'@export
 growCombo <- function(nb,k=7,seeds=0){
 	k <- as.integer(k)
