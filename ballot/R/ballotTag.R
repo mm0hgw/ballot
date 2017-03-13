@@ -3,7 +3,6 @@
 #'@param ballot a 'matrix' defining ballot information.
 #'@param bTitle a 'character' containing a title
 #'@param bRegionTag a 'regionTag'
-#'@importFrom ultraCombo growCombo
 #'@export
 ballotTag <- function(x,
 	ballot=NULL,
