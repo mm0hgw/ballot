@@ -25,9 +25,13 @@ splitCoords <- function(i.coords,j.coords){
 	b.i.coords <- i.coords[!i.mask,,drop=FALSE]
 	a.j.coords <- j.coords[j.mask,,drop=FALSE]
 	b.j.coords <- j.coords[!j.mask,,drop=FALSE]
-	a<-list(i.coords=a.i.coords,j.coords=a.j.coords)
-	b<-list(i.coords=b.i.coords,j.coords=b.j.coords)
-	out<-list(a,b)
+	out<-list()
+	out[[1]]<-list()
+	out[[1]][[1]]<-a.i.coords
+	out[[1]][[2]]<-a.j.coords
+	out[[2]]<-list()
+	out[[2]][[1]]<-b.i.coords
+	out[[2]][[2]]<-b.j.coords
 	print(summary(out))
 	out
 }
