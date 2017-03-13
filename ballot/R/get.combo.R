@@ -17,7 +17,6 @@ get.combo.ballotTag <- function(x){
 #'get.combo.regionTag
 #'@method get.combo regionTag
 #'@inheritParams get.combo
-#'@importFrom ultraCombo growCombo
 #'@export
 get.combo.regionTag <- function(x){
 	cat(paste('get.combo.regionTag',x,'\n'))
