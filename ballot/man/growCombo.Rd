@@ -6,6 +6,13 @@
 \usage{
 growCombo(nb, k = 7, seeds = 0)
 }
+\arguments{
+\item{nb}{an 'nb' object}
+
+\item{k}{an 'integer' scalar. The k value to which to expand. Default is 7}
+
+\item{seeds}{an 'integer' vector. The indices of the elements to expand. Default is all.}
+}
 \description{
 growCombo
 }
