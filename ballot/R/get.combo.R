@@ -41,7 +41,7 @@ get.combo.regionTag <- function(x){
 }
 
 #'growCombo
-#'@importFrom ultraCombo ultraCombo chunk.ultraCombo union.combo revCombnGG
+#'@importFrom ultraCombo ultraCombo chunk.combo union.combo revCombnGG
 #'@importFrom get.lapply get.lapply get.chunkSize
 #'@export
 growCombo <- function(nb,k=7,seeds=0){
@@ -71,7 +71,7 @@ growCombo <- function(nb,k=7,seeds=0){
 	while(combo$k < k){
 		print(combo)
 		combo <- do.call(union.combo,
-			LAPPLYFUN(chunk.ultraCombo(combo,chunkSize),
+			LAPPLYFUN(chunk.combo(combo,chunkSize),
 				function(combo){
 					i <- 1
 					out <- ultraCombo(vector(),n,combo$k+1)
