@@ -51,7 +51,7 @@ valid.nb.subset <- function(x,i){
 			out<-sapply(intersect(y,i),
 				function(z)which.max(z==i)
 			)
-			if(length(out)==0){0L}else{out}
+			if(length(out)==0){0L}else{sort(out)}
 		}
 	)
 	attr(out, "region.id") <- attr(x, "region.id")[i]
