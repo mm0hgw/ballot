@@ -63,12 +63,20 @@ queenLinkFun <- function(i.coords,j.coords){
 #		cat('testing\n')
 		x <- which.min(sapply(coordsList[[n]],length))
 		if(x==1){
-			if(i.coords[coordsList[[n]][[1]],] %in%
-				j.coords[coordsList[[n]][[2]],] )
+			if(any(i.coords[coordsList[[n]][[1]],1] %in%
+					j.coords[coordsList[[n]][[2]],1] &
+					i.coords[coordsList[[n]][[1]],2] %in%
+					j.coords[coordsList[[n]][[2]],2] 
+				)
+			)
 				return(TRUE)
 		}else{
-			if(j.coords[coordsList[[n]][[2]],] %in%
-				i.coords[coordsList[[n]][[1]],] )
+			if(any(j.coords[coordsList[[n]][[1]],1] %in%
+					i.coords[coordsList[[n]][[2]],1] &
+					j.coords[coordsList[[n]][[1]],2] %in%
+					i.coords[coordsList[[n]][[2]],2] 
+				)
+			)
 				return(TRUE)
 		}
 		coordsList[[n]] <- NULL
