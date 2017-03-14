@@ -71,6 +71,7 @@ queenLinkFun <- function(i.coords,j.coords){
 				i.coords[coordsList[[n]][[1]],] )
 				return(TRUE)
 		}
+		coordsList[[n]] <- NULL
 	}	
 	return(FALSE)
 }
