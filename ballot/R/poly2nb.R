@@ -53,7 +53,7 @@ queenLinkFun <- function(i.coords,j.coords){
 			coordsList <- c(coordsList,
 				splitCoords(i.coords,
 					j.coords,
-					coordsList[[n]]$i
+					coordsList[[n]]$i,
 					coordsList[[n]]$j
 				)
 			)
