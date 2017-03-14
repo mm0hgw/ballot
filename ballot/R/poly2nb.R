@@ -61,6 +61,7 @@ queenLinkFun <- function(i.coords,j.coords){
 			next
 		}
 		cat('testing\n')
+		print(sapply(coordsList[[n]],length))
 		print(coordsList[[n]]$i)
 		print(coordsList[[n]]$j)
 		print(i.coords[coordsList[[n]]$i,])
