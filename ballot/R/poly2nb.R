@@ -40,16 +40,16 @@ queenLinkFun <- function(i.coords,j.coords){
 	)
 
 	while(length(coordsList)>0){
-		print(summary(coordsList))
+	#	print(summary(coordsList))
 		n <- length(coordsList)
 		pointCount <- sapply(coordsList[[n]],length)
 		if(min(pointCount)==0){
-			cat('dumping\n')
+#			cat('dumping\n')
 			coordsList[[n]] <- NULL
 			next
 		}
 		if(min(pointCount)>1){
-			cat('splitting\n')
+	#		cat('splitting\n')
 			coordsList <- c(coordsList,
 				splitCoords(i.coords,
 					j.coords,
@@ -60,7 +60,7 @@ queenLinkFun <- function(i.coords,j.coords){
 			coordsList[[n]] <- NULL
 			next
 		}
-		cat('testing\n')
+#		cat('testing\n')
 		x <- which.min(sapply(coordsList[[n]],length))
 		if(x==1){
 			if(i.coords[coordsList[[n]][[1]],] %in%
