@@ -25,7 +25,6 @@ splitCoords <- function(
 	out[[2]]<-list()
 	out[[2]]$i<-b.i
 	out[[2]]$j<-b.j
-	print(summary(out))
 	out
 }
 
