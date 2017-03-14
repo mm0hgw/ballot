@@ -1,85 +1,72 @@
-splitCoords <- function(i.coords,j.coords){
-	i.coords<-matrix(i.coords,ncol=2)
-	j.coords<-matrix(j.coords,ncol=2)
-	print(summary(i.coords))
-	print(summary(j.coords))
-	ni<-nrow(i.coords)
-	nj<-nrow(j.coords)
-	if(ni<nj){
-		bbox <- lapply(seq(2),function(x)range(i.coords[,x]))
-		deltas <- lapply(bbox,function(x){x[2]-x[1]})
-		splitCoord <- which.max(deltas)
-		splitValue <- c(bbox[[splitCoord]][1],
-			bbox[[splitCoord]][1]+deltas[[splitCoord]]/2
-		)
+splitCoords <- function(
+	i.coords,
+	j.coords,
+	i,
+	j
+){
+	if(length(i)<length(j)){
+		bbox <- lapply(seq(2),function(x)range(i.coords[i,x]))
 	}else{
-		bbox <- lapply(seq(2),function(x)range(i.coords[,x]))
-		deltas <- lapply(bbox,function(x){x[2]-x[1]})
-		splitCoord <- which.max(deltas)
-		splitValue <- bbox[[splitCoord]][1]+deltas[[splitCoord]]/2
-
+		bbox <- lapply(seq(2),function(x)range(j.coords[j,x]))
 	}
-	i.mask <- i.coords[,splitCoord]<splitValue
-	j.mask <- j.coords[,splitCoord]<splitValue
-	a.i.coords <- i.coords[i.mask,,drop=FALSE]
-	b.i.coords <- i.coords[!i.mask,,drop=FALSE]
-	a.j.coords <- j.coords[j.mask,,drop=FALSE]
-	b.j.coords <- j.coords[!j.mask,,drop=FALSE]
+	deltas <- sapply(bbox,function(x){x[2]-x[1]})
+	splitCoord <- which.max(deltas)
+	splitValue <- bbox[[splitCoord]][1]+deltas[[splitCoord]]/2
+	i.mask <- i.coords[i,splitCoord]<splitValue
+	j.mask <- j.coords[j,splitCoord]<splitValue
+	a.i <- i[i.mask]
+	b.i <- i[!i.mask]
+	a.j <- j[j.mask]
+	b.j <- j[!j.mask]
 	out<-list()
 	out[[1]]<-list()
-	out[[1]][[1]]<-a.i.coords
-	out[[1]][[2]]<-a.j.coords
+	out[[1]]$i<-a.i
+	out[[1]]$j<-a.j
 	out[[2]]<-list()
-	out[[2]][[1]]<-b.i.coords
-	out[[2]][[2]]<-b.j.coords
+	out[[2]]$i<-b.i
+	out[[2]]$j<-b.j
 	print(summary(out))
 	out
 }
 
 queenLinkFun <- function(i.coords,j.coords){
-	if(length(i.coords)==0)return(FALSE)
-	if(length(j.coords)==0)return(FALSE)
 	i.coords<-matrix(i.coords,ncol=2)
 	j.coords<-matrix(j.coords,ncol=2)
 
-	coordsList <- list(set=list(i.coords,j.coords))
+	coordsList <- list()
+	coordsList[[1]] <- list(
+		i=seq(nrow(i.coords)),
+		j=seq(nrow(j.coords))
+	)
 
 	while(length(coordsList)>0){
 		print(summary(coordsList))
 		n <- length(coordsList)
-		pointCount <- sapply(coordsList[[n]],length)/2
+		pointCount <- sapply(coordsList[[n]],length)
 		if(min(pointCount)==0){
 			cat('dumping\n')
 			coordsList[[n]] <- NULL
 			next
 		}
-		if(min(pointCount)>10){
+		if(min(pointCount)>1){
 			cat('splitting\n')
-			coordsList <- c(coordsList,do.call(splitCoords,coordsList[[n]]))
+			coordsList <- c(coordsList,
+				splitCoords(i.coords,
+					j.coords,
+					coordsList[[n]]$i
+					coordsList[[n]]$j
+				)
+			)
 			coordsList[[n]] <- NULL
 			next
 		}
 		cat('testing\n')
-		coordsA <- which.min(pointCount)
-		coordsB <- setdiff(seq(2),coordsA)
-		a.coords <- matrix(coordsList[[n]][[coordsA]],ncol=2)
-		b.coords <- matrix(coordsList[[n]][[coordsB]],ncol=2)
-		print(a.coords)
-		print(b.coords)
-		lapply(seq(min(pointCount)),
-			function(a){
-				lapply(seq(max(pointCount)),
-					function(b){
-						if(all(a.coords[a,] ==
-							b.coords[b,]))
-							return(TRUE)
-					}
-				)
-			}
-		)
-		coordsList[[n]]<-NULL
-	}
-
+		print(i)
+		print(j)
+		print(i.coords[i,])
+		print(j.coords[j,])
+		stop()
+	}	
 	return(FALSE)
 }
 
@@ -103,14 +90,14 @@ poly2nb.funk <- function(sp,
 	lapply(seq(n),
 		function(i){
 			i.coords <- readPolyCoords(sp,i)
-			cat(paste('i',i,'points',length(i.coords),'\n'))
+			cat(paste('i',i,'points',nrow(i.coords),'\n'))
 			j.seq <- seq(n)[-i]
 			sapply(j.seq,
 				function(j){
 					j.coords <- readPolyCoords(sp,j)
-					cat(paste('i',i,'points',length(i.coords),'\n'))
-					cat(paste('\tj',j,'points',length(j.coords),'\n'))
-					if(LINKFUN(i.coords,j.coords)){
+					cat(paste('i',i,'points',nrow(i.coords),'\n'))
+					cat(paste('\tj',j,'points',nrow(j.coords),'\n'))
+					if(queenLinkFun(i.coords,j.coords)){
 						j
 					}else{
 						vector()
