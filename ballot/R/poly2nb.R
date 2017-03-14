@@ -4,6 +4,7 @@ splitCoords <- function(
 	i,
 	j
 ){
+	cat('#i',length(i),'#j',length(j),'\n')
 	if(length(i)<length(j)){
 		bbox <- lapply(seq(2),function(x)range(i.coords[i,x]))
 	}else{
