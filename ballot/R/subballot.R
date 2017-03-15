@@ -221,3 +221,12 @@ sbSum <- function(sb){
 sbSumN <- function(sb){
 	sum(sb[,1])
 }
+
+#'sbAbstainers
+#'@inheritParams sbPopMean
+#'@export
+sbAbstainers <- function(sb){
+	out <- sb
+	out[,2] <- sb[,1]-sb[,2]
+	out
+}
