@@ -212,6 +212,7 @@ sbReportGen <- function(
 #'@inheritParams sbPopMean
 #'@export
 sbSum <- function(sb){
+	stopifnot(is.valid.subballot(sb))
 	sum(sb[,2])
 }
 
@@ -219,6 +220,7 @@ sbSum <- function(sb){
 #'@inheritParams sbPopMean
 #'@export
 sbSumN <- function(sb){
+	stopifnot(is.valid.subballot(sb))
 	sum(sb[,1])
 }
 
@@ -226,7 +228,8 @@ sbSumN <- function(sb){
 #'@inheritParams sbPopMean
 #'@export
 sbAbstainers <- function(sb){
-	out <- sb
+	stopifnot(is.valid.subballot(sb))
+	out <- sb[,seq(2)]
 	out[,2] <- sb[,1]-sb[,2]
 	out
 }
