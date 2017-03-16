@@ -66,4 +66,3 @@ get.Spatial.layerTag <- function(x){
 		stop(paste("no dsn found for",x))
 	}
 }
-	

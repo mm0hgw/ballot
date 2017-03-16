@@ -35,17 +35,13 @@ get.combo.regionTag <- function(x){
 	if(!file.exists(fileName)){
 		nb <- get.nb(x)
 		n <- length(nb)
-		cat('nofile ',x,'\n')
 		combo <- growCombo(nb)
 		assign(dataName, combo, envir=comboEnv)
-		save(file=fileName,envir=comboEnv,list=dataName)
+		save(file=fileName, envir=comboEnv, list=dataName)
 	}else{
-		cat('file\n')
-		load(file=fileName,envir=comboEnv)
-		combo <- get(dataName,envir=comboEnv)
+		load(file=fileName, envir=comboEnv)
+		combo <- get(dataName, envir=comboEnv)
 	}
-	print(combo)
-	cat('get.combo end\n')
 	combo
 }
 
@@ -72,6 +68,8 @@ growCombo <- function(nb,k=7,seeds=0){
 		return(ultraCombo(1,n,k))
 	if(length(seeds)==1 && seeds[1]==0)
 		seeds <- seq(n)
+	if(any(seeds<0))
+		seeds <- setdiff(seq(n),-seeds)
 	combo <- ultraCombo(seeds,n,1)
 	revCombnGen <- revCombnGG(n)
 	LAPPLYFUN <- get.lapply()
@@ -100,5 +98,6 @@ growCombo <- function(nb,k=7,seeds=0){
 			)
 		)
 	}
+	combo$i <- sort(combo$i)
 	combo
 }
