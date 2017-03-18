@@ -231,6 +231,8 @@ sbAbstainers <- function(sb){
 	stopifnot(is.valid.subballot(sb))
 	out <- sb[,seq(2)]
 	out[,2] <- sb[,1]-sb[,2]
-	colnames(out)[2] <- gsub('^','!',colnames(sb)[2])
+	colnames(out)[2] <- gsub('^!!','',
+		gsub('^','!',colnames(sb)[2])
+	)
 	out
 }
