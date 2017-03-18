@@ -1,4 +1,5 @@
 system('mkdir -p test/pics/')
+
 lapply(ls.layerTag(),
 	function(layerTagName){
 		testFile <- paste(sep='','test/pics/',layerTagName,'_layerTag_test.png')
@@ -8,6 +9,7 @@ lapply(ls.layerTag(),
 		if(buildPackageLoaded)gitAdd(print(testFile))
 	}
 )
+
 lapply(ls.regionTag(),
 	function(regionTagName){
 		testFile <- paste(sep='','test/pics/',regionTagName,'_regionTag_test.png')
@@ -17,6 +19,7 @@ lapply(ls.regionTag(),
 		if(buildPackageLoaded)gitAdd(print(testFile))
 	}
 )
+
 lapply(ls.ballotTag(),
 	function(ballotTagName){
 		x <- as.ballotTag(ballotTagName)
@@ -65,4 +68,10 @@ lapply(ls.ballotTag(),
 		)
 	}
 )
+
+system('mkdir -p test/pics/fp/')
+
+testFile <- paste('test/pics/fp//2010_SNP.png')
+testPng(testFile)
+
 
