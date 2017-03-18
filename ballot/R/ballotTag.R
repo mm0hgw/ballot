@@ -147,7 +147,7 @@ plot.ballotTag <- function(x,...){
 	lapply(seq(len),
 		function(x){lines(dList[[x]],col=col[x],lwd=3)}
 	)
-	leg<-paste(sapply(sbList,function(sb)sbSum(sb[,2])),
+	leg<-paste(sapply(sbList,function(sb)sbSum(sb)),
 		gsub('^V$','Overall Turnout',names(sbList))
 	)
 	if(norm==TRUE){
