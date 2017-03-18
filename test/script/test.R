@@ -68,10 +68,3 @@ lapply(ls.ballotTag(),
 		)
 	}
 )
-
-system('mkdir -p test/pics/fp/')
-
-testFile <- paste('test/pics/fp//2010_SNP.png')
-testPng(testFile)
-
-
