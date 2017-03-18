@@ -48,7 +48,7 @@ lapply(ls.ballotTag(),
 					gsub(' ','.',name),'.png'
 				)
 				title <- paste(sep=', ',name,year)
-				subTitle <- paste(sep='/',sbCharSum(sb),sbCharSumN(sb))
+				subTitle <- paste(sep='/',sbSum(sb),sbSumN(sb))
 				testPng(testFile)
 				spatialPlot(x,
 					sample=sbCalculateSample(sb,norm=TRUE),
