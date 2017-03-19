@@ -37,7 +37,7 @@ lapply(ls.ballotTag(),
 		plot(x)
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
-		sbList <- splitBallot(get.ballot(x))
+		sbList <- splitBallot(get.ballot(x))[seq(3)]
 		lapply(seq_along(sbList),
 			function(i){
 				name <- sub('^V$','Overall Turnout',names(sbList)[i])
