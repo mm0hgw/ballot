@@ -128,9 +128,9 @@ plot.ballotTag <- function(x,...){
 	sbList<-splitBallot(get.ballot(x))[slice]
 	len<-length(sbList)
 	if(length(grep('^V$',names(sbList)))>0){
-		len <- len + 1
-		sbList[['Abstainers']] <- sbList[['V']]
-		sbList[['Abstainers']][,2] <- sbList[['V']][,1]-sbList[['V']][,2]
+		a <- sbList[['V']]
+		a[,2] <- sbList[['V']][,1]-sbList[['V']][,2]
+		sbList[['V']] <- a
 		sbList <- sbList[order(decreasing=TRUE,sapply(sbList,sbSum))]
 	}
 	dList<-lapply(sbList,function(x)sbDensity(x,norm=norm))
@@ -152,7 +152,7 @@ plot.ballotTag <- function(x,...){
 				sbSum(sb)
 			)
 		),
-		gsub('^V$','Overall Turnout',names(sbList))
+		gsub('^V$','Abstainers',names(sbList))
 	)
 	if(norm==TRUE){
 		leg<-c(paste(format(big.mark=',',
