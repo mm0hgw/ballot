@@ -24,5 +24,6 @@ if(length(ls.ballotTag())==0)
 	do.import()
 
 source('test/script/test.R')
+source('test/script/fingerprints.R')
 
 if(buildPackageLoaded)buildPackage::gitPush("test")
