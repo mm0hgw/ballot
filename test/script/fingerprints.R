@@ -45,7 +45,7 @@ col <- seq_along(dList)+1
 testFile <- paste('test/pics/fingerprints/YeSNP_norm.png')
 testPng(testFile)
 do.call(plot,arg)
-x <- seq(arg$xlim[1],arh$xlim[2],length.out=256)
+x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 lines(x,dnorm(x))
 lapply(seq_along(dList),
 	function(i){
@@ -96,7 +96,7 @@ col <- seq_along(dList)+1
 testFile <- paste('test/pics/fingerprints/Abstainers_norm.png')
 testPng(testFile)
 do.call(plot,arg)
-x <- seq(arg$xlim[1],arh$xlim[2],length.out=256)
+x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 lines(x,dnorm(x))
 lapply(seq_along(dList),
 function(i){
@@ -155,7 +155,7 @@ col <- seq_along(dList)+1
 testFile <- paste('test/pics/fingerprints/Unionist_norm.png')
 testPng(testFile)
 do.call(plot,arg)
-x <- seq(arg$xlim[1],arh$xlim[2],length.out=256)
+x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 lines(x,dnorm(x))
 lapply(seq_along(dList),
 	function(i){
@@ -206,7 +206,7 @@ col <- seq_along(dList)+1
 testFile <- paste('test/pics/fingerprints/Conservative_norm.png')
 testPng(testFile)
 do.call(plot,arg)
-x <- seq(arg$xlim[1],arh$xlim[2],length.out=256)
+x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 lines(x,dnorm(x))
 lapply(seq_along(dList),
 	function(i){
@@ -260,7 +260,7 @@ col <- seq_along(dList)+1
 testFile <- paste('test/pics/fingerprints/Labour_norm.png')
 testPng(testFile)
 do.call(plot,arg)
-x <- seq(arg$xlim[1],arh$xlim[2],length.out=256)
+x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 lines(x,dnorm(x))
 lapply(seq_along(dList),
 	function(i){
@@ -312,7 +312,7 @@ col <- seq_along(dList)+1
 testFile <- paste('test/pics/fingerprints/Liberal.Democrat_norm.png')
 testPng(testFile)
 do.call(plot,arg)
-x <- seq(arg$xlim[1],arh$xlim[2],length.out=256)
+x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 lines(x,dnorm(x))
 lapply(seq_along(dList),
 	function(i){
