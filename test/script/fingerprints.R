@@ -25,7 +25,6 @@ lapply(seq_along(dList),
 		lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
 		lines(x,dnorm(x),lty=2)
-
 	}
 )
 legend('topright',legend=names(sbList),col=col,lwd=2)
