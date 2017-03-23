@@ -24,7 +24,7 @@ lapply(seq_along(dList),
 	function(i){
 		lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x))
+		lines(x,dnorm(x),lty=2)
 
 	}
 )
@@ -46,7 +46,7 @@ testFile <- paste('test/pics/fingerprints/YeSNP_norm.png')
 testPng(testFile)
 do.call(plot,arg)
 x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
-lines(x,dnorm(x))
+lines(x,dnorm(x),lty=2)
 lapply(seq_along(dList),
 	function(i){
 		lines(dList[[i]],col=col[i],lwd=2)
@@ -77,7 +77,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x))
+		lines(x,dnorm(x),lty=2)
 }
 )
 legend('topright',legend=names(sbListAbstain),col=col,lwd=2)
@@ -97,7 +97,7 @@ testFile <- paste('test/pics/fingerprints/Abstainers_norm.png')
 testPng(testFile)
 do.call(plot,arg)
 x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
-lines(x,dnorm(x))
+lines(x,dnorm(x),lty=2)
 lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
@@ -136,7 +136,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x))
+		lines(x,dnorm(x),lty=2)
 }
 )
 legend('topright',legend=names(sbListNo),col=col,lwd=2)
@@ -156,7 +156,7 @@ testFile <- paste('test/pics/fingerprints/Unionist_norm.png')
 testPng(testFile)
 do.call(plot,arg)
 x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
-lines(x,dnorm(x))
+lines(x,dnorm(x),lty=2)
 lapply(seq_along(dList),
 	function(i){
 		lines(dList[[i]],col=col[i],lwd=2)
@@ -187,7 +187,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x))
+		lines(x,dnorm(x),lty=2)
 }
 )
 legend('topright',legend=names(sbListCon),col=col,lwd=2)
@@ -207,7 +207,7 @@ testFile <- paste('test/pics/fingerprints/Conservative_norm.png')
 testPng(testFile)
 do.call(plot,arg)
 x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
-lines(x,dnorm(x))
+lines(x,dnorm(x),lty=2)
 lapply(seq_along(dList),
 	function(i){
 		lines(dList[[i]],col=col[i],lwd=2)
@@ -241,7 +241,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x))
+		lines(x,dnorm(x),lty=2)
 }
 )
 legend('topright',legend=names(sbListLab),col=col,lwd=2)
@@ -261,7 +261,7 @@ testFile <- paste('test/pics/fingerprints/Labour_norm.png')
 testPng(testFile)
 do.call(plot,arg)
 x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
-lines(x,dnorm(x))
+lines(x,dnorm(x),lty=2)
 lapply(seq_along(dList),
 	function(i){
 		lines(dList[[i]],col=col[i],lwd=2)
@@ -293,7 +293,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x))
+		lines(x,dnorm(x),lty=2)
 }
 )
 legend('topright',legend=names(sbListLD),col=col,lwd=2)
@@ -313,7 +313,7 @@ testFile <- paste('test/pics/fingerprints/Liberal.Democrat_norm.png')
 testPng(testFile)
 do.call(plot,arg)
 x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
-lines(x,dnorm(x))
+lines(x,dnorm(x),lty=2)
 lapply(seq_along(dList),
 	function(i){
 		lines(dList[[i]],col=col[i],lwd=2)
