@@ -1,4 +1,4 @@
-z<-ls.ballotTag('GB.2010')
+z<-ls.ballotTag('SIR.2014')
 z
 z.combo <- get.combo (z)
 z.ballot <- get.ballot(z)
