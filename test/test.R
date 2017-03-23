@@ -25,5 +25,6 @@ if(length(ls.ballotTag())==0)
 
 source('test/script/test.R')
 source('test/script/fingerprints.R')
+source('test/script/dataCombo.R')
 
 if(buildPackageLoaded)buildPackage::gitPush("test")
