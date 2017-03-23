@@ -1,18 +1,19 @@
-z<-ls.ballotTag('SIR.2014')
+z<-ls.ballotTag('SIR')
 z
 z.combo <- get.combo (z)
 z.ballot <- get.ballot(z)
 z.sp <- get.Spatial (z)
-z.dc <- dataCombo(z.combo,z.sp,)
-
-
+z.dc <- dataCombo(z.combo,z.sp,TRUE)
+oldMar <- par('mar')
 system('mkdir -p test/pics/dc')
-lapply(seq(1),#z.dc$len),
+lapply(seq(z.dc$len),
 	function(i){
 		fileName <- paste(sep='','test/pics/dc/',z.dc$combo$i[i],'.png')
 		png(width=50,height=50,fileName)
-		plot(z.dc$Gen(i))
+		par(mar=rep(0,4))
+		sp::plot(z.dc$Gen(i))
 		dev.off()
 		gitAdd(fileName)
 	}
 )
+par(mar=oldMar)
