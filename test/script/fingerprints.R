@@ -24,7 +24,7 @@ lapply(seq_along(dList),
 	function(i){
 		lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x),lty=2)
+		lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 	}
 )
 legend('topright',legend=names(sbList),col=col,lwd=2)
@@ -76,7 +76,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x),lty=2)
+		lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 }
 )
 legend('topright',legend=names(sbListAbstain),col=col,lwd=2)
@@ -136,6 +136,7 @@ function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
 		lines(x,dnorm(x),lty=2)
+		lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 }
 )
 legend('topright',legend=names(sbListNo),col=col,lwd=2)
@@ -186,7 +187,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x),lty=2)
+		lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 }
 )
 legend('topright',legend=names(sbListCon),col=col,lwd=2)
@@ -240,7 +241,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x),lty=2)
+		lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 }
 )
 legend('topright',legend=names(sbListLab),col=col,lwd=2)
@@ -292,7 +293,7 @@ lapply(seq_along(dList),
 function(i){
 lines(dList[[i]],col=col[i],lwd=2)
 		x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-		lines(x,dnorm(x),lty=2)
+		lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 }
 )
 legend('topright',legend=names(sbListLD),col=col,lwd=2)
