@@ -3,7 +3,7 @@ z
 z.combo <- get.combo (z)
 z.ballot <- get.ballot(z)
 z.sp <- get.Spatial (z)
-z.dc <- dataCombo(z.combo,z.sp,TRUE)
+z.dc <- ultraCombo::dataCombo(z.combo,z.sp,TRUE)
 oldMar <- par('mar')
 system('mkdir -p test/pics/dc')
 lapply(seq(1),#z.dc$len),
