@@ -3,18 +3,18 @@ GE2010 <- splitBallot(get.ballot(ls.ballotTag('Scotland.2010')))
 SIR2014 <- splitBallot(get.ballot(ls.ballotTag('Scotland.2014')))
 GE2015 <- splitBallot(get.ballot(ls.ballotTag('Scotland.2015')))
 
-do.sbList <- function(sbList){
+do.sbList <- function(sbList,name){
 	dList <- lapply(sbList,sbDensity,norm=FALSE)
 	arg <- list(x=0,
 		type='n',
 		xlim=ballot:::dListXlim(dList),
 		ylim=ballot:::dListYlim(dList),
-		main='YeSNP faction \'10-\'15',
+		main=paste(name,'faction \'10-\'15'),
 		ylab='Density',
 		xlab='Fractional Turnout'
 	)
 	col <- seq_along(dList)+1
-	testFile <- paste('test/pics/fingerprints/YeSNP.png')
+	testFile <- paste(sep='','test/pics/fingerprints/',name,'.png')
 	testPng(testFile)
 	do.call(plot,arg)
 	lapply(seq_along(dList),
@@ -40,12 +40,12 @@ do.sbList <- function(sbList){
 		type='n',
 		xlim=ballot:::dListXlim(dList),
 		ylim=ballot:::dListYlim(dList),
-		main='YeSNP faction \'10-\'15',
+		main=paste(name,'faction \'10-\'15'),
 		ylab='Density',
 		xlab='SDs from Population mean'
 	)
 	col <- seq_along(dList)+1
-	testFile <- paste('test/pics/fingerprints/YeSNP_norm.png')
+	testFile <- paste(sep='','test/pics/fingerprints/',name,'_norm.png')
 	testPng(testFile)
 	do.call(plot,arg)
 	x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
@@ -91,12 +91,12 @@ sbListLD <- list(Liberal.Democrat.2010=GE2010$LD,
 )
 
 
-do.sbList(sbListYes)
-do.sbList(sbListNo)
-do.sbList(sbListAbstain)
-do.sbList(sbListCon)
-do.sbList(sbListLab)
-do.sbList(sbListLD)
+do.sbList(sbListYes,'YeSNP')
+do.sbList(sbListNo,'Unionist')
+do.sbList(sbListAbstain,'Abstainers')
+do.sbList(sbListCon,'Conservatives')
+do.sbList(sbListLab,'Labour')
+do.sbList(sbListLD,'Liberal Democrats')
 
 
 
