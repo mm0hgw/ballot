@@ -26,7 +26,7 @@ do.sbList <- function(sbList){
 	)
 	leg <- paste( names(sbList),
 		format(digits=4,sapply(sbList,sbPopMean)*100),
-		'\%',
+		'%',
 		sapply(sbList,sbSum),
 		'/',
 		sapply(sbList,sbSumN)
