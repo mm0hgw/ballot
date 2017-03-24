@@ -94,9 +94,9 @@ sbListLD <- list(Liberal.Democrat.2010=GE2010$LD,
 do.sbList(sbListYes,'YeSNP')
 do.sbList(sbListNo,'Unionist')
 do.sbList(sbListAbstain,'Abstainers')
-do.sbList(sbListCon,'Conservatives')
+do.sbList(sbListCon,'Conservative')
 do.sbList(sbListLab,'Labour')
-do.sbList(sbListLD,'Liberal Democrats')
+do.sbList(sbListLD,'Liberal.Democrats')
 
 
 
