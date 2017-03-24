@@ -15,7 +15,7 @@ spatialPlot <- function(x,sample=NULL,...){
 	sp <- get.Spatial(x)
 	arg$x <- sp
 	if(is.null(sample)){
-		sample <- sbCalculateSample(get.ballot(x),norm=TRUE)
+		sample <- sbCalculateSample(get.ballot(x),norm=FALSE)
 	}
 	color_vector <- sample_to_color(sample,n=4096)
 	lim<-max(abs(sample))
