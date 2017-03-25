@@ -16,6 +16,6 @@ lapply(seq(z.dc$len),
 		dev.off()
 	}
 )
-system('zip -9vu test/pics/dc.zip test/pics/dc/*')
+system('zip -9vju test/pics/dc.zip test/pics/dc/*')
 gitAdd('test/pics/dc.zip')
 par(mar=oldMar)
