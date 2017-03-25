@@ -14,7 +14,7 @@ lapply(seq(1),#z.dc$len),
 		sp::plot(z.dc$Gen(i))
 		dev.off()
 	}
-	system('bzip2 -9 -vv test/pics/dc.bzip2 test/pics/dc/*')
-	gitAdd('test/pics/dc.bzip2')
 )
+system('bzip2 -9 -vv test/pics/dc.bzip2 test/pics/dc/*')
+gitAdd('test/pics/dc.bzip2')
 par(mar=oldMar)
