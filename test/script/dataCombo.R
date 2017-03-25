@@ -6,6 +6,7 @@ z.sp <- get.Spatial (z)
 z.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible,TRUE)
 oldMar <- par('mar')
 system('mkdir -p test/pics/dc')
+system('rm test/pics/dc/*')
 lapply(seq(1),#z.dc$len),
 	function(i){
 		fileName <- paste(sep='','test/pics/dc/',z.dc$i[i],'.png')
