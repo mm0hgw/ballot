@@ -52,7 +52,7 @@ lapply(ls.ballotTag(),
 				subTitle <- paste(sep='/',sbSum(sb),sbSumN(sb))
 				testPng(testFile)
 				spatialPlot(x,
-					sample=sbCalculateSample(sb,norm=TRUE),
+					sample=as.integer(format(digits=3,sbCalculateSample(sb,norm=FALSE)*100)),
 					main=title, sub=subTitle
 				)
 				dev.off()
