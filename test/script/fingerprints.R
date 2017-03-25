@@ -41,6 +41,7 @@ do.sbList <- function(sbList,name){
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-4,l)
 			tag <- paste(sep='.','Scotland',year)
+			print(tag)
 			spatialPlot(ls.ballotTag(tag),
 				sample= sbCalculateSample(sbList[[i]],norm=FALSE) * 100
 			)
