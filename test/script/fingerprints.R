@@ -36,10 +36,10 @@ do.sbList <- function(sbList,name){
 	if(buildPackageLoaded)gitAdd(print(testFile))
 	lapply(seq_along(sbList),
 		function(i){
-			testFile <- paste(sep='','test/pics/fingerprints/sp/',name,'.png')
-			testPng(testFile)
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-3,l)
+			testFile <- paste(sep='','test/pics/fingerprints/sp/',name,year'.png')
+			testPng(testFile)
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			print(tag)
 			spatialPlot(tag,
