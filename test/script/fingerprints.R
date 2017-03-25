@@ -1,4 +1,4 @@
-system('mkdir -p test/pics/fingerprints/')
+system('mkdir -p test/pics/fingerprints/sp/')
 GE2010 <- splitBallot(get.ballot(ls.ballotTag('Scotland.2010')))
 SIR2014 <- splitBallot(get.ballot(ls.ballotTag('Scotland.2014')))
 GE2015 <- splitBallot(get.ballot(ls.ballotTag('Scotland.2015')))
@@ -34,6 +34,15 @@ do.sbList <- function(sbList,name){
 	legend('topright',legend=leg,col=col,lwd=2)
 	dev.off()
 	if(buildPackageLoaded)gitAdd(print(testFile))
+	lapply(seq_along(sbList),
+		function(i){
+			testFile <- paste(sep='','test/pics/fingerprints/',name,'.png')
+			testPng(testFile)
+			spatialPlot(sbList[[i]])
+			dev.off()
+			if(buildPackageLoaded)gitAdd(print(testFile))			
+		}
+	)
 	
 	dList <- lapply(sbList,sbDensity,norm=TRUE)
 	arg <- list(x=0,
@@ -83,7 +92,8 @@ sbListCon <- list(Conservative.2010=GE2010$Con,
 )
 
 sbListLab <- list(Labour.2010=GE2010$Lab,
-	Labour.2015=GE2015$Labour
+	Labour.2015=GE2015$
+	Labour
 )
 
 sbListLD <- list(Liberal.Democrat.2010=GE2010$LD,
