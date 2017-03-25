@@ -38,7 +38,12 @@ do.sbList <- function(sbList,name){
 		function(i){
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.png')
 			testPng(testFile)
-			spatialPlot(sbList[[i]])
+			l <- nchar(names(sbList)[i])
+			year <- substr(names(sbList)[i],l-4,l)
+			tag <- paste(sep='.','Scotland',year)
+			spatialPlot(ls.ballotTag(tag),
+				sample= sbCalculateSample(sbList[[i]],norm=FALSE) * 100
+			)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))			
 		}
