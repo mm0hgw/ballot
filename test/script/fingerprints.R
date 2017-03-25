@@ -40,9 +40,9 @@ do.sbList <- function(sbList,name){
 			testPng(testFile)
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-3,l)
-			tag <- paste(sep='.','Scotland',year)
+			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			print(tag)
-			spatialPlot(ls.ballotTag(tag),
+			spatialPlot(tag,
 				sample= sbCalculateSample(sbList[[i]],norm=FALSE) * 100,
 				main=paste(get.bTitle(tag),names(sbList)[i])
 			)
