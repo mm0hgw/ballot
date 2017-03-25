@@ -15,6 +15,6 @@ lapply(seq(1),#z.dc$len),
 		dev.off()
 	}
 )
-system('bzip2 -9 -vv test/pics/dc.bzip2 test/pics/dc/*')
+system('tar -jvvc --options bzip2:compression-level=9 -f test/pics/dc.tar.bz2 test/pics/dc/*')
 gitAdd('test/pics/dc.bzip2')
 par(mar=oldMar)
