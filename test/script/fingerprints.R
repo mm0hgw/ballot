@@ -39,7 +39,7 @@ do.sbList <- function(sbList,name){
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.png')
 			testPng(testFile)
 			l <- nchar(names(sbList)[i])
-			year <- substr(names(sbList)[i],l-4,l)
+			year <- substr(names(sbList)[i],l-3,l)
 			tag <- paste(sep='.','Scotland',year)
 			print(tag)
 			spatialPlot(ls.ballotTag(tag),
