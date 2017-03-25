@@ -9,11 +9,12 @@ system('mkdir -p test/pics/dc')
 lapply(seq(1),#z.dc$len),
 	function(i){
 		fileName <- paste(sep='','test/pics/dc/',z.dc$combo$i[i],'.png')
-		png(width=50,height=50,fileName)
+		png(width=100,height=100,fileName)
 		par(mar=rep(0,4))
 		sp::plot(z.dc$Gen(i))
 		dev.off()
-		gitAdd(fileName)
 	}
+	system('bzip2 -9 -vv test/pics/dc.bzip2 test/pics/dc/*')
+	gitAdd('test/pics/dc.bzip2')
 )
 par(mar=oldMar)
