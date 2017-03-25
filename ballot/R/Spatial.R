@@ -18,7 +18,8 @@ spatialPlot <- function(x,sample=NULL,...){
 		sample <- sbCalculateSample(get.ballot(x),norm=FALSE) * 100
 	}
 	color_vector <- sample_to_color(sample,n=4096)
-	leg<-seq(min(sample),max(sample),length.out=256)
+	lim<-max(abs(sample))
+	leg<-seq(min(sample),,length.out=256)
 	layout(t(1:2),widths=c(6,1))
 	par(mar=c(.5,.5,.5,.5),oma=rep(3,4),las=1)
 	do.call(sp::plot,arg)
@@ -48,7 +49,7 @@ spatialPlot <- function(x,sample=NULL,...){
 #'@importFrom fields two.colors
 #'@export
 sample_to_color <- function(sample,n=7){
-	a <- max(abs(sample))
+	a <- max(abs(normalise(sample)))
 	pal <- two.colors(n=n,start='blue',end='red',middle='dark sea green')
 	key <- floor((sample+a)*n/(2*a))+1
 	key[key>n] <- n
