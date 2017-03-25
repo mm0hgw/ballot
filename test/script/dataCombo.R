@@ -16,6 +16,6 @@ lapply(seq(1),#z.dc$len),
 		dev.off()
 	}
 )
-system('tar -jvcf test/pics/dc.tar.bz2 test/pics/dc/*')
-gitAdd('test/pics/dc.tar.bz2')
+system('zip -9vu test/pics/dc.zip test/pics/dc/*')
+gitAdd('test/pics/dc.zip')
 par(mar=oldMar)
