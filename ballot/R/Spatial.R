@@ -48,7 +48,8 @@ spatialPlot <- function(x,sample=NULL,...){
 #'@importFrom fields two.colors
 #'@export
 sample_to_color <- function(sample,n=7){
-	a <- max(abs(normalise(sample)))
+	sample <- normalise(sample)
+	a <- max(abs(sample))
 	pal <- two.colors(n=n,start='blue',end='red',middle='dark sea green')
 	key <- floor((sample+a)*n/(2*a))+1
 	key[key>n] <- n
