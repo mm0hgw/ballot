@@ -19,3 +19,4 @@ lapply(seq(100),#z.dc$len),
 system('zip -9vju test/pics/dc.zip test/pics/dc/*')
 gitAdd('test/pics/dc.zip')
 par(mar=oldMar)
+
