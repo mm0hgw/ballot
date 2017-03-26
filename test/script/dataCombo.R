@@ -10,7 +10,7 @@ system('rm test/pics/dc/*')
 lapply(seq(100),#z.dc$len),
 	function(i){
 		fileName <- paste(sep='','test/pics/dc/',z.dc$i[i],'.png')
-		png(width=40,height=40,fileName)
+		png(width=100,height=100,fileName)
 		par(mar=rep(0,4))
 		sp::plot(z.dc$dGen(i))
 		dev.off()
