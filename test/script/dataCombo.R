@@ -42,11 +42,12 @@ lapply(seq_along(z.sbList),
 		testPng(fileName)
 		plot(z.sbDensity.dc$dGen(j),main=paste(z.combo$i[j],names(sbList)[i]))
 		dev.off()
-		gitAdd(fileName)
+		print(gitAdd(fileName))
 		fileName <- paste(sep='','test/pics/dc/fp/',z.sp.dc$i[j],'.png')
 		png(width=100,height=100,fileName)
 		par(mar=rep(0,4))
 		sp::plot(z.sp.dc$dGen(j))
 		dev.off()
+		print(gitAdd(fileName))
 	}
 )
