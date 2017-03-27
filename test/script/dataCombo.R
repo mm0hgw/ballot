@@ -27,7 +27,7 @@ lapply(seq_along(z.sbList),
 		z.sb <- sbList[[i]]
 		z.sbChisqTest.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbChisqTest,TRUE)
 		ch <- do.call(c,
-			LAPPLYFUN(comboChunk(z.sbChisqTest.dc,by=chunkSize),
+			LAPPLYFUN(ultraCombo::comboChunk(z.sbChisqTest.dc,by=chunkSize),
 				function(dc){
 					sapply(seq(dc$len),dc$dGen)
 				}
