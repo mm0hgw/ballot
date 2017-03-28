@@ -37,10 +37,10 @@ lapply(seq_along(z.sbList),
 		maxch <- max(ch)
 		z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensity,TRUE)
 		fileName <- paste(sep='',
-			'test/pics/dc/fp/',z.combo$i[j],'_',names(sbList)[i],'.png'
+			'test/pics/dc/fp/',z.combo$i[j],'_',names(z.sbList)[i],'.png'
 		)
 		testPng(fileName)
-		plot(z.sbDensity.dc$dGen(j),main=paste(z.combo$i[j],names(sbList)[i]))
+		plot(z.sbDensity.dc$dGen(j),main=paste(z.combo$i[j],names(z.sbList)[i]))
 		dev.off()
 		gitAdd(print(fileName))
 		fileName <- paste(sep='','test/pics/dc/fp/',z.sp.dc$i[j],'.png')
