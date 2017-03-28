@@ -24,7 +24,7 @@ gitAdd('test/pics/dc.zip')
 par(mar=oldMar)
 lapply(seq_along(z.sbList),
 	function(i){
-		z.sb <- sbList[[i]]
+		z.sb <- z.sbList[[i]]
 		z.sbChisqTest.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbChisqTest,TRUE)
 		ch <- do.call(c,
 			LAPPLYFUN(ultraCombo::comboChunk(z.sbChisqTest.dc,by=chunkSize),
