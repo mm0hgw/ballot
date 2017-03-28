@@ -49,4 +49,4 @@ fingerprint <- function(z){
 	)
 }
 
-lapply(ls.ballotTag('Scotland'),fingerprint)
+lapply(ls.ballotTag('SIR'),fingerprint)
