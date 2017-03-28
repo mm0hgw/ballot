@@ -9,7 +9,7 @@ ballotTag <- function(x,
 	bTitle=NULL,
 	bRegionTag=NULL
 ){
-#	cat(paste('ballotTag',x,paste(collapse=':',class(x)),'\n'))
+	cat(paste('ballotTag',x,paste(collapse=':',class(x)),'\n'))
 	stopifnot(is.valid.tag(x))
 	if(!is.null(bRegionTag)){
 		bRegionTag <- as.regionTag(bRegionTag)
