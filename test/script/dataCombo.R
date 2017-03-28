@@ -40,7 +40,8 @@ lapply(seq_along(z.sbList),
 			'test/pics/dc/fp/',z.combo$i[j],'_',names(z.sbList)[i],'.png'
 		)
 		testPng(fileName)
-		plot(z.sbDensity.dc$dGen(j),main=paste(z.combo$i[j],names(z.sbList)[i]))
+		plot(z.sbDensity.dc$dGen(j),
+			main=paste(z.combo$i[j],names(z.sbList)[i],'Chisq:',maxch))
 		dev.off()
 		gitAdd(print(fileName))
 		fileName <- paste(sep='','test/pics/dc/fp/',z.sp.dc$i[j],'.png')
