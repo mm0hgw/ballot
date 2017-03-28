@@ -38,7 +38,7 @@ do.sbList <- function(sbList,name){
 		function(i){
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-3,l)
-			testFile <- paste(sep='','test/pics/fingerprints/sp/',name,year,'.png')
+			testFile <- paste(sep='','test/pics/fingerprints/sp/',name,,'.',year,'.png')
 			testPng(testFile)
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			print(tag)
