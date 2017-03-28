@@ -97,6 +97,7 @@ is.ballotTag <- function(x){
 #'@export
 as.ballotTag <- function(x){
 	if(length(x)>1)return(sapply(x,as.ballotTag))
+	cat('as.ballotTag',x,'\n')
 	if(is.ballotTag(x))return(x)
 	ballotTag(x)
 }
