@@ -62,13 +62,11 @@ as.regionTag <- function(x){
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.regionTag <- function(pattern=".*"){
-	as.regionTag(
-		grep(pattern,
-			gsub('\\.rLayerTag$','',
-				ls(envir=regionEnv,pattern='\\.rLayerTag$')
-			),
-			value=TRUE
-		)
+	grep(pattern,
+		gsub('\\.rLayerTag$','',
+			ls(envir=regionEnv,pattern='\\.rLayerTag$')
+		),
+		value=TRUE
 	)
 }
 
