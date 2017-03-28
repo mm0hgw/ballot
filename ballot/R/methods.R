@@ -69,7 +69,7 @@ splitBallot <- function(
 		}
 	)
 	names(sblist) <- colnames(ballot)[x]
-	sblist	
+	sblist[sapply(sblist,sbSum)!=0]
 }
 
 #'is.valid.tag
