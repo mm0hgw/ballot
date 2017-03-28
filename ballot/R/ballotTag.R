@@ -175,13 +175,11 @@ plot.ballotTag <- function(x,...){
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.ballotTag <- function(pattern=".*"){
-	as.ballotTag(
-		grep(pattern,
-			gsub('\\.ballot$','',
-				ls(envir=ballotEnv,pattern='\\.ballot$')
-			),
-			value=TRUE
-		)
+	grep(pattern,
+		gsub('\\.ballot$','',
+			ls(envir=ballotEnv,pattern='\\.ballot$')
+		),
+		value=TRUE
 	)
 }
 
