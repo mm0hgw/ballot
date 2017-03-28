@@ -48,4 +48,5 @@ fingerprint <- function(z){
 		}
 	)
 }
+
 lapply(ls.ballotTag('Scotland'),fingerprint)
