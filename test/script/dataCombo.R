@@ -6,7 +6,7 @@ fingerprint <- function(z){
 	z.combo <- get.combo (z)
 	z.ballot <- get.ballot(z)
 	z.sbList <- splitBallot(z.ballot)
-	z.sbList[[1]] <- sbAbstain(z.sbList[[1]])
+	z.sbList[[1]] <- sbAbstainers(z.sbList[[1]])
 	names(z.sbList)[1] <- '!V'
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible,TRUE)
