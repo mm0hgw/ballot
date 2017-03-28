@@ -35,7 +35,7 @@ lapply(seq_along(z.sbList),
 		)
 		j <- which.max(ch)
 		maxch <- max(ch)
-		z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensity,TRUE)
+		z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensityGen(norm=TRUE),TRUE)
 		fileName <- paste(sep='',
 			'test/pics/dc/fp/',z.combo$i[j],'_',names(z.sbList)[i],'.png'
 		)
