@@ -3,11 +3,14 @@ z
 fingerprint <- function(z){
 	z <- as.ballotTag(z)
 	stopifnot(is.ballotTag(z))
-	z.combo <- get.combo (z)
+	z.combo <- get.combo(z)
 	z.ballot <- get.ballot(z)
 	z.sbList <- splitBallot(z.ballot)
 	z.sbList[[1]] <- sbAbstainers(z.sbList[[1]])
-	names(z.sbList)[1] <- '!V'
+	names(z.sbList)[1] <- 'Abstainers'
+	z.sbList <- sortBallot(z.ballot)
+	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
+	z.sbList <- head(z.sbList,n=3)
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible,TRUE)
 	oldMar <- par('mar')
@@ -52,3 +55,4 @@ fingerprint <- function(z){
 }
 
 lapply(ls.ballotTag('SIR'),fingerprint)
+lapply(ls.ballotTag('KS'),fingerprint)
