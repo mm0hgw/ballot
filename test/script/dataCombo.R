@@ -11,6 +11,7 @@ fingerprint <- function(z){
 	z.sbList <- sortBallot(z.ballot)
 	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
 	z.sbList <- head(z.sbList,n=3)
+	print(z.sbList)
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible,TRUE)
 	oldMar <- par('mar')
