@@ -8,7 +8,7 @@ fingerprint <- function(z){
 	z.sbList <- splitBallot(z.ballot)
 	z.sbList[[1]] <- sbAbstainers(z.sbList[[1]])
 	names(z.sbList)[1] <- 'Abstainers'
-	z.sbList <- sortBallot(z.ballot)
+	print(z.sbList)
 	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
 	z.sbList <- head(z.sbList,n=3)
 	print(z.sbList)
