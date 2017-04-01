@@ -35,7 +35,7 @@ get.chisq.ballotTag <- function(x,party='V'){
 					sapply(seq(dc$len),dc$dGen)
 				}
 			)
-		
+		names(chisq) <- NULL
 		assign(dataName,chisq)
 		save(list=dataName,file=dataFile)
 	}
