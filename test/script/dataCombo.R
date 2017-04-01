@@ -8,15 +8,14 @@ fingerprint <- function(z){
 	z.sbList <- splitBallot(z.ballot)
 	z.sbList[[1]] <- sbAbstainers(z.sbList[[1]])
 	names(z.sbList)[1] <- 'Abstainers'
-	z.sbNames <- names(z.sbList)
-	print(z.sbList)
 	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
 	z.sbList <- head(z.sbList,n=3)
-	print(z.sbList)
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible,TRUE)
 	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc/fp')
+	z.sbNames <- names(z.sbList)
+	print(z.sbNames)
 	require(mclapplyFunGen)
 	LAPPLYFUN <- get.lapply::get.lapply()
 	chunkSize <- get.lapply::get.chunkSize()
