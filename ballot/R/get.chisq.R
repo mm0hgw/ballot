@@ -3,13 +3,21 @@
 #'@param x ballotTag
 #'@export get.chisq
 get.chisq <- function(x,party='V'){
+	stopifnot(length(x)==1)
 	UseMethod('get.chisq',x)
 }
 
 #'@method get.chisq character
 get.chisq.character <- function(x,party='V'){
-	strsplit(x,' ')
+	x1 <- strsplit(x,' ')[[1]]
+	x2 <- as.ballotTag(x1[1])
+	if(length(x1>1)){
+		party <- x1[2]
+	}
+	return(get.chisq(x2,party))
 }
 
 get.chisq.ballotTag <- function(x,party='V'){
+	print(x)
+	print(party)
 }
