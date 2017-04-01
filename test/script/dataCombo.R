@@ -24,7 +24,10 @@ fingerprint <- function(z){
 	par(mar=oldMar)
 	lapply(seq_along(z.sbList),
 		function(i){
-			ch <- get.chisq(z,z.sbNames[i])
+			party <- z.sbNames[i]
+			print(party)
+			ch <- get.chisq(z,party)
+			print(summary(ch))
 			j <- which.max(ch)
 			maxch <- max(ch)
 			z.sb <- z.sbList[[i]]
