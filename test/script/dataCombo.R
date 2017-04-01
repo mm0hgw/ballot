@@ -8,6 +8,7 @@ fingerprint <- function(z){
 	z.sbList <- splitBallot(z.ballot)
 	z.sbList[[1]] <- sbAbstainers(z.sbList[[1]])
 	names(z.sbList)[1] <- 'Abstainers'
+	z.sbNames <- names(z.sbList)
 	print(z.sbList)
 	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
 	z.sbList <- head(z.sbList,n=3)
@@ -24,7 +25,7 @@ fingerprint <- function(z){
 	par(mar=oldMar)
 	lapply(seq_along(z.sbList),
 		function(i){
-			ch <- get.chisq(z,i)
+			ch <- get.chisq(z,z.sbNames[i])
 			j <- which.max(ch)
 			maxch <- max(ch)
 			z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensityGen(norm=TRUE),TRUE)
