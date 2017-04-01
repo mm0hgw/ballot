@@ -18,6 +18,8 @@ get.chisq.character <- function(x,party='V'){
 }
 
 get.chisq.ballotTag <- function(x,party='V'){
-	print(x)
+	dataFile <- paste( sep='', ballotDir, x,'.',party,'.chisq.rda')
+	
+	print(dataFile)
 	print(party)
 }
