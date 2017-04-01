@@ -17,9 +17,24 @@ get.chisq.character <- function(x,party='V'){
 	return(get.chisq(x2,party))
 }
 
+#'@method get.chisq ballotTag
 get.chisq.ballotTag <- function(x,party='V'){
-	dataFile <- paste( sep='', ballotDir, x,'.',party,'.chisq.rda')
-	
-	print(dataFile)
-	print(party)
+	dataName <- paste( sep='.', x, party, '.chisq')
+	dataFile <- paste( sep='', ballotDir, dataName,'.rda')
+	if(file.exists(dataFile)){
+		load(dataFile)
+	}else{
+		LAPPLYFUN <- get.lapply::get.lapply()
+		chunkSize <- get.lapply::get.chunkSize()
+		chisq <- do.call(c,
+			LAPPLYFUN(ultraCombo::comboChunk(z.sbChisqTest.dc,by=chunkSize),
+				function(dc){
+					sapply(seq(dc$len),dc$dGen)
+				}
+			)
+		)
+		assign(dataName,chisq)
+		save(list=dataName,file=dataFile)
+	}
+	return(get(dataName))
 }
