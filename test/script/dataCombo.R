@@ -24,18 +24,9 @@ fingerprint <- function(z){
 	par(mar=oldMar)
 	lapply(seq_along(z.sbList),
 		function(i){
-			z.sb <- z.sbList[[i]]
-			z.sbChisqTest.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbChisqTest,TRUE)
-			ch <- do.call(c,
-				LAPPLYFUN(ultraCombo::comboChunk(z.sbChisqTest.dc,by=chunkSize),
-					function(dc){
-						sapply(seq(dc$len),dc$dGen)
-					}
-				)
-			)
+			ch <- get.chisq(z,i)
 			j <- which.max(ch)
 			maxch <- max(ch)
-			rm(ch)
 			z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensityGen(norm=TRUE),TRUE)
 			fileName <- paste(sep='',
 				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',names(z.sbList)[i],'.png'
