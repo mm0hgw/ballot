@@ -19,7 +19,7 @@ get.chisq.character <- function(x,party='V'){
 
 #'@method get.chisq ballotTag
 get.chisq.ballotTag <- function(x,party='V'){
-	dataName <- paste( sep='.', x, party, '.chisq')
+	dataName <- paste( sep='.', x, party, 'chisq')
 	dataFile <- paste( sep='', ballotDir, dataName,'.rda')
 	if(file.exists(dataFile)){
 		load(dataFile)
