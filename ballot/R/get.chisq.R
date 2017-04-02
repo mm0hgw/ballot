@@ -29,13 +29,13 @@ get.chisq.ballotTag <- function(x,party='V'){
 		z.combo <- get.combo(x)
 		z.sb <- splitBallot(get.ballot(x))[[party]]
 		z.sbChisqTest.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbChisqTest,TRUE)
-		chisq <- do.call(c,
+		chisq <- 
 			LAPPLYFUN(ultraCombo::comboChunk(z.sbChisqTest.dc,by=chunkSize),
 				function(dc){
 					sapply(seq(dc$len),dc$dGen)
 				}
 			)
-		)
+		print(chisq)
 		names(chisq) <- NULL
 		assign(dataName,chisq)
 		save(list=dataName,file=dataFile)
