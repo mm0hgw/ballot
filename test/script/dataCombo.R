@@ -11,7 +11,7 @@ fingerprint <- function(z){
 	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
 	z.sbList <- head(z.sbList,n=3)
 	z.sp <- get.Spatial (z)
-	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible,TRUE)
+	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible)
 	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc/fp')
 	z.sbNames <- names(z.sbList)
