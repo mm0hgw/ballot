@@ -27,7 +27,7 @@ fingerprint <- function(z){
 			party <- z.sbNames[i]
 			print(party)
 			ch <- get.chisq(z,party)
-			print(summary(ch))
+			print(ch)
 			j <- which.max(ch)
 			maxch <- max(ch)
 			z.sb <- z.sbList[[i]]
