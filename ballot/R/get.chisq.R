@@ -33,10 +33,10 @@ get.chisq.ballotTag <- function(x,party='V'){
 			z.sb <- splitBallot(get.ballot(x))[[party]]
 		}
 		print(z.sb)
-		z.sbChisqTest.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbChisqTest)
 		chisq <- do.call(c,
-			LAPPLYFUN(ultraCombo::comboChunk(z.sbChisqTest.dc,by=chunkSize),
-				function(dc){
+			LAPPLYFUN(ultraCombo::comboChunk(z.combo,by=chunkSize),
+				function(combo){
+					dc <- ultraCombo::dataCombo(combo,z.sb,sbChisqTest)
 					sapply(seq(dc$len),dc$dGen)
 				}
 			)
