@@ -53,4 +53,4 @@ fingerprint <- function(z){
 }
 
 lapply(ls.ballotTag('SIR'),fingerprint)
-lapply(ls.ballotTag('KS'),fingerprint)
+#lapply(ls.ballotTag('KS'),fingerprint)
