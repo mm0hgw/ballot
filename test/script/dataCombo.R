@@ -11,7 +11,7 @@ fingerprint <- function(z){
 	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
 	z.sbList <- head(z.sbList,n=3)
 	z.sp <- get.Spatial (z)
-	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp,invisible)
+	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp)
 	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc/fp')
 	z.sbNames <- names(z.sbList)
@@ -33,7 +33,7 @@ fingerprint <- function(z){
 			z.sb <- z.sbList[[i]]
 			z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensityGen(norm=TRUE))
 			fileName <- paste(sep='',
-				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',names(z.sbList)[i],'.png'
+				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',z.sbNames[i],'.png'
 			)
 			testPng(fileName)
 			plot(z.sbDensity.dc$dGen(j),
