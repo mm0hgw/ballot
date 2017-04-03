@@ -27,7 +27,6 @@ fingerprint <- function(z){
 			party <- z.sbNames[i]
 			print(party)
 			ch <- get.chisq(z,party)
-			print(ch)
 			j <- which.max(ch)
 			maxch <- max(ch)
 			z.sb <- z.sbList[[i]]
@@ -52,5 +51,5 @@ fingerprint <- function(z){
 	)
 }
 
-lapply(ls.ballotTag('SIR'),fingerprint)
+lapply(ls.ballotTag(),fingerprint)
 #lapply(ls.ballotTag('KS'),fingerprint)
