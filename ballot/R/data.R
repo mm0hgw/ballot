@@ -9,7 +9,7 @@ xvSave <- function(...){
 xvConvert <- function(file){
 	stopifnot(file.exists(file))
 	if(strsplit(system(intern=TRUE,paste('file',file)),' ')[[1]][2]!='XZ'){
-		print('[pop')
+		print(file)
 		tmpEnv <- new.env()
 		load(envir=tmpEnv,file=file)
 		xvSave(envir=tmpEnv,list=ls(tmpEnv),file=file)
