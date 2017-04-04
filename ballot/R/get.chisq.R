@@ -21,7 +21,7 @@ get.chisq.character <- function(x,party='V'){
 get.chisq.ballotTag <- function(x,party='V'){
 	dataName <- paste( sep='.', x, party, 'chisq')
 	dataFile <- paste( sep='', ballotDir, dataName,'.rda')
-	if(FALSE){#file.exists(dataFile)){
+	if(file.exists(dataFile)){
 		load(dataFile)
 	}else{
 		LAPPLYFUN <- get.lapply::get.lapply()
