@@ -15,7 +15,7 @@ fingerprint <- function(z){
 	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc/fp')
 	z.sbNames <- names(z.sbList)
-	print(z.sbNames)
+	print(rownames(z.sb))
 	require(mclapplyFunGen)
 	LAPPLYFUN <- get.lapply::get.lapply()
 	chunkSize <- get.lapply::get.chunkSize()
