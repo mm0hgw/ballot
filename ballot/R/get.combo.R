@@ -36,7 +36,7 @@ get.combo.regionTag <- function(x){
 		n <- length(nb)
 		combo <- growCombo(nb)
 		assign(dataName, combo)
-		xvSave(file=fileName, list=dataName)
+		xzSave(file=fileName, list=dataName)
 	}else{
 		load(file=fileName)
 		combo <- get(dataName)
