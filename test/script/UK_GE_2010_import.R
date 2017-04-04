@@ -28,6 +28,9 @@ NI2015 <- GE2015[NIkey,]
 ballotTag('UK.Northern.Ireland.2010.Wm',NI2010,title[1],'UK.Northern.Ireland.Wm.5th')
 ballotTag('UK.Northern.Ireland.2015.Wm',NI2015,title[2],'UK.Northern.Ireland.Wm.5th')
 
+GB2010 <- GE2010[!NIkey,]
+GB2015 <- GE2015[!NIkey,]
+
 filenames <- gsub(" ",".",regionNames)
 filenames <- gsub("&","and",filenames)
 
@@ -53,12 +56,12 @@ lapply(seq_along(jobNames),
 			)
 			key <- key10 %in% jobRegion[[i]]
 			ballotTag(names2010[i],
-				ballot=GE2010[key,],
+				ballot=GB2010[key,],
 				bTitle=title[1],
 				bRegionTag=contiguityNames[i]
 			)
 			ballotTag(names2015[i],
-				ballot=GE2015[key,],
+				ballot=GB2015[key,],
 				bTitle=title[2],
 				bRegionTag=contiguityNames[i]
 			)
