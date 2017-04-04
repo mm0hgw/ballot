@@ -13,12 +13,6 @@ which.and.max <- function(x){
 	n <- length(x)
 	LAPPLYFUN <- get.lapply::get.lapply()
 	chunkSize <- get.lapply::get.chunkSize()
-	if(n < chunkSize)
-		return(
-			c(which.max(x),
-				max(x)
-			)
-		)
 	out <- LAPPLYFUN(bit::chunk(from=1,to=n,length.out=no.cores),
 		function(ch){
 			offset <- ch[1] - 1
