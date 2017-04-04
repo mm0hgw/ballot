@@ -70,7 +70,6 @@ growCombo <- function(nb,k=7,seeds=0){
 		seeds <- seq(n)
 	if(any(seeds<0))
 		seeds <- setdiff(seq(n),-seeds)
-	combo <- ultraCombo(seeds,n,1)
 	revCombnGen <- revCombnGG(n)
 	LAPPLYFUN <- get.lapply()
 	chunkSize <- get.chunkSize()
