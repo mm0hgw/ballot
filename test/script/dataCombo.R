@@ -30,6 +30,7 @@ fingerprint <- function(z){
 			j <- which.max(ch)
 			maxch <- max(ch)
 			z.sb <- z.sbList[[i]]
+			print(z.nb)
 			z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensityGen(norm=TRUE))
 			fileName <- paste(sep='',
 				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',z.sbNames[i],'.png'
