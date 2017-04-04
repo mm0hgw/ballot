@@ -31,15 +31,16 @@ fingerprint <- function(z){
 			maxch <- max(ch)
 			z.sb <- z.sbList[[i]]
 			print(z.sb)
-			z.sbDensity.dc <- ultraCombo::dataCombo(z.combo,z.sb,sbDensityGen(norm=TRUE))
+			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
 			fileName <- paste(sep='',
 				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',z.sbNames[i],'.png'
 			)
 			testPng(fileName)
-			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)])
+			ord <- order(sbCalculateSample(z.dc$dGen(j)))
+			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
 			print(elemNames)
 			print(subTitle)
-			plot(z.sbDensity.dc$dGen(j),
+			plot(sbDensity(z.dc$dGen(j)),
 				main=paste(get.bTitle(z),z.combo$i[j],names(z.sbList)[i],'Chisq:',format(maxch,digits=5)),
 				sub=subTitle
 			)
