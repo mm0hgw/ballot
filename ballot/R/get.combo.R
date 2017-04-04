@@ -80,6 +80,8 @@ growCombo <- function(nb,k=7,seeds=0){
 		if(length(comboList[[1]])==k){
 			if(length(comboList)==0)
 				return(ultraCombo(vector(),n,k))
+			print(do.call(rbind,comboList))
+			print(revCombnGen(do.call(rbind,comboList)))
 			return(ultraCombo(revCombnGen(do.call(rbind,comboList)),n,k))
 		}else{
 			return(
