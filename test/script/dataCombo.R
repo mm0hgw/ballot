@@ -37,7 +37,7 @@ fingerprint <- function(z){
 			testPng(fileName)
 			plot(z.sbDensity.dc$dGen(j),
 				main=paste(get.bTitle(z),z.combo$i[j],names(z.sbList)[i],'Chisq:',format(maxch,digits=5)),
-				sub=paste(collapse=', ',rownames(z.ballot)[z.combo$i[j]])
+				sub=paste(collapse=', ',rownames(z.sb)[z.combo$i[j]])
 			)
 			dev.off()
 			gitAdd(print(fileName))
