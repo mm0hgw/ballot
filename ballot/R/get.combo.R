@@ -94,6 +94,3 @@ growCombo <- function(nb,k=7,seeds=0){
 		)
 	)
 }
-
-
-growCombo2(z.nb)
