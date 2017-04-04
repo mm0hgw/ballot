@@ -3,8 +3,8 @@ system('mkdir -p test/pics/spatial')
 
 lapply(ls.ballotTag(),
 	function(ballotTagName){
-		cat('spatial plot',x,'\n')
 		x <- as.ballotTag(ballotTagName)
+		cat('spatial plot',x,'\n')
 		sbList <- splitBallot(get.ballot(x))[seq(3)]
 		lapply(seq_along(sbList),
 			function(i){
