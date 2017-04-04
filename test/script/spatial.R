@@ -16,6 +16,8 @@ lapply(ls.ballotTag(),
 					'test/pics/ballot/sp/',ballotTagName,'_ballotTag_test_',i,'_',
 					gsub(' ','.',name),'.png'
 				)
+				a<-strsplit(x,'\\.')[[1]]
+				year<-a[length(a)-1]
 				title <- paste(sep=', ',name,year)
 				subTitle <- paste(sep='/',sbSum(sb),sbSumN(sb))
 				testPng(testFile)
