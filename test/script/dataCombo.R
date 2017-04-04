@@ -15,7 +15,7 @@ fingerprint <- function(z){
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp)
 	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc/fp')
-	z.sbNames <- names(z.sbList)
+	z.sbNames <- gsub(' ','.',names(z.sbList))
 	require(mclapplyFunGen)
 	LAPPLYFUN <- get.lapply::get.lapply()
 	chunkSize <- get.lapply::get.chunkSize()
