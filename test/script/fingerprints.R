@@ -80,8 +80,8 @@ sbListYes <- list(YeSNP2010=GE2010$SNP,
 )
 
 sbListAbstain <- list(Abstainers.2010=sbAbstainers(GE2010$V),
-Abstainers.2014=sbAbstainers(SIR2014$V),
-Abstainers.2015=sbAbstainers(GE2015$V)
+	Abstainers.2014=sbAbstainers(SIR2014$V),
+	Abstainers.2015=sbAbstainers(GE2015$V)
 )
 
 GE2010U <- GE2010$V
@@ -90,8 +90,8 @@ GE2015U <- GE2015$V
 GE2015U[,2] <- GE2015$V[,2] - GE2015$SNP[,2]
 
 sbListNo <- list( Unionist.2010=GE2010U,
-Unionist.2014=SIR2014$No,
-Unionist.2015=GE2015U
+	Unionist.2014=SIR2014$No,
+	Unionist.2015=GE2015U
 )
 sbListCon <- list(Conservative.2010=GE2010$Con,
 	Conservative.2015=GE2015$Conservative
@@ -106,7 +106,6 @@ sbListLD <- list(Liberal.Democrat.2010=GE2010$LD,
 	Liberal.Democrat.2015=GE2015$Lib.Dem
 )
 
-
 do.sbList(sbListYes,'YeSNP')
 do.sbList(sbListNo,'Unionist')
 do.sbList(sbListAbstain,'Abstainers')
@@ -114,5 +113,5 @@ do.sbList(sbListCon,'Conservative')
 do.sbList(sbListLab,'Labour')
 do.sbList(sbListLD,'Liberal.Democrats')
 
-
-
+system('zip -9vju test/pics/fingerprints.zip test/pics/fingerprints/*')
+if(buildPackageLoaded)gitAdd('test/pics/fingerprints.zip')

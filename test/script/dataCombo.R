@@ -59,7 +59,6 @@ fingerprint <- function(z){
 			sp<-z.sp.dc$dGen(j)
 			col<-sample_to_color(sample)
 			sp::plot(sp,col=col)
-			la
 			dev.off()
 			gitAdd(print(fileName))
 		}

@@ -1,6 +1,5 @@
 
-system('mkdir -p test/pics/ballot/sp')
-
+system('mkdir -p test/pics/spatial')
 
 lapply(ls.ballotTag(),
 	function(ballotTagName){
@@ -13,7 +12,7 @@ lapply(ls.ballotTag(),
 					name <- 'Sinn Fein'
 				sb <- sbList[[i]]
 				testFile <- paste(sep='',
-					'test/pics/ballot/sp/',ballotTagName,'_ballotTag_test_',i,'_',
+					'test/pics/spatial/',ballotTagName,'_ballotTag_test_',i,'_',
 					gsub(' ','.',name),'.png'
 				)
 				a<-strsplit(x,'\\.')[[1]]
@@ -26,16 +25,10 @@ lapply(ls.ballotTag(),
 					main=title, sub=subTitle
 				)
 				dev.off()
-				if(buildPackageLoaded)gitAdd(print(testFile))
-#				testFile <- paste(sep='',
-#					'test/pics/freqPlot_',ballotTagName,'_',i,'_',
-#					gsub(' ','.',name),'.png'
-#				)
-#				testPng(testFile)
-#				freqPlot(x,i)
-#				dev.off()
-#				if(buildPackageLoaded)gitAdd(print(testFile))
 			}
 		)
 	}
-)
+}
+
+system('zip -9vju test/pics/spatial.zip test/pics/spatial/*')
+if(buildPackageLoaded)gitAdd('test/pics/spatial.zip')
