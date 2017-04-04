@@ -23,7 +23,6 @@ fingerprint <- function(z){
 	lapply(seq_along(z.sbList),
 		function(i){
 			party <- z.sbNames[i]
-			print(party)
 			z.chisq <- get.chisq(z,party)
 			j <- which.max(z.chisq)
 			maxch <- z.chisq[j]
