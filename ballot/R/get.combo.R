@@ -79,11 +79,13 @@ growCombo <- function(nb,k=7,seeds=0){
 		nbs <- group.nb(nb,seed)
 		comboList <- lapply(nbs,c,seed)
 		if(length(comboList[[1]])==k){
-			ultraCombo(revCombnGen(do.call(rbind,comboList)),n,k)
+			return(ultraCombo(revCombnGen(do.call(rbind,comboList)),n,k))
 		}else{
-			do.call(union.combo,
-				LAPPLYFUN(comboList,
-					growComboElem
+			return(
+				do.call(union.combo,
+					LAPPLYFUN(comboList,
+						growComboElem
+					)
 				)
 			)
 		}
