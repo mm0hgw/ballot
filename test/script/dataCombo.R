@@ -65,6 +65,6 @@ fingerprint <- function(z){
 	
 }
 
-lapply(ls.ballotTag(),fingerprint)
+lapply(setdiff(ls.ballotTag(),ls.ballotTag('GB')),fingerprint)
 system('zip -9vju test/pics/dc.zip test/pics/dc/*')
 gitAdd('test/pics/dc.zip')
