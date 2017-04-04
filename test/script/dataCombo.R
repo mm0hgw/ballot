@@ -62,10 +62,9 @@ fingerprint <- function(z){
 			gitAdd(print(fileName))
 		}
 	)
-	system('zip -9vju test/pics/dc.zip test/pics/dc/*')
-	gitAdd('test/pics/dc.zip')
 	
 }
 
 lapply(ls.ballotTag(),fingerprint)
-#lapply(ls.ballotTag('KS'),fingerprint)
+system('zip -9vju test/pics/dc.zip test/pics/dc/*')
+gitAdd('test/pics/dc.zip')
