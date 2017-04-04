@@ -24,9 +24,10 @@ fingerprint <- function(z){
 		function(i){
 			party <- z.sbNames[i]
 			print(party)
-			ch <- which.and.max(get.chisq(z,party))
-			j <- ch[1]
-			maxch <- ch[2]
+			z.chisq <- get.chisq(z,party)
+			j <- which.max(z.chisq)
+			maxch <- z.chisq[j]
+			rm(z.chisq)
 			z.sb <- z.sbList[[i]]
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
 			fileName <- paste(sep='',
