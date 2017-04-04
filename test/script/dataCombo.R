@@ -40,7 +40,7 @@ fingerprint <- function(z){
 			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
 			dObj <- density (sample)
 			plot(dObj,
-				main=paste(get.bTitle(z),z.combo$i[j],names(z.sbList)[i],'Chisq:',format(maxch,digits=5)),
+				main=paste(get.bTitle(z),z.combo$i[j],z.sbNames[i],'Chisq:',format(maxch,digits=5)),
 				sub=subTitle,
 				col=2,
 				lwd=2
