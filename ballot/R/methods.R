@@ -1,28 +1,5 @@
 # basic methods
 
-no.cores <- max(1,parallel::detectCores()-1)
-
-#' which.and.max
-#' @param x a 'vector'
-#' @importFrom bit chunk
-#' @importFrom get.lapply get.lapply get.chunkSize
-#' @export
-which.and.max <- function(x){
-	x <- as.numeric(x)
-	stopifnot(is.numeric(x))
-	n <- length(x)
-	LAPPLYFUN <- get.lapply::get.lapply()
-	chunkSize <- get.lapply::get.chunkSize()
-	out <- LAPPLYFUN(bit::chunk(from=1,to=n,length.out=no.cores),
-		function(ch){
-			offset <- ch[1] - 1
-			i <- offset + which.max(x[seq(ch[1],ch[2])])
-			c( i, x[i])
-		}
-	)
-	out[[which.max(sapply(out,'[',2))]]
-}
-
 #' @title Sample normaliser
 #' @name normalise
 #' @description Normalise a sample
