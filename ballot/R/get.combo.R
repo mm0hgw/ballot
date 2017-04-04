@@ -74,30 +74,26 @@ growCombo <- function(nb,k=7,seeds=0){
 	revCombnGen <- revCombnGG(n)
 	LAPPLYFUN <- get.lapply()
 	chunkSize <- get.chunkSize()
-	while(combo$k < k){
-		combo <- do.call(union.combo,
-			LAPPLYFUN(chunk.combo(combo,chunkSize),
-				function(combo){
-					i <- 1
-					out <- ultraCombo(vector(),n,combo$k+1)
-					while(i<=combo$len){
-						x <- combo$Gen(i)
-						out <- union.combo(out,
-							revCombnGen(
-								do.call(rbind,
-									lapply(group.nb(nb,x),
-										function(z)c(z,x)
-									)
-								)
-							)
-						)
-						i <- i+1
-					}
-					out
-				}
+	combo <- vector('integer',n)
+	growComboElem <- function(seed){
+		nbs <- group.nb(nb,seed)
+		comboList <- lapply(nbs,c,seed)
+		if(length(comboList[[1]])==k){
+			ultraCombo(revCombnGen(do.call(rbind,comboList)),n,k)
+		}else{
+			do.call(union.combo,
+				LAPPLYFUN(comboList,
+					growComboElem
+				)
 			)
-		)
+		}
 	}
-	combo$i <- sort(combo$i)
-	combo
+	do.call(union.combo,
+		LAPPLYFUN(seeds,
+			growComboElem
+		)
+	)
 }
+
+
+growCombo2(z.nb)
