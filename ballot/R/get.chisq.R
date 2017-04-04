@@ -23,7 +23,7 @@ get.chisq.ballotTag <- function(x,party='V'){
 	dataFile <- paste( sep='', ballotDir, dataName,'.rda')
 	tmpEnv <- new.env()
 	if(file.exists(dataFile)){
-		load(dataFile,dnvir=tmpEnv)
+		load(dataFile,envir=tmpEnv)
 	}else{
 		LAPPLYFUN <- get.lapply::get.lapply()
 		chunkSize <- get.lapply::get.chunkSize()
@@ -45,5 +45,5 @@ get.chisq.ballotTag <- function(x,party='V'){
 		assign(dataName,chisq,envir=tmpEnv)
 		xzSave(list=ls(tmpEnv),file=dataFile,envir=tmpEnv)
 	}
-	return(get(dataName))
+	return(get(dataName,envir=tmpEnv))
 }
