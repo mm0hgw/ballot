@@ -77,7 +77,8 @@ growCombo <- function(nb,k=7,seeds=0){
 	growComboElem <- function(seed){
 		comboList <- lapply(group.nb(nb,seed),c,seed)
 		if(length(comboList[[1]])==k){
-			print(comboList)
+			if(length(comboList)==0)
+				return(ultraCombo(vector(),n,k))
 			return(ultraCombo(revCombnGen(do.call(rbind,comboList)),n,k))
 		}else{
 			return(
