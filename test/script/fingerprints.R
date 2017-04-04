@@ -41,7 +41,6 @@ do.sbList <- function(sbList,name){
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.png')
 			testPng(testFile)
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
-			print(tag)
 			spatialPlot(tag,
 				sample= sbCalculateSample(sbList[[i]],norm=FALSE) * 100,
 				main=paste(get.bTitle(tag),names(sbList)[i])
