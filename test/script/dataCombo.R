@@ -56,7 +56,10 @@ fingerprint <- function(z){
 			fileName <- paste(sep='','test/pics/dc/',z,'_',z.sp.dc$i[j],'.png')
 			png(width=100,height=100,fileName)
 			par(mar=rep(0,4))
-			sp::plot(z.sp.dc$dGen(j))
+			sp<-z.sp.dc$dGen(j)
+			col<-sample_to_color(sample)
+			sp::plot(sp,col=col)
+			la
 			dev.off()
 			gitAdd(print(fileName))
 		}
