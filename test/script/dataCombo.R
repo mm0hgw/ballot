@@ -15,12 +15,10 @@ fingerprint <- function(z){
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp)
 	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc/fp')
-	z.sbNames <- gsub(' ','.',names(z.sbList))
+	z.sbNames <- names(z.sbList)
 	require(mclapplyFunGen)
 	LAPPLYFUN <- get.lapply::get.lapply()
 	chunkSize <- get.lapply::get.chunkSize()
-	system('zip -9vju test/pics/dc.zip test/pics/dc/*')
-	gitAdd('test/pics/dc.zip')
 	par(mar=oldMar)
 	lapply(seq_along(z.sbList),
 		function(i){
@@ -33,7 +31,7 @@ fingerprint <- function(z){
 			z.sb <- z.sbList[[i]]
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
 			fileName <- paste(sep='',
-				'test/pics/dc/',z,'_',z.combo$i[j],'_',z.sbNames[i],'.png'
+				'test/pics/dc/',z,'_',z.combo$i[j],'_',gsub(' ','.',z.sbNames[i]),'.png'
 			)
 			testPng(fileName)
 			sb <- z.dc$dGen(j)
@@ -64,6 +62,9 @@ fingerprint <- function(z){
 			gitAdd(print(fileName))
 		}
 	)
+	system('zip -9vju test/pics/dc.zip test/pics/dc/*')
+	gitAdd('test/pics/dc.zip')
+	
 }
 
 lapply(ls.ballotTag(),fingerprint)
