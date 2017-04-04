@@ -2,9 +2,10 @@ load("test/data/elections.RData")
 
 GE2010 <- elections$GE2010
 Encoding(colnames(GE2010)) <- 'CP1252'
-GE2010 <- GE2010[order(rownames(GE2010)),-1]
+GE2010 <- GE2010[order(rownames(GE2010)),]
 GE2010Names <- rownames(GE2010)
-key10 <- as.factor(elections$GE2010[,1])
+key10 <- as.factor(GE2010[,1])
+GE2010 <- GE2010[,-1]
 GE2015 <- elections$GE2015[,-1]
 GE2015Names <- rownames(GE2015)
 colnames(GE2015)[22]<-'Sinn Fein'
