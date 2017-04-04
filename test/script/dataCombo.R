@@ -55,5 +55,5 @@ fingerprint <- function(z){
 	)
 }
 
-lapply(setdiff(ls.ballotTag(),ls.ballotTag('GB')),fingerprint)
+lapply(ls.ballotTag(),fingerprint)
 #lapply(ls.ballotTag('KS'),fingerprint)
