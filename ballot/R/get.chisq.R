@@ -43,7 +43,7 @@ get.chisq.ballotTag <- function(x,party='V'){
 		)
 		names(chisq) <- NULL
 		assign(dataName,chisq)
-		xvSave(list=dataName,file=dataFile)
+		xzSave(list=dataName,file=dataFile)
 	}
 	return(get(dataName))
 }

@@ -288,9 +288,8 @@ exists.bRegionTag <- function(x){
 }
 
 save.ballotEnv <- function(){
-	save(list=ls(ballotEnv),
+	xzSave(list=ls(ballotEnv),
 		file=ballotFile,
-		envir=ballotEnv,
-		compress='xz'
+		envir=ballotEnv
 	)
 }

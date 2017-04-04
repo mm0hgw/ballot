@@ -61,7 +61,7 @@ get.nb.layerTag <- function(x){
 			nb <- nb.add(nb,links)
 		}
 		assign(dataName,nb)
-		xvSave(list=dataName,
+		xzSave(list=dataName,
 			file=fileName
 		)
 		return(nb)

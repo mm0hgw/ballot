@@ -311,9 +311,8 @@ exists.textLinks <- function(x){
 }
 
 save.layerEnv <- function(){
-	save(list=ls(layerEnv),
+	xzSave(list=ls(layerEnv),
 		file=layerFile,
-		envir=layerEnv,
-		compress='xz'
+		envir=layerEnv
 	)
 }

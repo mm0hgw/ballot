@@ -180,9 +180,8 @@ exists.rMask <- function(x){
 }
 
 save.regionEnv <- function(){
-	save(list=ls(regionEnv),
+	xzSave(list=ls(regionEnv),
 		file=regionFile,
-		envir=regionEnv,
-		compress='xz'
+		envir=regionEnv
 	)
 }
