@@ -5,6 +5,7 @@ fingerprint <- function(z){
 	stopifnot(is.ballotTag(z))
 	z.combo <- get.combo(z)
 	z.ballot <- get.ballot(z)
+	elemNames <- print(rownames(z.ballot))
 	z.sbList <- splitBallot(z.ballot)
 	z.sbList[[1]] <- sbAbstainers(z.sbList[[1]])
 	names(z.sbList)[1] <- 'Abstainers'
@@ -15,7 +16,6 @@ fingerprint <- function(z){
 	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc/fp')
 	z.sbNames <- names(z.sbList)
-	print(rownames(z.sb))
 	require(mclapplyFunGen)
 	LAPPLYFUN <- get.lapply::get.lapply()
 	chunkSize <- get.lapply::get.chunkSize()
@@ -36,7 +36,7 @@ fingerprint <- function(z){
 				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',z.sbNames[i],'.png'
 			)
 			testPng(fileName)
-			subTitle <- paste(collapse=', ',rownames(z.sb)[z.combo$i[j]])
+			subTitle <- paste(collapse=', ',elemNames[z.combo$i[j]])
 			print(subTitle)
 			plot(z.sbDensity.dc$dGen(j),
 				main=paste(get.bTitle(z),z.combo$i[j],names(z.sbList)[i],'Chisq:',format(maxch,digits=5)),
