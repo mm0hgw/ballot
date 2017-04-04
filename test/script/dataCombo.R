@@ -29,6 +29,7 @@ fingerprint <- function(z){
 			ch <- get.chisq(z,party)
 			j <- which.max(ch)
 			maxch <- max(ch)
+			rm(ch)
 			z.sb <- z.sbList[[i]]
 			print(z.sb)
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
@@ -36,13 +37,22 @@ fingerprint <- function(z){
 				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',z.sbNames[i],'.png'
 			)
 			testPng(fileName)
-			ord <- order(sbCalculateSample(z.dc$dGen(j)))
+			sb <- z.dc$dGen(j)
+			sample <- sbCalculateSample(sb)
+			ord <- order(sample)
 			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
-			print(elemNames)
-			print(subTitle)
-			plot(sbDensity(z.dc$dGen(j)),
+			dObj <- density (sample)
+			plot(dObj,
 				main=paste(get.bTitle(z),z.combo$i[j],names(z.sbList)[i],'Chisq:',format(maxch,digits=5)),
-				sub=subTitle
+				sub=subTitle,
+				col=2,
+				lwd=2
+			)
+			lines(dObj$x,
+				dnorm(dObj$x,
+				mean=sbPopMean(sb),
+				sd=sbPopSd(sb),
+				lty=2
 			)
 			dev.off()
 			gitAdd(print(fileName))
