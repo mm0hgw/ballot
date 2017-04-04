@@ -50,9 +50,10 @@ fingerprint <- function(z){
 			)
 			lines(dObj$x,
 				dnorm(dObj$x,
-				mean=sbPopMean(sb),
-				sd=sbPopSd(sb),
-				lty=2
+					mean=sbPopMean(sb),
+					sd=sbPopSd(sb)
+				),
+				lty=2				
 			)
 			dev.off()
 			gitAdd(print(fileName))
