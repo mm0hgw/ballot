@@ -50,8 +50,6 @@ get.nb.regionTag <- function(x){
 get.nb.layerTag <- function(x){
 #	cat(paste('get.nb.layerTag',x,'\n'))
 	dataName <- paste(sep='', x, '.nb')
-	if(exists(dataName,envir=layerEnv))
-		return(get(dataName,envir=layerEnv))
 	fileName <- paste(sep='', layerDir, x, '.nb.rda')
 	if(!file.exists(fileName)){
 		sp <- get.Spatial(x)
@@ -62,12 +60,14 @@ get.nb.layerTag <- function(x){
 			links <- findLinks(get.textLinks(x),target)
 			nb <- nb.add(nb,links)
 		}
-		assign(dataName,nb,envir=layerEnv)
-		save(list=dataName,file=fileName,envir=layerEnv)
+		assign(dataName,nb)
+		xvSave(list=dataName,
+			file=fileName
+		)
 		return(nb)
 	}else{
-		load(file=fileName,envir=layerEnv)
-		return(get(dataName,envir=layerEnv))
+		load(file=fileName)
+		return(get(dataName))
 	}
 }
 
