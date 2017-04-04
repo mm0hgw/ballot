@@ -36,7 +36,8 @@ fingerprint <- function(z){
 				'test/pics/dc/fp/',z,'_',z.combo$i[j],'_',z.sbNames[i],'.png'
 			)
 			testPng(fileName)
-			subTitle <- paste(collapse=', ',elemNames[z.combo$i[j]])
+			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)])
+			print(elemNames)
 			print(subTitle)
 			plot(z.sbDensity.dc$dGen(j),
 				main=paste(get.bTitle(z),z.combo$i[j],names(z.sbList)[i],'Chisq:',format(maxch,digits=5)),
