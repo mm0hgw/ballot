@@ -72,7 +72,6 @@ do.sbList <- function(sbList,name){
 	)
 	legend('topright',legend=names(sbList),col=col,lwd=2)
 	dev.off()
-	if(buildPackageLoaded)gitAdd(print(testFile))
 }
 sbListYes <- list(YeSNP2010=GE2010$SNP,
 	YeSNP2014=SIR2014$Yes,
