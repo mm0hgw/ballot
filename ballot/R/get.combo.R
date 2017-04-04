@@ -29,18 +29,17 @@ get.combo.ballotTag <- function(x){
 #'@export
 get.combo.regionTag <- function(x){
 	cat(paste('get.combo.regionTag',x,'\n'))
-	comboEnv <- new.env()
 	dataName <- paste(sep='', x, '.combo')
 	fileName <- paste(sep='', regionDir, x, '.combo.rda')
 	if(!file.exists(fileName)){
 		nb <- get.nb(x)
 		n <- length(nb)
 		combo <- growCombo(nb)
-		assign(dataName, combo, envir=comboEnv)
-		save(file=fileName, envir=comboEnv, list=dataName, compress='xz', compression_level=9)
+		assign(dataName, combo)
+		xvSave(file=fileName, list=dataName)
 	}else{
-		load(file=fileName, envir=comboEnv)
-		combo <- get(dataName, envir=comboEnv)
+		load(file=fileName)
+		combo <- get(dataName)
 	}
 	combo
 }
