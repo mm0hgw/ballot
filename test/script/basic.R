@@ -2,6 +2,7 @@ system('mkdir -p test/pics/layers/')
 
 lapply(ls.layerTag(),
 	function(layerTagName){
+		cat('layer plot',layerTagName,'\n')
 		testFile <- paste(sep='','test/pics/layers/',layerTagName,'_layerTag_test.png')
 		testPng(testFile)
 		plot(layerTag(layerTagName))
@@ -13,6 +14,7 @@ system('mkdir -p test/pics/regions/')
 
 lapply(ls.regionTag(),
 	function(regionTagName){
+		cat('region plot',regionTagName,'\n')
 		testFile <- paste(sep='','test/pics/regions/',regionTagName,'_regionTag_test.png')
 		testPng(testFile)
 		plot(regionTag(regionTagName))
@@ -25,6 +27,7 @@ system('mkdir -p test/pics/ballot/')
 lapply(ls.ballotTag(),
 	function(ballotTagName){
 		x <- as.ballotTag(ballotTagName)
+		cat('region plot',x,'\n')
 		testFile <- paste(sep='','test/pics/ballot/',
 			ballotTagName,'_ballotTag_test_0.1.png'
 		)
