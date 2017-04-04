@@ -5,7 +5,7 @@ fingerprint <- function(z){
 	stopifnot(is.ballotTag(z))
 	z.combo <- get.combo(z)
 	z.ballot <- get.ballot(z)
-	elemNames <- print(rownames(z.ballot))
+	elemNames <- rownames(z.ballot)
 	z.sbList <- splitBallot(z.ballot)
 	z.sbList[[1]] <- sbAbstainers(z.sbList[[1]])
 	names(z.sbList)[1] <- 'Abstainers'
