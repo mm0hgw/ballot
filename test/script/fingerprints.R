@@ -33,7 +33,7 @@ do.sbList <- function(sbList,name){
 	)
 	legend('topright',legend=leg,col=col,lwd=2)
 	dev.off()
-	if(buildPackageLoaded)gitAdd(print(testFile))
+	print(testFile)
 	lapply(seq_along(sbList),
 		function(i){
 			l <- nchar(names(sbList)[i])
@@ -46,7 +46,7 @@ do.sbList <- function(sbList,name){
 				main=paste(get.bTitle(tag),names(sbList)[i])
 			)
 			dev.off()
-			if(buildPackageLoaded)gitAdd(print(testFile))			
+			print(testFile)	
 		}
 	)
 	

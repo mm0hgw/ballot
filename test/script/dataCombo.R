@@ -52,7 +52,7 @@ fingerprint <- function(z){
 				lty=2				
 			)
 			dev.off()
-			gitAdd(print(fileName))
+			print(fileName)
 			fileName <- paste(sep='','test/pics/dc/',z,'_',z.sp.dc$i[j],'.png')
 			png(width=100,height=100,fileName)
 			par(mar=rep(0,4))
@@ -60,7 +60,7 @@ fingerprint <- function(z){
 			col<-sample_to_color(sample)
 			sp::plot(sp,col=col)
 			dev.off()
-			gitAdd(print(fileName))
+			print(fileName)
 		}
 	)
 	

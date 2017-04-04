@@ -3,6 +3,7 @@ system('mkdir -p test/pics/spatial')
 
 lapply(ls.ballotTag(),
 	function(ballotTagName){
+		cat('spatial plot',x,'\n')
 		x <- as.ballotTag(ballotTagName)
 		sbList <- splitBallot(get.ballot(x))[seq(3)]
 		lapply(seq_along(sbList),
@@ -28,7 +29,7 @@ lapply(ls.ballotTag(),
 			}
 		)
 	}
-}
+)
 
 system('zip -9vju test/pics/spatial.zip test/pics/spatial/*')
 if(buildPackageLoaded)gitAdd('test/pics/spatial.zip')
