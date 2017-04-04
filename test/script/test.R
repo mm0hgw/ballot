@@ -28,15 +28,6 @@ system('mkdir -p test/pics/ballot/sp')
 lapply(ls.ballotTag(),
 	function(ballotTagName){
 		x <- as.ballotTag(ballotTagName)
-		testFile <- paste(sep='','test/pics/ballot/',
-			ballotTagName,'_ballotTag_test_0.1.png'
-		)
-		a<-strsplit(x,'\\.')[[1]]
-		year<-a[length(a)-1]
-		testPng(testFile)
-		plot(x)
-		dev.off()
-		if(buildPackageLoaded)gitAdd(print(testFile))
 		sbList <- splitBallot(get.ballot(x))[seq(3)]
 		lapply(seq_along(sbList),
 			function(i){
