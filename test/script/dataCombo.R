@@ -40,7 +40,10 @@ fingerprint <- function(z){
 				'test/pics/dc/',z,'_',z.combo$i[j],'_',
 				gsub(' ','.',z.sbNames[i]),'_results.csv'
 			)
-			write.csv(cbind(z.dc$dGen(j),sample)[order(rev(sample)),],file=csvFile)
+			write.csv(
+				cbind(z.dc$dGen(j),sample)[order(sample,decreasing=TRUE),],
+				file=csvFile
+			)
 			if(buildPackageLoaded)gitAdd(print(csvFile))
 			col<-sample_to_color(sample)
 			ord <- order(sample)
