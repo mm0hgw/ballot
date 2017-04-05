@@ -40,7 +40,7 @@ fingerprint <- function(z){
 				'test/pics/dc/',z,'_',z.combo$i[j],'_',
 				gsub(' ','.',z.sbNames[i]),'_results.csv'
 			)
-			write.csv(cbind(z.dc$dGen(j),sample),file=csvFile)
+			write.csv(cbind(z.dc$dGen(j),sample)[,order(rev(sample))],file=csvFile)
 			if(buildPackageLoaded)gitAdd(print(csvFile))
 			col<-sample_to_color(sample)
 			ord <- order(sample)
@@ -92,4 +92,3 @@ fingerprint <- function(z){
 }
 
 lapply(ls.ballotTag(),fingerprint)
-system('zip -9ju test/pics/dc.zip test/pics/dc/*')

@@ -41,7 +41,7 @@ do.sbList <- function(sbList,name){
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-3,l)
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.csv')
-			write.csv(file=testFile,cbind(sb,sample))
+			write.csv(file=testFile,cbind(sb,sample)[,order(rev(sample))])
 			if(buildPackageLoaded)gitAdd(print(testFile))			
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.png')
 			testPng(testFile)
@@ -79,6 +79,7 @@ do.sbList <- function(sbList,name){
 	dev.off()
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
+
 sbListYes <- list(YeSNP2010=GE2010$SNP,
 	YeSNP2014=SIR2014$Yes,
 	YeSNP2015=GE2015$SNP
@@ -117,5 +118,3 @@ do.sbList(sbListAbstain,'Abstainers')
 do.sbList(sbListCon,'Conservative')
 do.sbList(sbListLab,'Labour')
 do.sbList(sbListLD,'Liberal.Democrats')
-
-system('zip -9ju test/pics/fingerprints.zip test/pics/fingerprints/*')

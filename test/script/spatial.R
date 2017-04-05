@@ -31,5 +31,3 @@ lapply(ls.ballotTag(),
 		)
 	}
 )
-
-system('zip -9ju test/pics/spatial.zip test/pics/spatial/*')
