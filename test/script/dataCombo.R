@@ -29,10 +29,10 @@ fingerprint <- function(z){
 			rm(z.chisq)
 			z.sb <- z.sbList[[i]]
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
-			fileName <- paste(sep='',
+			testFile <- paste(sep='',
 				'test/pics/dc/',z,'_',z.combo$i[j],'_',gsub(' ','.',z.sbNames[i]),'.png'
 			)
-			testPng(fileName)
+			testPng(testFile)
 			sb <- z.dc$dGen(j)
 			sample <- sbCalculateSample(sb)
 			col<-sample_to_color(sample)
