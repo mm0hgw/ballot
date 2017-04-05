@@ -32,7 +32,6 @@ fingerprint <- function(z){
 			)
 			testPng(testFile)
 			par(mar=rep(0,4))
-			sp<-z.sp.dc$dGen(j)
 			sp::plot(z.sp,border='black',col=col)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
