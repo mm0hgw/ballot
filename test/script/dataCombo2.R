@@ -1,5 +1,3 @@
-z<-ls.ballotTag('SIR')
-z
 fingerprint <- function(z){
 	z <- as.ballotTag(z)
 	stopifnot(is.ballotTag(z))
