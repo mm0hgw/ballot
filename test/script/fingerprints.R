@@ -9,12 +9,12 @@ do.sbList <- function(sbList,name){
 		type='n',
 		xlim=ballot:::dListXlim(dList),
 		ylim=ballot:::dListYlim(dList),
-		main=paste(name,'faction \'10-\'15'),
+		main=paste(name,'\'10-\'15'),
 		ylab='Density',
 		xlab='Fractional Turnout'
 	)
 	col <- seq_along(dList)+1
-	testFile <- paste(sep='','test/pics/fingerprints/',name,'.png')
+	testFile <- paste(sep='','test/pics/fingerprints/',name,'_sample.png')
 	testPng(testFile)
 	do.call(plot,arg)
 	lapply(seq_along(dList),
@@ -36,13 +36,18 @@ do.sbList <- function(sbList,name){
 	if(buildPackageLoaded)gitAdd(print(testFile))
 	lapply(seq_along(sbList),
 		function(i){
+			sb <- sbList[[i]]
+			sample <- sbCalculateSample(sb)
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-3,l)
+			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.csv')
+			write.csv(file=testFile,cbind(sb,sample))
+			if(buildPackageLoaded)gitAdd(print(testFile))			
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.png')
 			testPng(testFile)
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			spatialPlot(tag,
-				sample= sbCalculateSample(sbList[[i]],norm=FALSE) * 100,
+				sample= sbCalculateSample(sb,norm=FALSE) * 100,
 				main=paste(get.bTitle(tag),names(sbList)[i])
 			)
 			dev.off()
