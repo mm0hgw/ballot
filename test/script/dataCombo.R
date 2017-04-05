@@ -76,7 +76,6 @@ fingerprint <- function(z){
 			print(fileName)
 		}
 	)
-	
 }
 
 lapply(setdiff(ls.ballotTag(),ls.ballotTag('GB')),fingerprint)
