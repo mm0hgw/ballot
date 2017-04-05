@@ -36,6 +36,12 @@ fingerprint <- function(z){
 			testPng(testFile)
 			sb <- z.dc$dGen(j)
 			sample <- sbCalculateSample(sb)
+			csvFile <- paste(sep='',
+				'test/pics/dc/',z,'_',z.combo$i[j],'_',
+				gsub(' ','.',z.sbNames[i]),'_results.csv'
+			)
+			write.csv(cbind(z.sb,sample),file=csvFile)
+			if(buildPackageLoaded)gitAdd(print(csvFile))
 			col<-sample_to_color(sample)
 			ord <- order(sample)
 			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
