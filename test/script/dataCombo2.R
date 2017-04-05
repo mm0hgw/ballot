@@ -2,7 +2,7 @@ fingerprint <- function(z){
 	z <- as.ballotTag(z)
 	stopifnot(is.ballotTag(z))
 	z.combo <- get.combo(z)
-	z.cnt <- plyr::count(as.vector(z.combo$Gen(seq(z.combo$len))))
+	#z.cnt <- plyr::count(as.vector(z.combo$Gen(seq(z.combo$len))))
 	z.ballot <- get.ballot(z)
 	elemNames <- rownames(z.ballot)
 	z.sbList <- splitBallot(z.ballot)
@@ -20,7 +20,7 @@ fingerprint <- function(z){
 			z.chisq <- get.chisq(z,party)
 			j <- head(order(z.chisq,decreasing=TRUE),n=z.combo$len%/%10)
 			cnt <- plyr::count(as.vector(z.combo$Gen(j)))
-			sample <- cnt$freq / z.cnt$freq
+			sample <- cnt$freq #/ z.cnt$freq
 			col <- sample_to_color(sample)
 			testFile <- paste(sep='',
 				'test/pics/dc2/',z,'_',
