@@ -114,4 +114,3 @@ do.sbList(sbListLab,'Labour')
 do.sbList(sbListLD,'Liberal.Democrats')
 
 system('zip -9ju test/pics/fingerprints.zip test/pics/fingerprints/*')
-if(buildPackageLoaded)gitAdd('test/pics/fingerprints.zip')

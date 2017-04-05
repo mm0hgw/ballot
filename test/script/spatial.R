@@ -33,4 +33,3 @@ lapply(ls.ballotTag(),
 )
 
 system('zip -9ju test/pics/spatial.zip test/pics/spatial/*')
-if(buildPackageLoaded)gitAdd('test/pics/spatial.zip')
