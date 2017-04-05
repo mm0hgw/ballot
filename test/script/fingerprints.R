@@ -42,7 +42,7 @@ do.sbList <- function(sbList,name){
 			year <- substr(names(sbList)[i],l-3,l)
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.csv')
 			csvTmp <- cbind(sb,sample)
-			csvTmp <- csvTmp[order(sample),]
+			csvTmp <- csvTmp[order(rev(sample)),]
 			print(csvTmp)
 			write.csv(file=testFile,csvTmp)
 			if(buildPackageLoaded)gitAdd(print(testFile))			
