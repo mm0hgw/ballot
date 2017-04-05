@@ -46,5 +46,3 @@ lapply(ls.ballotTag(),
 		if(buildPackageLoaded)gitAdd(print(testFile))
 	}
 )
-
-system('zip -9ju test/pics/basic.zip test/pics/layers/* test/pics/regions/* test/pics/ballot/*')
