@@ -30,7 +30,8 @@ fingerprint <- function(z){
 			z.sb <- z.sbList[[i]]
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
 			testFile <- paste(sep='',
-				'test/pics/dc/',z,'_',z.combo$i[j],'_',gsub(' ','.',z.sbNames[i]),'.png'
+				'test/pics/dc/',z,'_',z.combo$i[j],'_',
+				gsub(' ','.',z.sbNames[i]),'_density.png'
 			)
 			testPng(testFile)
 			sb <- z.dc$dGen(j)
@@ -40,8 +41,10 @@ fingerprint <- function(z){
 			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
 			dObj <- density (sample)
 			plot(dObj,
-				main=paste(get.bTitle(z),z.combo$i[j],z.sbNames[i],'Chisq:',format(maxch,digits=5)),
-				sub=subTitle,
+				main=paste(get.bTitle(z),z.combo$i[j],z.sbNames[i],
+					'Chisq:',format(maxch,digits=5)
+				),
+				sub=subTitle
 			)
 			lines(dObj$x,
 				dnorm(dObj$x,
@@ -67,7 +70,10 @@ fingerprint <- function(z){
 			)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
-			testFile <- paste(sep='','test/pics/dc/',z,'_',z.sp.dc$i[j],'.png')
+			testFile <- paste(sep='',
+				'test/pics/dc/',z,'_',z.combo$i[j],'_',
+				gsub(' ','.',z.sbNames[i]),'_spatial.png'
+			)
 			testPng(testFile)
 			par(mar=rep(0,4))
 			sp<-z.sp.dc$dGen(j)
