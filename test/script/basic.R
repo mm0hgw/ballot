@@ -27,15 +27,19 @@ system('mkdir -p test/pics/ballot/')
 lapply(ls.ballotTag(),
 	function(ballotTagName){
 		x <- as.ballotTag(ballotTagName)
-		cat('region plot',x,'\n')
+		cat('ballot plot',x,'\n')
 		testFile <- paste(sep='','test/pics/ballot/',
-			ballotTagName,'_ballotTag_test_0.1.png'
+			ballotTagName,'_ballotTag_test.png'
 		)
 		a<-strsplit(x,'\\.')[[1]]
 		year<-a[length(a)-1]
 		testPng(testFile)
 		plot(x)
 		dev.off()
+		testFile <- paste(sep='','test/pics/ballot/',
+			ballotTagName,'_ballotTag_test.csv'
+		)
+		write.csv(get.ballot(x),file=testFile)
 	}
 )
 
