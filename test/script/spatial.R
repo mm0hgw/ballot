@@ -26,10 +26,11 @@ lapply(ls.ballotTag(),
 					main=title, sub=subTitle
 				)
 				dev.off()
+				if(buildPackageLoaded)gitAdd(print(testFile))
 			}
 		)
 	}
 )
 
-system('zip -9vju test/pics/spatial.zip test/pics/spatial/*')
+system('zip -9ju test/pics/spatial.zip test/pics/spatial/*')
 if(buildPackageLoaded)gitAdd('test/pics/spatial.zip')

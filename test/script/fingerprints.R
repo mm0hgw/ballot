@@ -33,7 +33,7 @@ do.sbList <- function(sbList,name){
 	)
 	legend('topright',legend=leg,col=col,lwd=2)
 	dev.off()
-	print(testFile)
+	if(buildPackageLoaded)gitAdd(print(testFile))
 	lapply(seq_along(sbList),
 		function(i){
 			l <- nchar(names(sbList)[i])
@@ -46,7 +46,7 @@ do.sbList <- function(sbList,name){
 				main=paste(get.bTitle(tag),names(sbList)[i])
 			)
 			dev.off()
-			print(testFile)	
+			if(buildPackageLoaded)gitAdd(print(testFile))
 		}
 	)
 	
@@ -72,6 +72,7 @@ do.sbList <- function(sbList,name){
 	)
 	legend('topright',legend=names(sbList),col=col,lwd=2)
 	dev.off()
+	if(buildPackageLoaded)gitAdd(print(testFile))
 }
 sbListYes <- list(YeSNP2010=GE2010$SNP,
 	YeSNP2014=SIR2014$Yes,
@@ -112,5 +113,5 @@ do.sbList(sbListCon,'Conservative')
 do.sbList(sbListLab,'Labour')
 do.sbList(sbListLD,'Liberal.Democrats')
 
-system('zip -9vju test/pics/fingerprints.zip test/pics/fingerprints/*')
+system('zip -9ju test/pics/fingerprints.zip test/pics/fingerprints/*')
 if(buildPackageLoaded)gitAdd('test/pics/fingerprints.zip')
