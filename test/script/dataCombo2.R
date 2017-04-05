@@ -25,9 +25,9 @@ fingerprint <- function(z){
 		function(i){
 			party <- z.sbNames[i]
 			z.chisq <- get.chisq(z,party)
-			j <- head(order(z.chisq,decreasing=TRUE),n=1000)
+			j <- head(order(z.chisq,decreasing=TRUE),n=z.combo$len%/%10)
 			cnt <- plyr::count(as.vector(z.combo$Gen(j)))
-			sample <- cnt / z.cnt
+			sample <- cnt$freq / z.cnt$freq
 			col <- sample_to_color(sample)
 			testFile <- paste(sep='',
 				'test/pics/dc2/',z,'_',z.combo$i[j],'_',
