@@ -41,7 +41,9 @@ do.sbList <- function(sbList,name){
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-3,l)
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.csv')
-			write.csv(file=testFile,cbind(sb,sample)[,order(rev(sample))])
+			csvTmp <- cbind(sb,sample)[,order(rev(sample))]
+			print(csvTmp)
+			write.csv(file=testFile,csvTmp)
 			if(buildPackageLoaded)gitAdd(print(testFile))			
 			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.png')
 			testPng(testFile)
