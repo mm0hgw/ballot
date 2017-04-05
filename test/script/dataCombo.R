@@ -67,8 +67,8 @@ fingerprint <- function(z){
 			)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
-			fileName <- paste(sep='','test/pics/dc/',z,'_',z.sp.dc$i[j],'.png')
-			testPng(fileName)
+			testFile <- paste(sep='','test/pics/dc/',z,'_',z.sp.dc$i[j],'.png')
+			testPng(testFile)
 			par(mar=rep(0,4))
 			sp<-z.sp.dc$dGen(j)
 			sp::plot(sp,col=col)
@@ -80,4 +80,3 @@ fingerprint <- function(z){
 
 lapply(setdiff(ls.ballotTag(),ls.ballotTag('GB')),fingerprint)
 system('zip -9ju test/pics/dc.zip test/pics/dc/*')
-gitAdd('test/pics/dc.zip')
