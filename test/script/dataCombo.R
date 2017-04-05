@@ -35,6 +35,7 @@ fingerprint <- function(z){
 			testPng(fileName)
 			sb <- z.dc$dGen(j)
 			sample <- sbCalculateSample(sb)
+			col<-sample_to_color(sample)
 			ord <- order(sample)
 			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
 			dObj <- density (sample)
@@ -51,13 +52,26 @@ fingerprint <- function(z){
 				),
 				lty=2				
 			)
+			points(
+				do.call(rbind,
+					lapply(seq_along(sample),
+						function(i){
+							i <- which.min(abs(dObj$x-sample[i]))
+							c(x=dObj$x[i],
+								y=dObj$y[i]
+							)
+						}
+					)
+				),
+				col=col,
+				pch=1
+			)
 			dev.off()
 			print(fileName)
 			fileName <- paste(sep='','test/pics/dc/',z,'_',z.sp.dc$i[j],'.png')
-			png(width=100,height=100,fileName)
+			testPng(fileName)
 			par(mar=rep(0,4))
 			sp<-z.sp.dc$dGen(j)
-			col<-sample_to_color(sample)
 			sp::plot(sp,col=col)
 			dev.off()
 			print(fileName)
