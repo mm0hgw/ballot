@@ -14,7 +14,7 @@ fingerprint <- function(z){
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp)
 	oldMar <- par('mar')
-	system('mkdir -p test/pics/dc/fp')
+	system('mkdir -p test/pics/dc')
 	z.sbNames <- names(z.sbList)
 	require(mclapplyFunGen)
 	LAPPLYFUN <- get.lapply::get.lapply()
@@ -42,8 +42,6 @@ fingerprint <- function(z){
 			plot(dObj,
 				main=paste(get.bTitle(z),z.combo$i[j],z.sbNames[i],'Chisq:',format(maxch,digits=5)),
 				sub=subTitle,
-				col=2,
-				lwd=2
 			)
 			lines(dObj$x,
 				dnorm(dObj$x,
@@ -64,7 +62,8 @@ fingerprint <- function(z){
 					)
 				),
 				col=col,
-				pch=1
+				pch=1,
+				lwd=5
 			)
 			dev.off()
 			print(fileName)
