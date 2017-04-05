@@ -3,6 +3,7 @@ fingerprint <- function(z){
 	stopifnot(is.ballotTag(z))
 	z.combo <- get.combo(z)
 	z.cnt <- plyr::count(as.vector(z.combo$Gen(seq(z.combo$len))))
+	print(z.cnt)
 	z.ballot <- get.ballot(z)
 	elemNames <- rownames(z.ballot)
 	z.sbList <- splitBallot(z.ballot)
@@ -10,15 +11,11 @@ fingerprint <- function(z){
 	names(z.sbList)[1] <- 'Abstainers'
 	z.sbList <- z.sbList[sapply(z.sbList,sbSum)!=0]
 	z.sbList <- head(z.sbList,n=3)
+	print(z.sbList)
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp)
-	oldMar <- par('mar')
 	system('mkdir -p test/pics/dc2')
 	z.sbNames <- names(z.sbList)
-	require(mclapplyFunGen)
-	LAPPLYFUN <- get.lapply::get.lapply()
-	chunkSize <- get.lapply::get.chunkSize()
-	par(mar=oldMar)
 	lapply(seq_along(z.sbList),
 		function(i){
 			party <- z.sbNames[i]
