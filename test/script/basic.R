@@ -7,6 +7,7 @@ lapply(ls.layerTag(),
 		testPng(testFile)
 		plot(layerTag(layerTagName))
 		dev.off()
+		if(buildPackageLoaded)gitAdd(print(testFile))
 	}
 )
 
@@ -19,6 +20,7 @@ lapply(ls.regionTag(),
 		testPng(testFile)
 		plot(regionTag(regionTagName))
 		dev.off()
+		if(buildPackageLoaded)gitAdd(print(testFile))
 	}
 )
 
@@ -36,12 +38,14 @@ lapply(ls.ballotTag(),
 		testPng(testFile)
 		plot(x)
 		dev.off()
+		if(buildPackageLoaded)gitAdd(print(testFile))
 		testFile <- paste(sep='','test/pics/ballot/',
 			ballotTagName,'_ballotTag_test.csv'
 		)
 		write.csv(get.ballot(x),file=testFile)
+		if(buildPackageLoaded)gitAdd(print(testFile))
 	}
 )
 
-system('zip -9vju test/pics/basic.zip test/pics/layers/* test/pics/regions/* test/pics/ballot/*')
+system('zip -9ju test/pics/basic.zip test/pics/layers/* test/pics/regions/* test/pics/ballot/*')
 if(buildPackageLoaded)gitAdd('test/pics/basic.zip')
