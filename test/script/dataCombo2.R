@@ -14,6 +14,7 @@ fingerprint <- function(z){
 	print(z.sbList)
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp)
+	print(z.sp.dc)
 	system('mkdir -p test/pics/dc2')
 	z.sbNames <- names(z.sbList)
 	lapply(seq_along(z.sbList),
@@ -23,6 +24,7 @@ fingerprint <- function(z){
 			j <- head(order(z.chisq,decreasing=TRUE),n=z.combo$len%/%10)
 			cnt <- plyr::count(as.vector(z.combo$Gen(j)))
 			sample <- cnt$freq / z.cnt$freq
+			print(sample)
 			col <- sample_to_color(sample)
 			testFile <- paste(sep='',
 				'test/pics/dc2/',z,'_',
