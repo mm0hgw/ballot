@@ -16,7 +16,7 @@ fingerprint <- function(z){
 			party <- z.sbNames[i]
 			z.chisq <- get.chisq(z,party)
 			j <- head(order(z.chisq,decreasing=TRUE),n=z.combo$len%/%20)
-			col <- sample_to_color(z.chisq[j])
+			col <- sample_to_color(log(z.chisq[j]))
 			testFile <- paste(sep='',
 				'test/pics/dc2/',z,'_',
 				gsub(' ','.',z.sbNames[i]),'_density.png'
