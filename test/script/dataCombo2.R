@@ -25,7 +25,7 @@ fingerprint <- function(z){
 			sample <- cnt$freq / z.cnt$freq
 			col <- sample_to_color(sample)
 			testFile <- paste(sep='',
-				'test/pics/dc2/',z,'_',z.combo$i[j],'_',
+				'test/pics/dc2/',z,'_',
 				gsub(' ','.',z.sbNames[i]),'_spatial.png'
 			)
 			testPng(testFile)
