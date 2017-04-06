@@ -80,7 +80,7 @@ do.party <- function(party,baseDir,bList){
 		type='n',
 		xlim=ballot:::dListXlim(dList),
 		ylim=ballot:::dListYlim(dList),
-		main=paste(name,'faction \'10-\'15'),
+		main=paste(name,'\'12-\'16'),
 		ylab='Density',
 		xlab='SDs from Population mean'
 	)
