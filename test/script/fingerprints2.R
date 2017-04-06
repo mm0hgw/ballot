@@ -11,13 +11,15 @@ bList <- list(KS2012,KS2016)
 
 parties <- intersect(names(KS2012),names(KS2016))
 
+bList 
+
 sbTags <- ls.ballotTag('KS')
 sbNames <- sapply(sbTags,as.character)
 
 names(bList) <- sbNames
 
 do.party <- function(party,baseDir,bList){
-	sbList <- lapply(bList,'[',party)
+	sbList <- lapply(bList,'[[',party)
 	print(sbList)
 	name <- party
 	dList <- lapply(sbList,sbDensity,norm=FALSE)
