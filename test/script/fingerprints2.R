@@ -41,7 +41,7 @@ do.party <- function(party,baseDir,bList){
 			sb <- sbList[[i]]
 			sample <- sbCalculateSample(sb)
 			pcol <- sample_to_color(sample)
-			lines(dObj,col=col[i],lwd=2)
+			lines(dObj,col=col[i])
 			x <- seq(min(dObj$x),max(dObj$x),length.out=256)
 			lines(x,dnorm(x,mean=sbPopMean(sb),sd=sbPopSd(sb)),lty=2)
 			points(
@@ -55,9 +55,9 @@ do.party <- function(party,baseDir,bList){
 						}
 					)
 				),
-				col=col,
-				pch=1,
-				lwd=5
+				col=pcol,
+				pch=i,
+				lwd=2
 			)
 		}
 	)
@@ -68,7 +68,7 @@ do.party <- function(party,baseDir,bList){
 		'/',
 		sapply(sbList,sbSumN)
 	)
-	legend('topright',legend=leg,col=col,lwd=2)
+	legend('topright',legend=leg,col=col,lwd=2,pch=seq_along(leg))
 	dev.off()
 	if(buildPackageLoaded)gitAdd(print(testFile))
 	lapply(seq_along(sbList),
@@ -111,7 +111,26 @@ do.party <- function(party,baseDir,bList){
 	lines(x,dnorm(x),lty=2)
 	lapply(seq_along(dList),
 		function(i){
-			lines(dList[[i]],col=col[i],lwd=2)
+			lines(dList[[i]],col=col[i])
+			dObj <- dList[[i]]
+			sb <- sbList[[i]]
+			sample <- sbCalculateSample(sb)
+			pcol <- sample_to_color(sample)
+			points(
+				do.call(rbind,
+					lapply(seq_along(sample),
+						function(i){
+							i <- which.min(abs(dObj$x-sample[i]))
+							c(x=dObj$x[i],
+								y=dObj$y[i]
+							)
+						}
+					)
+				),
+				col=pcol,
+				pch=i,
+				lwd=2
+			)
 		}
 	)
 	legend('topright',legend=leg,col=col,lwd=2)
