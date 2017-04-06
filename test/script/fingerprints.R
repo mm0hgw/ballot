@@ -112,12 +112,11 @@ do.sbList <- function(sbList,name){
 					)
 				),
 				col=col,
-				pch=1,
-				lwd=5
+				pch=i
 			)
 		}
 	)
-	legend('topright',legend=names(sbList),col=col,lwd=2)
+	legend('topright',legend=names(sbList),col=col,pch=seq_along(sample))
 	dev.off()
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
