@@ -98,7 +98,7 @@ do.sbList <- function(sbList,name){
 			lines(dList[[i]],col=col[i],lwd=2)			
 			dObj <- dList[[i]]
 			sb <- sbList[[i]]
-			sample <- sbCalculateSample(sb)
+			sample <- sbCalculateSample(sb,norm=TRUE)
 			col <- sample_to_color(sample)
 			points(
 				do.call(rbind,
