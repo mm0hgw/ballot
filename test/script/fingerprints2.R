@@ -66,10 +66,10 @@ do.party <- function(party,baseDir,bList){
 			if(buildPackageLoaded)gitAdd(print(testFile))			
 			testFile <- paste(sep='',baseDir,name,'.',year,'.png')
 			testPng(testFile)
-			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
+			tag <- names(bList)[i]
 			spatialPlot(tag,
 				sample= sbCalculateSample(sb,norm=FALSE) * 100,
-				main=paste(get.bTitle(tag),names(sbList)[i])
+				main=paste(get.bTitle(tag),name)
 			)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
