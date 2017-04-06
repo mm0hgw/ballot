@@ -14,6 +14,7 @@ parties <- intersect(names(KS2012),names(KS2016))
 sbTags <- lapply(c('KS.2012','KS.2016'),
 		ls.ballotTag
 	)
+sbNames <- sapply(sbTags,as.character)
 
 do.party <- function(party,baseDir,bList){
 	sbList <- lapply(bList,'[',party)
@@ -38,7 +39,7 @@ do.party <- function(party,baseDir,bList){
 			lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 		}
 	)
-	leg <- paste( names(sbList),
+	leg <- paste( sbNames,
 		format(digits=4,sapply(sbList,sbPopMean)*100),
 		'%',
 		sapply(sbList,sbSum),
@@ -92,7 +93,7 @@ do.party <- function(party,baseDir,bList){
 			lines(dList[[i]],col=col[i],lwd=2)
 		}
 	)
-	legend('topright',legend=names(sbList),col=col,lwd=2)
+	legend('topright',legend=leg,col=col,lwd=2)
 	dev.off()
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
