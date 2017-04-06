@@ -31,16 +31,26 @@ lapply(ls.ballotTag(),
 		x <- as.ballotTag(ballotTagName)
 		cat('ballot plot',x,'\n')
 		testFile <- paste(sep='','test/pics/ballot/',
-			ballotTagName,'_ballotTag_test.png'
+			ballotTagName,'_ballotTag_sample.png'
 		)
 		a<-strsplit(x,'\\.')[[1]]
 		year<-a[length(a)-1]
 		testPng(testFile)
-		plot(x)
+		plot(x,norm=FALSE)
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
 		testFile <- paste(sep='','test/pics/ballot/',
-			ballotTagName,'_ballotTag_test.csv'
+			ballotTagName,'_ballotTag_norm.png'
+		)
+		a<-strsplit(x,'\\.')[[1]]
+		year<-a[length(a)-1]
+		testPng(testFile)
+		plot(x,norm=TRUE)
+		dev.off()
+		if(buildPackageLoaded)gitAdd(print(testFile))
+
+		testFile <- paste(sep='','test/pics/ballot/',
+			ballotTagName,'_ballotTag.csv'
 		)
 		write.csv(get.ballot(x),file=testFile)
 		if(buildPackageLoaded)gitAdd(print(testFile))
