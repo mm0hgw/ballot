@@ -113,7 +113,7 @@ do.party <- function(party,baseDir,bList){
 			lines(dList[[i]],col=col[i])
 			dObj <- dList[[i]]
 			sb <- sbList[[i]]
-			sample <- sbCalculateSample(sb)
+			sample <- sbCalculateSample(sb,norm=TRUE)
 			pcol <- sample_to_color(sample)
 			points(
 				do.call(rbind,
