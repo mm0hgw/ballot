@@ -23,7 +23,7 @@ do.sbList <- function(sbList,name){
 			sb <- sbList[[i]]
 			sample <- sbCalculateSample(sb)
 			col <- sample_to_color(sample)
-			lines(dList[[i]],col=col[i],lwd=2)
+			lines(dList[[i]],col=col[i],lwd=1)
 			x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
 			lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 			points(
@@ -39,7 +39,7 @@ do.sbList <- function(sbList,name){
 				),
 				col=col,
 				pch=1,
-				lwd=5
+				lwd=2
 			)
 
 		}
@@ -51,7 +51,7 @@ do.sbList <- function(sbList,name){
 		'/',
 		sapply(sbList,sbSumN)
 	)
-	legend('topright',legend=leg,col=col,lwd=2)
+	legend('topright',legend=leg,col=col,lwd=2,pch=seq_along(dList))
 	dev.off()
 	if(buildPackageLoaded)gitAdd(print(testFile))
 	lapply(seq_along(sbList),
@@ -95,7 +95,7 @@ do.sbList <- function(sbList,name){
 	lines(x,dnorm(x),lty=2)
 	lapply(seq_along(dList),
 		function(i){
-			lines(dList[[i]],col=col[i],lwd=2)			
+			lines(dList[[i]],col=col[i],lwd=1)			
 			dObj <- dList[[i]]
 			sb <- sbList[[i]]
 			sample <- sbCalculateSample(sb,norm=TRUE)
@@ -112,11 +112,12 @@ do.sbList <- function(sbList,name){
 					)
 				),
 				col=col,
-				pch=i
+				pch=i,
+				lwd=2
 			)
 		}
 	)
-	legend('topright',legend=names(sbList),col=col,pch=seq_along(sample))
+	legend('topright',legend=names(sbList),col=col,pch=seq_along(dList),lwd=2)
 	dev.off()
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
