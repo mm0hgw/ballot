@@ -3,8 +3,8 @@ baseDir <- 'test/pics/fingerprints2/'
 system(paste('mkdir','-p',baseDir))
 KS2012 <- splitBallot(get.ballot(ls.ballotTag('KS.2012')))
 KS2016 <- splitBallot(get.ballot(ls.ballotTag('KS.2016')))
-KS2012[[1]] <- sbAbstain(KS2012[[1]])
-KS2016[[1]] <- sbAbstain(KS2016[[1]])
+KS2012[[1]] <- sbAbstainers(KS2012[[1]])
+KS2016[[1]] <- sbAbstainers(KS2016[[1]])
 names(KS2012)[1] <- 'Abstainers'
 names(KS2016)[1] <- 'Abstainers'
 bList <- list(KS2012,KS2016)
