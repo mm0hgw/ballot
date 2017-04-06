@@ -37,9 +37,28 @@ do.party <- function(party,baseDir,bList){
 	do.call(plot,arg)
 	lapply(seq_along(dList),
 		function(i){
-			lines(dList[[i]],col=col[i],lwd=2)
-			x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
-			lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
+			dObj <- dList[[i]]
+			sb <- sbList[[i]]
+			sample <- sbCalculateSample(sb)
+			pcol <- sample_to_color(sample)
+			lines(dObj,col=col[i],lwd=2)
+			x <- seq(min(dObj$x),max(dObj$x),length.out=256)
+			lines(x,dnorm(x,mean=sbPopMean(sb),sd=sbPopSd(sb)),lty=2)
+			points(
+				do.call(rbind,
+					lapply(seq_along(sample),
+						function(i){
+							i <- which.min(abs(dObj$x-sample[i]))
+							c(x=dObj$x[i],
+								y=dObj$y[i]
+							)
+						}
+					)
+				),
+				col=col,
+				pch=1,
+				lwd=5
+			)
 		}
 	)
 	leg <- paste( names(bList),
