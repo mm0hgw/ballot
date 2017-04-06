@@ -79,7 +79,6 @@ do.party <- function(party,baseDir,bList){
 			testFile <- paste(sep='',baseDir,name,'.',year,'.csv')
 			csvTmp <- cbind(sb,sample)
 			csvTmp <- csvTmp[order(sample,decreasing=TRUE),]
-			print(csvTmp)
 			write.csv(file=testFile,csvTmp)
 			if(buildPackageLoaded)gitAdd(print(testFile))			
 			testFile <- paste(sep='',baseDir,name,'.',year,'.png')
