@@ -15,7 +15,7 @@ sbTags <- lapply(c('KS.2012','KS.2016'),
 		ls.ballotTag
 	)
 
-do.party <- function(party){
+do.party <- function(party,baseDir,bList){
 	sbList <- lapply(bList,'[',party)
 	name <- party
 	dList <- lapply(sbList,sbDensity,norm=FALSE)
@@ -54,13 +54,13 @@ do.party <- function(party){
 			sample <- sbCalculateSample(sb)
 			l <- nchar(names(sbList)[i])
 			year <- substr(names(sbList)[i],l-3,l)
-			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.csv')
+			testFile <- paste(sep='',baseDir,name,'.',year,'.csv')
 			csvTmp <- cbind(sb,sample)
 			csvTmp <- csvTmp[order(sample,decreasing=TRUE),]
 			print(csvTmp)
 			write.csv(file=testFile,csvTmp)
 			if(buildPackageLoaded)gitAdd(print(testFile))			
-			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.png')
+			testFile <- paste(sep='',baseDir,name,'.',year,'.png')
 			testPng(testFile)
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			spatialPlot(tag,
@@ -82,7 +82,7 @@ do.party <- function(party){
 		xlab='SDs from Population mean'
 	)
 	col <- seq_along(dList)+1
-	testFile <- paste(sep='','test/pics/fingerprints/',name,'_norm.png')
+	testFile <- paste(sep='',baseDir,name,'_norm.png')
 	testPng(testFile)
 	do.call(plot,arg)
 	x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
@@ -97,4 +97,4 @@ do.party <- function(party){
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
 
-lapply(parties,do.party)
+lapply(parties,do.party,baseDir,bList)
