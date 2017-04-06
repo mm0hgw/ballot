@@ -19,9 +19,29 @@ do.sbList <- function(sbList,name){
 	do.call(plot,arg)
 	lapply(seq_along(dList),
 		function(i){
+			dObj <- dList[[i]]
+			sb <- sbList[[i]]
+			sample <- sbCalculateSample(sb)
+			col <- sample_to_color(sample)
 			lines(dList[[i]],col=col[i],lwd=2)
 			x <- seq(min(dList[[i]]$x),max(dList[[i]]$x),length.out=256)
 			lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
+			points(
+				do.call(rbind,
+					lapply(seq_along(sample),
+						function(i){
+							i <- which.min(abs(dObj$x-sample[i]))
+							c(x=dObj$x[i],
+								y=dObj$y[i]
+							)
+						}
+					)
+				),
+				col=col,
+				pch=1,
+				lwd=5
+			)
+
 		}
 	)
 	leg <- paste( names(sbList),
@@ -75,7 +95,26 @@ do.sbList <- function(sbList,name){
 	lines(x,dnorm(x),lty=2)
 	lapply(seq_along(dList),
 		function(i){
-			lines(dList[[i]],col=col[i],lwd=2)
+			lines(dList[[i]],col=col[i],lwd=2)			
+			dObj <- dList[[i]]
+			sb <- sbList[[i]]
+			sample <- sbCalculateSample(sb)
+			col <- sample_to_color(sample)
+			points(
+				do.call(rbind,
+					lapply(seq_along(sample),
+						function(i){
+							i <- which.min(abs(dObj$x-sample[i]))
+							c(x=dObj$x[i],
+								y=dObj$y[i]
+							)
+						}
+					)
+				),
+				col=col,
+				pch=1,
+				lwd=5
+			)
 		}
 	)
 	legend('topright',legend=names(sbList),col=col,lwd=2)
