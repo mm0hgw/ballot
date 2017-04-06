@@ -8,10 +8,14 @@ lapply(ls.ballotTag(),
 		sbList <- splitBallot(get.ballot(x))[seq(3)]
 		lapply(seq_along(sbList),
 			function(i){
-				name <- sub('^V$','Overall Turnout',names(sbList)[i])
+				name <- names(sbList)[i]
 				if(length(grep('^SF$|^Sinn',name))>0)
 					name <- 'Sinn Fein'
 				sb <- sbList[[i]]
+				if(name == 'V'){
+					name <- 'Abstainers'
+					sb <- sbAbstainers(sb)
+				}
 				testFile <- paste(sep='',
 					'test/pics/spatial/',ballotTagName,'_ballotTag_test_',i,'_',
 					gsub(' ','.',name),'.png'
