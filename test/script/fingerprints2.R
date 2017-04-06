@@ -11,13 +11,14 @@ bList <- list(KS2012,KS2016)
 
 parties <- intersect(names(KS2012),names(KS2016))
 
-sbTags <- lapply(c('KS.2012','KS.2016'),
-		ls.ballotTag
-	)
+sbTags <- ls.ballotTag('KS')
 sbNames <- sapply(sbTags,as.character)
+
+names(bList) <- sbNames
 
 do.party <- function(party,baseDir,bList){
 	sbList <- lapply(bList,'[',party)
+	print(sbList)
 	name <- party
 	dList <- lapply(sbList,sbDensity,norm=FALSE)
 	arg <- list(x=0,
@@ -29,7 +30,7 @@ do.party <- function(party,baseDir,bList){
 		xlab='Fractional Turnout'
 	)
 	col <- seq_along(dList)+1
-	testFile <- paste(sep='','test/pics/fingerprints2/',name,'_sample.png')
+	testFile <- paste(sep='',baseDir,name,'_sample.png')
 	testPng(testFile)
 	do.call(plot,arg)
 	lapply(seq_along(dList),
@@ -39,7 +40,7 @@ do.party <- function(party,baseDir,bList){
 			lines(x,dnorm(x,mean=sbPopMean(sbList[[i]]),sd=sbPopSd(sbList[[i]])),lty=2)
 		}
 	)
-	leg <- paste( sbNames,
+	leg <- paste( names(bList),
 		format(digits=4,sapply(sbList,sbPopMean)*100),
 		'%',
 		sapply(sbList,sbSum),
