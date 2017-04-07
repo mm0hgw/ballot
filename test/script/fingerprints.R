@@ -72,7 +72,7 @@ do.sbList <- function(sbList,name){
 				sample= sbCalculateSample(sb,norm=FALSE) * 100,
 				main=paste(get.bTitle(tag),names(sbList)[i])
 			)
-			title(sub='Scale is in % of electorate ->')
+			title(sub='Scale is in % of electorate ->',outer=TRUE)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
 		}
