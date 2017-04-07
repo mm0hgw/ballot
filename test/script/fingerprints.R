@@ -70,9 +70,9 @@ do.sbList <- function(sbList,name){
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			spatialPlot(tag,
 				sample= sbCalculateSample(sb,norm=FALSE) * 100,
-				main=paste(get.bTitle(tag),names(sbList)[i]),
-				sub='Scale is in % of electorate ->'
+				main=paste(get.bTitle(tag),names(sbList)[i])
 			)
+			title(sub='Scale is in % of electorate ->')
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
 		}
