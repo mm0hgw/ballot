@@ -15,7 +15,7 @@ bList
 
 sbTags <- ls.ballotTag('KS')
 sbNames <- sapply(sbTags,as.character)
-
+names(bList)<-sbTags
 names(bList) <- sbNames
 
 do.party <- function(party,baseDir,bList){
@@ -86,7 +86,8 @@ do.party <- function(party,baseDir,bList){
 			tag <- names(bList)[i]
 			spatialPlot(tag,
 				sample= sbCalculateSample(sb,norm=FALSE) * 100,
-				main=paste(get.bTitle(tag),name)
+				main=paste(get.bTitle(tag),name),
+				sub='Scale is in % of electorate ->'
 			)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
