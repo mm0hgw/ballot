@@ -86,8 +86,7 @@ do.party <- function(party,baseDir,bList){
 			tag <- names(bList)[i]
 			spatialPlot(tag,
 				sample= sbCalculateSample(sb,norm=FALSE) * 100,
-				main=paste(get.bTitle(tag),name),
-				sub='Scale is in % of electorate ->'
+				main=paste(get.bTitle(tag),name)
 			)
 			dev.off()
 			if(buildPackageLoaded)gitAdd(print(testFile))
