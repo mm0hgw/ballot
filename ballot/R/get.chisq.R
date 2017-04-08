@@ -1,6 +1,7 @@
 
 #'get.chisq
 #'@param x ballotTag
+#'@param party a 'character' index
 #'@export get.chisq
 get.chisq <- function(x,party='V'){
 	stopifnot(length(x)==1)
