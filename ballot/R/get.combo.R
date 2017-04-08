@@ -29,6 +29,7 @@ get.combo.ballotTag <- function(x){
 #'@export
 get.combo.regionTag <- function(x){
 #	cat(paste('get.combo.regionTag',x,'\n'))
+	tmpEnv <- new.env()
 	dataName <- paste(sep='', x, '.combo')
 	fileName <- paste(sep='', regionDir, x, '.combo.rda')
 	if(!file.exists(fileName)){
