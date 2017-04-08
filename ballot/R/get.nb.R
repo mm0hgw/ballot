@@ -53,7 +53,7 @@ get.nb.layerTag <- function(x){
 	fileName <- paste(sep='', layerDir, x, '.nb.rda')
 	if(!file.exists(fileName)){
 		sp <- get.Spatial(x)
-		nb <- poly2nb(sp)
+		nb <- spdep::poly2nb(sp)
 		textLinks <- get.textLinks(x)
 		if (length(textLinks)>1){
 			target <- sp@data[,get.linkSearchCol(x)]
@@ -78,7 +78,7 @@ findLinks <- function(textLinks,target){
 	stopifnot(len>0)
 	out <- lapply(seq(len%/%2)*2,
 		function(i){
-			if(textLinks[i-1]%in%target && textLinks[i-1]%in%target){
+			if(textLinks[i-1]%in%target && textLinks[i]%in%target){
 				c(which.max(target==textLinks[i-1]),
 					which.max(target==textLinks[i])
 				)
