@@ -49,6 +49,7 @@ get.nb.regionTag <- function(x){
 #'@export
 get.nb.layerTag <- function(x){
 #	cat(paste('get.nb.layerTag',x,'\n'))
+	tmpEnv <- new.env()
 	dataName <- paste(sep='', x, '.nb')
 	fileName <- paste(sep='', layerDir, x, '.nb.rda')
 	if(!file.exists(fileName)){
@@ -60,14 +61,15 @@ get.nb.layerTag <- function(x){
 			links <- findLinks(get.textLinks(x),target)
 			nb <- nb.add(nb,links)
 		}
-		assign(dataName,nb)
+		assign(dataName,nb,envir=tmpEnv)
 		xzSave(list=dataName,
-			file=fileName
+			file=fileName,
+			envir=tmpEnv
 		)
 		return(nb)
 	}else{
-		load(file=fileName)
-		return(get(dataName))
+		load(file=fileName,envir=tmpEnv)
+		return(get(dataName,envir=tmpEnv))
 	}
 }
 
