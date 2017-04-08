@@ -8,6 +8,8 @@ get.chisq(x, party = "V")
 }
 \arguments{
 \item{x}{ballotTag}
+
+\item{party}{a 'character' index}
 }
 \description{
 get.chisq
