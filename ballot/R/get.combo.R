@@ -121,13 +121,21 @@ growCombo2 <- function(nb,k=7,seeds=0){
 	if(any(seeds<0))
 		seeds <- setdiff(seq(n),-seeds)
 	combo <- ultraCombo::ultraCombo(seeds,n,1)
-	revCombnGen <- ultraCombo::revCombnGG(n)
 	LAPPLYFUN <- get.lapply()
 	chunkSize <- get.chunkSize()
+	
+	seeds <- seeds[sapply(seeds,function(x)length(nb[[x]]))]
+	do.call(union.combo,LAPPLYFUN(seeds,growCombo2thread,nb=nb,k=k))
+}
+
+
+growCombo2thread <- function(nb,k,seeds){
+	n <- length(nb)
+	revCombnGen <- ultraCombo::revCombnGG(n)
 	comboList <- vector('list',k)
 	comboList[[1]] <- seeds
 	out <- ultraCombo::ultraCombo(vector(),n,k)
-	while(sum(sapply(comboList,length))!=0){
+	while(length(comboList[[1]])!=0){
 		i <- which.max(sapply(comboList,length)==0)
 		while(i<=k){
 			j <- sapply(comboList[seq(1,i-1)],'[[',1)
@@ -146,18 +154,12 @@ growCombo2 <- function(nb,k=7,seeds=0){
 			),
 			out
 		)
-		j <- k
 		comboList[[k]] <- vector()
-		while(j>1 && length(comboList[[j]])==0){
-			j <- j-1
-			comboList[[j]] <- comboList[[j]][-1]
+		i<-k
+		while(i>1 && length(comboList[[i]])==0){
+			i <- i-1
+			comboList[[i]] <- comboList[[i]][-1]
 		}
 	}
 	out
 }
-
-system.time(out<-growCombo2(get.nb(ls.regionTag('Northern.Ireland'))))
-system.time(out<-growCombo(get.nb(ls.regionTag('Northern.Ireland'))))
-
-
-
