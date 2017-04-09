@@ -22,7 +22,7 @@ parties2015[6] <- 'Liberal Democrat'
 parties2010[c(seq(3,11),14,15,16,18,23,25,seq(26,30))] <- 
 	parties2015[c(3,4,6,5,19,7,8,9,13,10,21,16,17,20,24,seq(26,30))]
 	
-print(rbind(parties2010,volnames(GE2010)))
+print(rbind(parties2010,colnames(GE2010)))
 
 colnames(GE2010) <- parties2010
 colnames(GE2015) <- parties2015
