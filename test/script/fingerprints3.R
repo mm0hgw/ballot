@@ -31,7 +31,7 @@ do.party <- function(party,baseDir,bList){
 		xlab='Fractional Turnout'
 	)
 	col <- seq_along(dList)+1
-	testFile <- paste(sep='',baseDir,name,'_sample.png')
+	testFile <- paste(sep='',baseDir,gsub(' ','.',name),'_sample.png')
 	testPng(testFile)
 	do.call(plot,arg)
 	lapply(seq_along(dList),
@@ -77,12 +77,12 @@ do.party <- function(party,baseDir,bList){
 			sb <- sbList[[i]]
 			sample <- sbCalculateSample(sb)
 			year <- 2008+4*i
-			testFile <- paste(sep='',baseDir,name,'.',year,'.csv')
+			testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.csv')
 			csvTmp <- cbind(sb,sample)
 			csvTmp <- csvTmp[order(sample,decreasing=TRUE),]
 			write.csv(file=testFile,csvTmp)
 			if(buildPackageLoaded)gitAdd(print(testFile))			
-			testFile <- paste(sep='',baseDir,name,'.',year,'.png')
+			testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.png')
 			testPng(testFile)
 			tag <- names(bList)[i]
 			spatialPlot(tag,
@@ -104,7 +104,7 @@ do.party <- function(party,baseDir,bList){
 		xlab='SDs from Population mean'
 	)
 	col <- seq_along(dList)+1
-	testFile <- paste(sep='',baseDir,name,'_norm.png')
+	testFile <- paste(sep='',baseDir,gsub(' ','.',name),'_norm.png')
 	testPng(testFile)
 	do.call(plot,arg)
 	x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
