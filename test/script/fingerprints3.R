@@ -76,6 +76,7 @@ do.party <- function(party,baseDir,bList){
 		function(i){
 			sb <- sbList[[i]]
 			sample <- sbCalculateSample(sb)
+			print(names(bList)[i])
 			y1 <- strsplit(names(bList)[i],'.')
 			print(y1)
 			year <- y1[length(y1)]
