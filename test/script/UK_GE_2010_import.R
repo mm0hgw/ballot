@@ -14,10 +14,16 @@ GE2015Names <- iconv(GE2015Names, "CP1252", "UTF-8", sub='')
 GE2015 <- GE2015[fuzzyMatch(GE2010Names,GE2015Names),]
 rownames(GE2015) <- rownames(GE2010)
 
-colnames(GE2015)[6] <- 'Liberal Democrat'
+parties2010 <- colnames(GE2010)
+parties2015 <- colnames(GE2015)
 
-colnames(GE2010)[c(seq(3,11),14,15,16,18,23,25,seq(26,30))] <- 
-	colnames(GE2015)[c(3,4,6,5,19,7,8,9,13,10,21,16,17,20,24,seq(26,30))]
+parties2015[6] <- 'Liberal Democrat'
+
+parties2010[c(seq(3,11),14,15,16,18,23,25,seq(26,30))] <- 
+	parties2015[c(3,4,6,5,19,7,8,9,13,10,21,16,17,20,24,seq(26,30))]
+
+colnames(GE2010) <- parties2010
+colnames(GE2015) <- parties2015
 
 regionNames<-levels(key10)
 

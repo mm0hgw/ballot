@@ -140,17 +140,16 @@ sbListNo <- list( Unionist.2010=GE2010U,
 	Unionist.2014=SIR2014$No,
 	Unionist.2015=GE2015U
 )
-sbListCon <- list(Conservative.2010=GE2010$Con,
+sbListCon <- list(Conservative.2010=GE2010$Conservative,
 	Conservative.2015=GE2015$Conservative
 )
 
-sbListLab <- list(Labour.2010=GE2010$Lab,
-	Labour.2015=GE2015$
-	Labour
+sbListLab <- list(Labour.2010=GE2010$Labour,
+	Labour.2015=GE2015$Labour
 )
 
-sbListLD <- list(Liberal.Democrat.2010=GE2010$LD,
-	Liberal.Democrat.2015=GE2015$Lib.Dem
+sbListLD <- list(Liberal.Democrat.2010=GE2010$Liberal.Democrat,
+	Liberal.Democrat.2015=GE2015$Liberal.Democrat
 )
 
 do.sbList(sbListYes,'YeSNP')
