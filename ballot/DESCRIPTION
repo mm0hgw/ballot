@@ -1,6 +1,6 @@
 Package: ballot
 Title: Ballot processing routines
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: person("Dale",  email = "dale@piratepress.org", role = c("aut", "cre", "cph"))
 Description: Code for running tests on ballots.
 Depends: R (>= 3.3.2)
