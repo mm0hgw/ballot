@@ -16,8 +16,8 @@ lapply(ls.ballotTag(),
 					sb <- sbAbstainers(sb)
 				}
 				testFile <- paste(sep='',
-					'test/pics/spatial/',ballotTagName,'_ballotTag_test_',i,'_',
-					gsub(' ','.',name),'.png'
+					'test/pics/spatial/',gsub(' ','.',name),'_ballotTag_test_',
+					ballotTagName,'.png'
 				)
 				a<-strsplit(x,'\\.')[[1]]
 				year<-a[length(a)-1]
