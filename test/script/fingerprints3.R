@@ -75,24 +75,26 @@ do.party <- function(party,baseDir,bList){
 	lapply(seq_along(sbList),
 		function(i){
 			sb <- sbList[[i]]
-			sample <- sbCalculateSample(sb)
-			y1 <- print(names(bList)[i])
-			y2 <- print(strsplit(y1,'\\.')[[1]])
-			year <- print(y2[length(y2)-1])
-			testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.csv')
-			csvTmp <- cbind(sb,sample)
-			csvTmp <- csvTmp[order(sample,decreasing=TRUE),]
-			write.csv(file=testFile,csvTmp)
-			if(buildPackageLoaded)gitAdd(print(testFile))			
-			testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.png')
-			testPng(testFile)
-			tag <- names(bList)[i]
-			spatialPlot(tag,
-				sample= sbCalculateSample(sb,norm=FALSE) * 100,
-				main=paste(get.bTitle(tag),name)
-			)
-			dev.off()
-			if(buildPackageLoaded)gitAdd(print(testFile))
+			if(sbSum(sb)>0){
+				sample <- sbCalculateSample(sb)
+				y1 <- (names(bList)[i])
+				y2 <- (strsplit(y1,'\\.')[[1]])
+				year <- (y2[length(y2)-1])
+				testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.csv')
+				csvTmp <- cbind(sb,sample)
+				csvTmp <- csvTmp[order(sample,decreasing=TRUE),]
+				write.csv(file=testFile,csvTmp)
+				if(buildPackageLoaded)gitAdd(print(testFile))			
+				testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.png')
+				testPng(testFile)
+				tag <- names(bList)[i]
+				spatialPlot(tag,
+					sample= sbCalculateSample(sb,norm=FALSE) * 100,
+					main=paste(get.bTitle(tag),name)
+				)
+				dev.off()
+				if(buildPackageLoaded)gitAdd(print(testFile))
+			}
 		}
 	)
 	
