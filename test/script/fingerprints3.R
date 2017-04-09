@@ -1,4 +1,4 @@
-baseDir <- 'test/pics/fingerprints2/'
+baseDir <- 'test/pics/fingerprints3/'
 
 system(paste('mkdir','-p',baseDir))
 GE2010 <- splitBallot(get.ballot(ls.ballotTag('GB.2010')))
@@ -24,7 +24,7 @@ do.party <- function(party,baseDir,bList){
 		type='n',
 		xlim=ballot:::dListXlim(dList),
 		ylim=ballot:::dListYlim(dList),
-		main=paste(name,'\'12-\'16'),
+		main=paste(name,'\'10-\'15'),
 		ylab='Density',
 		xlab='Fractional Turnout'
 	)
@@ -95,7 +95,7 @@ do.party <- function(party,baseDir,bList){
 		type='n',
 		xlim=ballot:::dListXlim(dList),
 		ylim=ballot:::dListYlim(dList),
-		main=paste(name,'\'12-\'16'),
+		main=paste(name,'\'10-\'15'),
 		ylab='Density',
 		xlab='SDs from Population mean'
 	)
