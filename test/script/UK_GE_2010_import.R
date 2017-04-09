@@ -17,10 +17,10 @@ rownames(GE2015) <- rownames(GE2010)
 parties2010 <- colnames(GE2010)
 parties2015 <- colnames(GE2015)
 
-parties2015[6] <- 'Liberal Democrat'
+parties2015[14] <- 'Liberal Democrat'
 
-parties2010[c(seq(3,11),14,15,16,18,23,25,seq(26,30))] <- 
-	parties2015[c(3,4,6,5,19,7,8,9,13,10,21,16,17,20,24,seq(26,30))]
+parties2010[c(4,5,8,9,10:14,16,18,19,20,22,23,24,27,28,30,32)] <- 
+	parties2015[c(4,5,9,7,10:14,24,15,18,17,,19,22,20,26,27,28,30)]
 	
 print(rbind(parties2010,colnames(GE2010)))
 
