@@ -5,12 +5,11 @@ lapply(ls.ballotTag(),
 	function(ballotTagName){
 		x <- as.ballotTag(ballotTagName)
 		cat('spatial plot',x,'\n')
-		sbList <- splitBallot(get.ballot(x))[seq(3)]
+		sbList <- splitBallot(get.ballot(x))
+		sbList <- sbList[sapply(sbList,sbSum)!=0]
 		lapply(seq_along(sbList),
 			function(i){
 				name <- names(sbList)[i]
-				if(length(grep('^SF$|^Sinn',name))>0)
-					name <- 'Sinn Fein'
 				sb <- sbList[[i]]
 				if(name == 'V'){
 					name <- 'Abstainers'
@@ -23,11 +22,10 @@ lapply(ls.ballotTag(),
 				a<-strsplit(x,'\\.')[[1]]
 				year<-a[length(a)-1]
 				title <- paste(sep=', ',name,year)
-				subTitle <- paste(sep='/',sbSum(sb),sbSumN(sb))
 				testPng(testFile)
 				spatialPlot(x,
-					sample=as.integer(format(digits=3,sbCalculateSample(sb,norm=FALSE)*100)),
-					main=title, sub=subTitle
+					sample=sbCalculateSample(sb,norm=TRUE),
+					main=title
 				)
 				dev.off()
 				if(buildPackageLoaded)gitAdd(print(testFile))
