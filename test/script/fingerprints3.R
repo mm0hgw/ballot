@@ -118,23 +118,25 @@ do.party <- function(party,baseDir,bList){
 			lines(dList[[i]],col=col[i])
 			dObj <- dList[[i]]
 			sb <- sbList[[i]]
-			sample <- sbCalculateSample(sb,norm=TRUE)
-			pcol <- sample_to_color(sample)
-			points(
-				do.call(rbind,
-					lapply(seq_along(sample),
-						function(i){
-							i <- which.min(abs(dObj$x-sample[i]))
-							c(x=dObj$x[i],
-								y=dObj$y[i]
-							)
-						}
-					)
-				),
-				col=pcol,
-				pch=i,
-				lwd=2
-			)
+			if(sbSum(sb)!=0){
+				sample <- sbCalculateSample(sb,norm=TRUE)
+				pcol <- sample_to_color(sample)
+				points(
+					do.call(rbind,
+						lapply(seq_along(sample),
+							function(i){
+								i <- which.min(abs(dObj$x-sample[i]))
+								c(x=dObj$x[i],
+									y=dObj$y[i]
+								)
+							}
+						)
+					),
+					col=pcol,
+					pch=i,
+					lwd=2
+				)
+			}
 		}
 	)
 	legend('topright',legend=leg,col=col,lwd=2)
