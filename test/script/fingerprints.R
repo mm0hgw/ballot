@@ -148,8 +148,8 @@ sbListLab <- list(Labour.2010=GE2010$Labour,
 	Labour.2015=GE2015$Labour
 )
 
-sbListLD <- list(Liberal.Democrat.2010=GE2010$Liberal.Democrat,
-	Liberal.Democrat.2015=GE2015$Liberal.Democrat
+sbListLD <- list(Liberal.Democrat.2010=GE2010[['Liberal Democrat']],
+	Liberal.Democrat.2015=GE2015[['Liberal Democrat']]
 )
 
 do.sbList(sbListYes,'YeSNP')
