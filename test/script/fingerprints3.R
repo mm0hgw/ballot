@@ -77,6 +77,7 @@ do.party <- function(party,baseDir,bList){
 			sb <- sbList[[i]]
 			sample <- sbCalculateSample(sb)
 			y1 <- strsplit(names(bList)[i],'.')
+			print(y1)
 			year <- y1[length(y1)]
 			testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.csv')
 			csvTmp <- cbind(sb,sample)
