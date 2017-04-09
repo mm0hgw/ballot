@@ -20,6 +20,8 @@ names(bList) <- sbNames
 
 do.party <- function(party,baseDir,bList){
 	sbList <- lapply(bList,'[[',party)
+	if(any(sapply(sbList,sbSum)==0))
+		return()
 	name <- party
 	dList <- lapply(sbList,sbDensity,norm=FALSE)
 	arg <- list(x=0,
