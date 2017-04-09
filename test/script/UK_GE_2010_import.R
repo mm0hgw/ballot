@@ -17,6 +17,7 @@ rownames(GE2015) <- rownames(GE2010)
 parties2010 <- colnames(GE2010)
 parties2015 <- colnames(GE2015)
 
+parties2015[11] <- 'English Democrats'
 parties2015[14] <- 'Liberal Democrat'
 
 parties2010[c(4,5,8,9,10:14,16,18,19,20,22,23,24,27,28,30,31)] <- 
