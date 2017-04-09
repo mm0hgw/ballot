@@ -11,6 +11,8 @@ bList <- list(GE2010,GE2015)
 
 parties <- intersect(names(GE2010),names(GE2015))
 
+print(parties)
+
 sbTags <- ls.ballotTag('GB')
 sbNames <- sapply(sbTags,as.character)
 names(bList)<-sbTags
@@ -36,26 +38,28 @@ do.party <- function(party,baseDir,bList){
 		function(i){
 			dObj <- dList[[i]]
 			sb <- sbList[[i]]
-			sample <- sbCalculateSample(sb)
-			pcol <- sample_to_color(sample)
-			lines(dObj,col=col[i])
-			x <- seq(min(dObj$x),max(dObj$x),length.out=256)
-			lines(x,dnorm(x,mean=sbPopMean(sb),sd=sbPopSd(sb)),lty=2)
-			points(
-				do.call(rbind,
-					lapply(seq_along(sample),
-						function(i){
-							i <- which.min(abs(dObj$x-sample[i]))
-							c(x=dObj$x[i],
-								y=dObj$y[i]
-							)
-						}
-					)
-				),
-				col=pcol,
-				pch=i,
-				lwd=2
-			)
+			if(sbSum(sb)!=0){
+				sample <- sbCalculateSample(sb)
+				pcol <- sample_to_color(sample)
+				lines(dObj,col=col[i])
+				x <- seq(min(dObj$x),max(dObj$x),length.out=256)
+				lines(x,dnorm(x,mean=sbPopMean(sb),sd=sbPopSd(sb)),lty=2)
+				points(
+					do.call(rbind,
+						lapply(seq_along(sample),
+							function(i){
+								i <- which.min(abs(dObj$x-sample[i]))
+								c(x=dObj$x[i],
+									y=dObj$y[i]
+								)
+							}
+						)
+					),
+					col=pcol,
+					pch=i,
+					lwd=2
+				)
+			}
 		}
 	)
 	leg <- paste( names(bList),
