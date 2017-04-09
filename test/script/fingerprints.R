@@ -38,7 +38,7 @@ do.sbList <- function(sbList,name){
 					)
 				),
 				col=col,
-				pch=1,
+				pch=i,
 				lwd=2
 			)
 
