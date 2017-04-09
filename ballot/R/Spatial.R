@@ -15,11 +15,11 @@ spatialPlot <- function(x,sample=NULL,...){
 	sp <- get.Spatial(x)
 	arg$x <- sp
 	if(is.null(sample)){
-		sample <- sbCalculateSample(get.ballot(x),norm=FALSE) * 100
+		sample <- sbCalculateSample(get.ballot(x),norm=FALSE)
 	}
 	color_vector <- sample_to_color(sample,n=4096)
 	leg<-seq(min(sample),max(sample),length.out=256)
-	layout(t(1:2),widths=c(6,1))
+	#layout(t(1:2),widths=c(6,1))
 	par(mar=c(.5,.5,.5,.5),oma=rep(3,4),las=1)
 	do.call(sp::plot,arg)
 	lapply(seq_along(sample),
@@ -32,14 +32,14 @@ spatialPlot <- function(x,sample=NULL,...){
 			)
 		}
 	)
-	image(1,
-		leg,
-		t(seq_along(leg)),
-		col=sample_to_color(leg,n=4096),
-		axes=FALSE,
-		ylab="standard deviations from mean"
-	)
-	axis(4)
+	#image(1,
+	#	leg,
+	#	t(seq_along(leg)),
+	#	col=sample_to_color(leg,n=4096),
+	#	axes=FALSE,
+	#	ylab="standard deviations from mean"
+	#)
+	#axis(4)
 }
 
 #'sample_to_color
