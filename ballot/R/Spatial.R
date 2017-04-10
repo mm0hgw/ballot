@@ -5,7 +5,7 @@
 #'@importFrom graphics image axis title par layout polygon
 #'@importFrom sp plot
 #'@export
-spatialPlot <- function(x,sample=NULL,...){
+spatialPlot <- function(x,sample=NULL,center=NULL,...){
 	x <- as.ballotTag(x)
 	arg <- list(...)
 	if(!("main" %in% names(arg))){
@@ -18,6 +18,9 @@ spatialPlot <- function(x,sample=NULL,...){
 		b <- get.ballot(x)
 		sample <- sbCalculateSample(b,norm=FALSE)
 		center <- sbPopMean(b)
+	}
+	if(is.null(center)){
+		center <- mean(sample)
 	}
 	color_vector <- sample_to_color(sample,center)
 	leg<-seq(min(sample),max(sample),length.out=256)
