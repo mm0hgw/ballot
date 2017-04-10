@@ -4,7 +4,7 @@
 \alias{sample_to_color}
 \title{sample_to_color}
 \usage{
-sample_to_color(sample, n = 7)
+sample_to_color(sample, center = mean(sample))
 }
 \arguments{
 \item{sample}{a 'numeric' vector with 1 element per electoral area.}

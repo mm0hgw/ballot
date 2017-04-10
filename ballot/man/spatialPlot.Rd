@@ -4,7 +4,7 @@
 \alias{spatialPlot}
 \title{spatialPlot}
 \usage{
-spatialPlot(x, sample = NULL, ...)
+spatialPlot(x, sample = NULL, center = NULL, ...)
 }
 \arguments{
 \item{x}{a 'character' ballotTag}
