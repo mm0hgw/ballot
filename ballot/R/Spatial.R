@@ -15,9 +15,11 @@ spatialPlot <- function(x,sample=NULL,...){
 	sp <- get.Spatial(x)
 	arg$x <- sp
 	if(is.null(sample)){
-		sample <- sbCalculateSample(get.ballot(x),norm=FALSE)
+		b <- get.ballot(x)
+		sample <- sbCalculateSample(b,norm=FALSE)
+		center <- sbPopMean(b)
 	}
-	color_vector <- sample_to_color(sample,n=4096)
+	color_vector <- sample_to_color(sample,center)
 	leg<-seq(min(sample),max(sample),length.out=256)
 	#layout(t(1:2),widths=c(6,1))
 	par(mar=c(.5,.5,.5,.5),oma=rep(3,4),las=1)
@@ -47,8 +49,9 @@ spatialPlot <- function(x,sample=NULL,...){
 #'@param n number of colour bands
 #'@importFrom fields two.colors
 #'@export
-sample_to_color <- function(sample,n=7){
-	sample <- normalise(sample)
+sample_to_color <- function(sample,center=mean(sample)){
+	n <- 256
+	sample <- normalise(sample,center)
 	a <- max(abs(sample))
 	pal <- two.colors(n=n,start='blue',end='red',middle='dark sea green')
 	key <- floor((sample+a)*n/(2*a))+1

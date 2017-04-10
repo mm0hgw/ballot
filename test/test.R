@@ -8,7 +8,7 @@ testPng <- function(...){
 	png(...,width=1000,height=1000)
 }
 
-get.lapply::set.lapply(mclapplyFunGen::mclapplyFunGen())
+require(mclapplyFunGen)
 
 system("mkdir -p test/pics/")
 
@@ -28,7 +28,7 @@ source('test/script/spatial.R')
 source('test/script/fingerprints.R')
 source('test/script/fingerprints2.R')
 source('test/script/fingerprints3.R')
-source('test/script/dataCombo.R')
+#source('test/script/dataCombo.R')
 #source('test/script/dataCombo2.R')
 
 if(buildPackageLoaded)buildPackage::gitPush("test")
