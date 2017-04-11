@@ -31,15 +31,15 @@ fingerprint <- function(z){
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
 			for(j in jList){
 				testFile <- paste(sep='',
-					'test/pics/dc/',z,'_',z.combo$i[j],'_',
-					gsub(' ','.',z.sbNames[i]),'_density.png'
+					'test/pics/dc/',z,'_',
+					gsub(' ','.',z.sbNames[i]),'_density'z.combo$i[j],'.png'
 				)
 				testPng(testFile)
 				sb <- z.dc$dGen(j)
 				sample <- sbCalculateSample(sb)
 				csvFile <- paste(sep='',
-					'test/pics/dc/',z,'_',z.combo$i[j],'_',
-					gsub(' ','.',z.sbNames[i]),'_results.csv'
+					'test/pics/dc/',z,'_',
+					gsub(' ','.',z.sbNames[i]),'_results',z.combo$i[j],'_.csv'
 				)
 				write.csv(
 					cbind(z.dc$dGen(j),sample)[order(sample,decreasing=TRUE),],
@@ -81,8 +81,8 @@ fingerprint <- function(z){
 				dev.off()
 				if(buildPackageLoaded)gitAdd(print(testFile))
 				testFile <- paste(sep='',
-					'test/pics/dc/',z,'_',z.combo$i[j],'_',
-					gsub(' ','.',z.sbNames[i]),'_spatial.png'
+					'test/pics/dc/',z,'_',
+					gsub(' ','.',z.sbNames[i]),'_spatial',z.combo$i[j],'_.png'
 				)
 				testPng(testFile)
 				par(mar=rep(0,4))
