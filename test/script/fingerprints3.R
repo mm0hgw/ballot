@@ -141,7 +141,7 @@ sbTags <- ls.ballotTag('GB')
 sbNames <- sapply(sbTags,as.character)
 names(bList) <- sbTags
 names(bList) <- sbNames
-lapply(parties,do.party,baseDir,bList)
+#lapply(parties,do.party,baseDir,bList)
 
 do.region <- function(region,country='UK'){
 	a <- paste(sep='.',country,gsub(' ','.',region))
@@ -152,6 +152,7 @@ do.region <- function(region,country='UK'){
 		function(x){
 			out <- splitBallot(get.ballot(x))
 			out[[1]] <- sbAbstainers(out[[1]])
+			names(out)[1] <- 'Abstainers'
 			out
 		}
 	)
