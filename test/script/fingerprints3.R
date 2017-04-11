@@ -151,7 +151,7 @@ do.region <- function(region,country='UK'){
 	lapply(parties,do.party,baseDir,bList)
 }
 
-regions <- unique(lapply(strsplit(ls.ballotTag('UK'),'\\.'),
+regions <- unique(lapply(strsplit(ls.ballotTag('Wm'),'\\.'),
 		function(x){
 			paste(collapse=' ',x[-c(1,length(x)-1,length(x))])
 		}
