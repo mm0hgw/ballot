@@ -158,7 +158,7 @@ do.region <- function(region,country='UK'){
 	parties <- names(bList[[1]])
 	i <- 2
 	while(i<=length(bList)){
-		parties <- intersect(parties,bList[[i]])
+		parties <- intersect(parties,names(bList[[i]]))
 		i <- i+1
 	}
 	sbNames <- sapply(sbTags,as.character)
