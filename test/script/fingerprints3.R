@@ -145,7 +145,7 @@ lapply(parties,do.party,baseDir,bList)
 
 do.region <- function(region,country='UK'){
 	a <- paste(sep='.',country,gsub(' ','.',region))
-	baseDir <- paste('test/pics/',a,'/')
+	baseDir <- paste(sep='','test/pics/',a,'/')
 	system(paste('mkdir','-p',baseDir))
 	sbTags <- ls.ballotTag(a)
 	bList <-lapply(sbTags,
