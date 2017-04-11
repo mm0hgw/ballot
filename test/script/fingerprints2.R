@@ -85,7 +85,8 @@ do.party <- function(party,baseDir,bList){
 			testPng(testFile)
 			tag <- names(bList)[i]
 			spatialPlot(tag,
-				sample= sbCalculateSample(sb,norm=FALSE) * 100,
+				sample= sbCalculateSample(sb,norm=FALSE),
+				center= sbPopMean(sb),
 				main=paste(get.bTitle(tag),name)
 			)
 			dev.off()

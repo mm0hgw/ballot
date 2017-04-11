@@ -70,6 +70,7 @@ do.sbList <- function(sbList,name){
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			spatialPlot(tag,
 				sample= sbCalculateSample(sb,norm=FALSE),
+				center= sbPopMean(sb),
 				main=paste(get.bTitle(tag),names(sbList)[i])
 			)
 			dev.off()
