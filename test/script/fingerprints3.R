@@ -143,7 +143,7 @@ names(bList) <- sbTags
 names(bList) <- sbNames
 lapply(parties,do.party,baseDir,bList)
 
-do.region <- function(region,country='UK')
+do.region <- function(region,country='UK'){
 	a <- paste(sep='.',country,gsub(' ','.',region))
 	baseDir <- paste('test/pics/',a,'/')
 	system(paste('mkdir','-p',baseDir))
