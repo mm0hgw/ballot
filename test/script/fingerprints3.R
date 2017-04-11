@@ -143,20 +143,33 @@ names(bList) <- sbTags
 names(bList) <- sbNames
 lapply(parties,do.party,baseDir,bList)
 
-baseDir <- 'test/pics/fingerprints4/'
-system(paste('mkdir','-p',baseDir))
-GE2010 <- splitBallot(get.ballot(ls.ballotTag('Ireland.2010')))
-GE2015 <- splitBallot(get.ballot(ls.ballotTag('Ireland.2015')))
-GE2010[[1]] <- sbAbstainers(GE2010[[1]])
-GE2015[[1]] <- sbAbstainers(GE2015[[1]])
-names(GE2010)[1] <- 'Abstainers'
-names(GE2015)[1] <- 'Abstainers'
-bList <- list(GE2010,GE2015)
-parties <- intersect(names(GE2010),names(GE2015))
-sbTags <- ls.ballotTag('Ireland')
-sbNames <- sapply(sbTags,as.character)
-names(bList) <- sbTags
-names(bList) <- sbNames
-lapply(parties,do.party,baseDir,bList)
+do.region <- function(region,country='UK')
+	a <- paste(sep='.',country,gsub(' ','.',region))
+	baseDir <- paste('test/pics/',a,'/')
+	system(paste('mkdir','-p',baseDir))
+	sbTags <- ls.ballotTag(a)
+	bList <-lapply(sbTags,
+		function(x){
+			out <- splitBallot(get.ballot(x))
+			out[[1]] <- sbAbstainers(out[[1]])
+			out
+		}
+	)
+	parties <- names(bList[[1]])
+	i <- 2
+	while(i<=length(bList)){
+		parties <- intersect(parties,bList[[i]])
+	}
+	sbNames <- sapply(sbTags,as.character)
+	names(bList) <- sbNames
+	lapply(parties,do.party,baseDir,bList)
+}
 
+regions <- unique(lapply(strsplit(ls.ballotTag('UK'),'\\.'),
+		function(x){
+			paste(collapse=' ',x[-c(1,length(x)-1,length(x))])
+		}
+	)
+)
 
+lapply(regions,do.region)
