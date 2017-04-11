@@ -1,0 +1,633 @@
+"","N","SNP","sample"
+"Cumbernauld, Kilsyth & Kirkintilloch East",67009,29572,0.441313853362981
+"Dunbartonshire West",69193,30198,0.436431430925094
+"Dundee East",66960,28765,0.429584826762246
+"Falkirk",83380,34831,0.417738066682658
+"Dundee West",66287,27684,0.417638450978322
+"Inverclyde",59350,24585,0.414237573715249
+"Glenrothes",69781,28459,0.407833077771886
+"East Kilbride, Strathaven & Lesmahagow",83071,33678,0.405412237724356
+"Banff & Buchan",68609,27487,0.400632570070982
+"Kilmarnock & Loudoun",75233,30000,0.398761181928143
+"Na h-Eileanan an Iar (Western Isles)",21744,8662,0.39836276674025
+"Livingston",82373,32736,0.397411773275224
+"Coatbridge, Chryston & Bellshill",73813,28696,0.388766206494791
+"Motherwell & Wishaw",70269,27275,0.388151247349471
+"Paisley & Renfrewshire North",66206,25601,0.386687007219889
+"Ayrshire Central",69982,26999,0.385799205509988
+"Paisley & Renfrewshire South",61281,23548,0.384262658899169
+"Ayrshire North & Arran",75772,28641,0.377989230850446
+"Perth & North Perthshire",72447,27379,0.377917650144243
+"Inverness, Nairn, Badenoch & Strathspey",77268,28838,0.373220479370503
+"Ross, Skye & Lochaber",54169,20119,0.371411693034762
+"Linlithgow & Falkirk East",86955,32055,0.368638951181646
+"Angus",65792,24130,0.366761916342412
+"Rutherglen & Hamilton West",82701,30279,0.36612616534262
+"Aberdeen North",67745,24793,0.365975348734224
+"Kirkcaldy & Cowdenbeath",75941,27628,0.363808746263547
+"Glasgow South",74051,26773,0.361548122240078
+"Midlothian",67875,24453,0.360265193370166
+"Dunfermline & Fife West",78037,28096,0.360034342683599
+"Airdrie & Shotts",66715,23887,0.358045417072622
+"Stirling",67236,23783,0.353724195371527
+"Glasgow South West",66209,23388,0.353245027111118
+"Edinburgh East",66178,23188,0.350388346580435
+"Glasgow North West",68418,23908,0.349440205793797
+"Ayr, Carrick & Cumnock",72985,25492,0.349277248749743
+"Gordon",79393,27717,0.349111382615596
+"Ochil & South Perthshire",77370,26620,0.34406100555771
+"Glasgow East",70378,24116,0.342663900650772
+"Lanark & Hamilton East",78846,26976,0.342135301727418
+"Moray",71685,24384,0.340154844109646
+"Argyll & Bute",68875,22959,0.333343012704174
+"Glasgow North",58875,19610,0.33307855626327
+"Caithness, Sutherland & Easter Ross",47558,15831,0.33287774927457
+"Dunbartonshire East",66966,22093,0.329913687542932
+"Glasgow North East",66678,21976,0.329583970724977
+"Renfrewshire East",69982,23013,0.328841702151982
+"East Lothian",79481,25104,0.315849070847121
+"Aberdeenshire West & Kincardine",73445,22949,0.312465109946218
+"Dumfries & Galloway",75249,23440,0.311499156134965
+"Edinburgh South West",72178,22168,0.307129596275874
+"Fife North East",62003,18523,0.298743609180201
+"Edinburgh West",71749,21378,0.297955372200309
+"Aberdeen South",68056,20221,0.297122957564359
+"Edinburgh North & Leith",80978,23742,0.29319074316481
+"Dumfriesshire, Clydesdale & Tweeddale",68483,19961,0.291473796416629
+"Glasgow Central",70945,20658,0.291183311015575
+"Berwickshire, Roxburgh & Selkirk",74179,20145,0.271572817104571
+"Edinburgh South",65846,16656,0.252953862041734
+"Orkney & Shetland",34551,8590,0.24861798500767
+"Aberavon",49821,0,0
+"Aberconwy",45540,0,0
+"Aldershot",72434,0,0
+"Aldridge-Brownhills",60215,0,0
+"Altrincham & Sale West",72004,0,0
+"Alyn & Deeside",62016,0,0
+"Amber Valley",70226,0,0
+"Arfon",40492,0,0
+"Arundel & South Downs",77272,0,0
+"Ashfield",77126,0,0
+"Ashford",85189,0,0
+"Ashton Under Lyne",67714,0,0
+"Aylesbury",80611,0,0
+"Banbury",86420,0,0
+"Barking",74004,0,0
+"Barnsley Central",64534,0,0
+"Barnsley East",69135,0,0
+"Barrow & Furness",68338,0,0
+"Basildon & Billericay",68459,0,0
+"Basildon South & Thurrock East",73210,0,0
+"Basingstoke",79662,0,0
+"Bassetlaw",77480,0,0
+"Bath",60869,0,0
+"Batley & Spen",78373,0,0
+"Battersea",76106,0,0
+"Beaconsfield",76380,0,0
+"Beckenham",67436,0,0
+"Bedford",69311,0,0
+"Bedfordshire Mid",81144,0,0
+"Bedfordshire North East",83551,0,0
+"Bedfordshire South West",79664,0,0
+"Bermondsey & Old Southwark",80604,0,0
+"Berwick-upon-Tweed",58098,0,0
+"Bethnal Green & Bow",82825,0,0
+"Beverley & Holderness",80822,0,0
+"Bexhill & Battle",78796,0,0
+"Bexleyheath & Crayford",64828,0,0
+"Birkenhead",62438,0,0
+"Birmingham Edgbaston",65591,0,0
+"Birmingham Erdington",65128,0,0
+"Birmingham Hall Green",76330,0,0
+"Birmingham Hodge Hill",75302,0,0
+"Birmingham Ladywood",68128,0,0
+"Birmingham Northfield",71428,0,0
+"Birmingham Perry Barr",69943,0,0
+"Birmingham Selly Oak",75092,0,0
+"Birmingham Yardley",72146,0,0
+"Bishop Auckland",66089,0,0
+"Blackburn",73265,0,0
+"Blackley & Broughton",71900,0,0
+"Blackpool North & Cleveleys",62469,0,0
+"Blackpool South",57411,0,0
+"Blaenau Gwent",51332,0,0
+"Blaydon",67706,0,0
+"Blyth Valley",63958,0,0
+"Bognor Regis & Littlehampton",73095,0,0
+"Bolsover",71976,0,0
+"Bolton North East",67901,0,0
+"Bolton South East",69692,0,0
+"Bolton West",72727,0,0
+"Bootle",70137,0,0
+"Boston & Skegness",67834,0,0
+"Bosworth",79742,0,0
+"Bournemouth East",71956,0,0
+"Bournemouth West",72082,0,0
+"Bracknell",78131,0,0
+"Bradford East",66123,0,0
+"Bradford South",63670,0,0
+"Bradford West",63371,0,0
+"Braintree",73557,0,0
+"Brecon & Radnorshire",54311,0,0
+"Brent Central",77038,0,0
+"Brentford & Isleworth",84557,0,0
+"Brent North",82196,0,0
+"Brentwood & Ongar",72461,0,0
+"Bridgend",59998,0,0
+"Bridgwater & Somerset West",80491,0,0
+"Brigg & Goole",68486,0,0
+"Brighton Kemptown",67858,0,0
+"Brighton Pavilion",76557,0,0
+"Bristol East",71965,0,0
+"Bristol North West",76626,0,0
+"Bristol South",81996,0,0
+"Bristol West",89198,0,0
+"Broadland",74680,0,0
+"Bromley & Chislehurst",65476,0,0
+"Bromsgrove",73329,0,0
+"Broxbourne",72944,0,0
+"Broxtowe",71865,0,0
+"Buckingham",77572,0,0
+"Burnley",64486,0,0
+"Burton",75300,0,0
+"Bury North",67580,0,0
+"Bury South",73883,0,0
+"Bury St Edmunds",85993,0,0
+"Caerphilly",62793,0,0
+"Calder Valley",77753,0,0
+"Camberwell & Peckham",80507,0,0
+"Camborne & Redruth",66944,0,0
+"Cambridge",83384,0,0
+"Cambridgeshire North East",82990,0,0
+"Cambridgeshire North West",91783,0,0
+"Cambridgeshire South",84132,0,0
+"Cambridgeshire South East",84570,0,0
+"Cannock Chase",74531,0,0
+"Canterbury",83481,0,0
+"Cardiff Central",57454,0,0
+"Cardiff North",67193,0,0
+"Cardiff South & Penarth",75714,0,0
+"Cardiff West",66758,0,0
+"Carlisle",65827,0,0
+"Carmarthen East & Dinefwr",55750,0,0
+"Carmarthen West & Pembrokeshire South",57755,0,0
+"Carshalton & Wallington",69866,0,0
+"Castle Point",68170,0,0
+"Ceredigion",54215,0,0
+"Charnwood",77269,0,0
+"Chatham & Aylesford",68625,0,0
+"Cheadle",73239,0,0
+"Chelmsford",78580,0,0
+"Chelsea & Fulham",63478,0,0
+"Cheltenham",77286,0,0
+"Chesham & Amersham",73423,0,0
+"Chester, City of",72269,0,0
+"Chesterfield",72078,0,0
+"Chichester",83575,0,0
+"Chingford & Woodford Green",66691,0,0
+"Chippenham",74225,0,0
+"Chipping Barnet",77853,0,0
+"Chorley",74679,0,0
+"Christchurch",69302,0,0
+"Cities of London & Westminster",60992,0,0
+"Clacton",68936,0,0
+"Cleethorpes",70514,0,0
+"Clwyd South",54996,0,0
+"Clwyd West",58657,0,0
+"Colchester",74203,0,0
+"Colne Valley",82510,0,0
+"Congleton",72398,0,0
+"Copeland",62119,0,0
+"Corby",79775,0,0
+"Cornwall North",67192,0,0
+"Cornwall South East",71071,0,0
+"Cotswolds, The",78292,0,0
+"Coventry North East",76401,0,0
+"Coventry North West",74597,0,0
+"Coventry South",71380,0,0
+"Crawley",73940,0,0
+"Crewe & Nantwich",74039,0,0
+"Croydon Central",78171,0,0
+"Croydon North",85951,0,0
+"Croydon South",82010,0,0
+"Cynon Valley",51421,0,0
+"Dagenham & Rainham",69049,0,0
+"Darlington",65832,0,0
+"Dartford",76686,0,0
+"Daventry",72753,0,0
+"Delyn",53639,0,0
+"Denton & Reddish",66574,0,0
+"Derby North",64739,0,0
+"Derbyshire Dales",63470,0,0
+"Derbyshire Mid",67576,0,0
+"Derbyshire North East",71456,0,0
+"Derbyshire South",74395,0,0
+"Derby South",70247,0,0
+"Devizes",69211,0,0
+"Devon Central",72737,0,0
+"Devon East",74224,0,0
+"Devon North",74737,0,0
+"Devon South West",71035,0,0
+"Devon West & Torridge",78582,0,0
+"Dewsbury",79765,0,0
+"Doncaster Central",71136,0,0
+"Doncaster North",70898,0,0
+"Don Valley",71299,0,0
+"Dorset Mid & Poole North",68917,0,0
+"Dorset North",74576,0,0
+"Dorset South",71974,0,0
+"Dorset West",78427,0,0
+"Dover",72929,0,0
+"Dudley North",60718,0,0
+"Dudley South",60363,0,0
+"Dulwich & West Norwood",75244,0,0
+"Durham, City of",68741,0,0
+"Durham North",65373,0,0
+"Durham North West",69817,0,0
+"Dwyfor Meirionnydd",44395,0,0
+"Ealing Central & Acton",71238,0,0
+"Ealing North",73836,0,0
+"Ealing Southall",65495,0,0
+"Easington",61675,0,0
+"Eastbourne",78262,0,0
+"East Ham",87378,0,0
+"Eastleigh",79609,0,0
+"Eddisbury",68636,0,0
+"Edmonton",66015,0,0
+"Ellesmere Port & Neston",68134,0,0
+"Elmet & Rothwell",79143,0,0
+"Eltham",63998,0,0
+"Enfield North",68119,0,0
+"Enfield Southgate",64938,0,0
+"Epping Forest",73545,0,0
+"Epsom & Ewell",78633,0,0
+"Erewash",71937,0,0
+"Erith & Thamesmead",69787,0,0
+"Esher & Walton",79894,0,0
+"Exeter",76964,0,0
+"Fareham",77233,0,0
+"Faversham & Kent Mid",69523,0,0
+"Feltham & Heston",82328,0,0
+"Filton & Bradley Stoke",70722,0,0
+"Finchley & Golders Green",72049,0,0
+"Folkestone & Hythe",83612,0,0
+"Forest of Dean",69882,0,0
+"Fylde",65679,0,0
+"Gainsborough",73212,0,0
+"Garston & Halewood",74063,0,0
+"Gateshead",63910,0,0
+"Gedling",70046,0,0
+"Gillingham & Rainham",72609,0,0
+"Gloucester",82949,0,0
+"Gosport",73271,0,0
+"Gower",61820,0,0
+"Grantham & Stamford",81151,0,0
+"Gravesham",74307,0,0
+"Great Grimsby",58484,0,0
+"Great Yarmouth",69793,0,0
+"Greenwich & Woolwich",73315,0,0
+"Guildford",76554,0,0
+"Hackney North & Stoke Newington",83195,0,0
+"Hackney South & Shoreditch",79962,0,0
+"Halesowen & Rowley Regis",74203,0,0
+"Halifax",70461,0,0
+"Haltemprice & Howden",71205,0,0
+"Halton",72818,0,0
+"Hammersmith",72254,0,0
+"Hampshire East",72600,0,0
+"Hampshire North East",74025,0,0
+"Hampshire North West",79223,0,0
+"Hampstead & Kilburn",80241,0,0
+"Harborough",77760,0,0
+"Harlow",67994,0,0
+"Harrogate & Knaresborough",77379,0,0
+"Harrow East",70980,0,0
+"Harrow West",69643,0,0
+"Hartlepool",69516,0,0
+"Harwich & Essex North",69289,0,0
+"Hastings & Rye",75095,0,0
+"Havant",70573,0,0
+"Hayes & Harlington",74875,0,0
+"Hazel Grove",63098,0,0
+"Hemel Hempstead",74616,0,0
+"Hemsworth",72714,0,0
+"Hendon",74658,0,0
+"Henley",78243,0,0
+"Hereford & Herefordshire South",70711,0,0
+"Herefordshire North",66683,0,0
+"Hertfordshire North East",73944,0,0
+"Hertfordshire South West",79666,0,0
+"Hertford & Stortford",78906,0,0
+"Hertsmere",73753,0,0
+"Hexham",60614,0,0
+"Heywood & Middleton",79989,0,0
+"High Peak",73336,0,0
+"Hitchin & Harpenden",74839,0,0
+"Holborn & St Pancras",86864,0,0
+"Hornchurch & Upminster",79331,0,0
+"Hornsey & Wood Green",79241,0,0
+"Horsham",78181,0,0
+"Houghton & Sunderland South",68316,0,0
+"Hove",73505,0,0
+"Huddersfield",65265,0,0
+"Hull East",65606,0,0
+"Hull North",63650,0,0
+"Hull West & Hessle",59008,0,0
+"Huntingdon",82404,0,0
+"Hyndburn",68341,0,0
+"Ilford North",78162,0,0
+"Ilford South",95023,0,0
+"Ipswich",74498,0,0
+"Isle of Wight",108804,0,0
+"Islington North",73325,0,0
+"Islington South & Finsbury",68127,0,0
+"Islwyn",55075,0,0
+"Jarrow",63882,0,0
+"Keighley",68865,0,0
+"Kenilworth & Southam",65245,0,0
+"Kensington",61333,0,0
+"Kettering",70155,0,0
+"Kingston & Surbiton",81277,0,0
+"Kingswood",67992,0,0
+"Knowsley",79109,0,0
+"Lancashire West",70945,0,0
+"Lancaster & Fleetwood",60883,0,0
+"Leeds Central",81799,0,0
+"Leeds East",64754,0,0
+"Leeds North East",69097,0,0
+"Leeds North West",61974,0,0
+"Leeds West",64950,0,0
+"Leicester East",75430,0,0
+"Leicestershire North West",72194,0,0
+"Leicestershire South",76877,0,0
+"Leicester South",73518,0,0
+"Leicester West",63204,0,0
+"Leigh",75974,0,0
+"Lewes",69481,0,0
+"Lewisham Deptford",73426,0,0
+"Lewisham East",73428,0,0
+"Lewisham West & Penge",72289,0,0
+"Leyton & Wanstead",64746,0,0
+"Lichfield",83339,0,0
+"Lincoln",74121,0,0
+"Liverpool Riverside",70950,0,0
+"Liverpool Walton",62868,0,0
+"Liverpool Wavertree",61731,0,0
+"Liverpool West Derby",63875,0,0
+"Llanelli",59314,0,0
+"Loughborough",72644,0,0
+"Louth & Horncastle",74280,0,0
+"Ludlow",66423,0,0
+"Luton North",66533,0,0
+"Luton South",67234,0,0
+"Macclesfield",71580,0,0
+"Maidenhead",74963,0,0
+"Maidstone & The Weald",73181,0,0
+"Makerfield",74370,0,0
+"Maldon",69455,0,0
+"Manchester Central",86078,0,0
+"Manchester Gorton",72959,0,0
+"Manchester Withington",74102,0,0
+"Mansfield",77534,0,0
+"Meon Valley",72738,0,0
+"Meriden",81079,0,0
+"Merthyr Tydfil & Rhymney",61719,0,0
+"Middlesbrough",61868,0,0
+"Middlesbrough South & Cleveland East",71153,0,0
+"Milton Keynes North",84892,0,0
+"Milton Keynes South",87968,0,0
+"Mitcham & Morden",68474,0,0
+"Mole Valley",74317,0,0
+"Monmouth",65706,0,0
+"Montgomeryshire",48491,0,0
+"Morecambe & Lunesdale",66476,0,0
+"Morley & Outwood",76179,0,0
+"Neath",56099,0,0
+"Newark",73724,0,0
+"Newbury",79058,0,0
+"Newcastle-under-Lyme",66752,0,0
+"Newcastle upon Tyne Central",61061,0,0
+"Newcastle upon Tyne East",74112,0,0
+"Newcastle upon Tyne North",67267,0,0
+"New Forest East",72720,0,0
+"New Forest West",68465,0,0
+"Newport East",56018,0,0
+"Newport West",62145,0,0
+"Newton Abbot",69743,0,0
+"Norfolk Mid",76975,0,0
+"Norfolk North",68958,0,0
+"Norfolk North West",72400,0,0
+"Norfolk South",78885,0,0
+"Norfolk South West",76970,0,0
+"Normanton, Pontefract & Castleford",82592,0,0
+"Northampton North",59147,0,0
+"Northamptonshire South",85092,0,0
+"Northampton South",61284,0,0
+"Norwich North",65136,0,0
+"Norwich South",74875,0,0
+"Nottingham East",60464,0,0
+"Nottingham North",65918,0,0
+"Nottingham South",68987,0,0
+"Nuneaton",68032,0,0
+"Ogmore",55320,0,0
+"Old Bexley & Sidcup",66035,0,0
+"Oldham East & Saddleworth",72005,0,0
+"Oldham West & Royton",72341,0,0
+"Orpington",68129,0,0
+"Oxford East",78974,0,0
+"Oxford West & Abingdon",79767,0,0
+"Pendle",64657,0,0
+"Penistone & Stocksbridge",71048,0,0
+"Penrith & The Border",65209,0,0
+"Peterborough",72521,0,0
+"Plymouth Moor View",69146,0,0
+"Plymouth Sutton & Devonport",69146,0,0
+"Pontypridd",58929,0,0
+"Poole",72557,0,0
+"Poplar & Limehouse",82076,0,0
+"Portsmouth North",73105,0,0
+"Portsmouth South",71639,0,0
+"Preseli Pembrokeshire",57291,0,0
+"Preston",59981,0,0
+"Pudsey",70533,0,0
+"Putney",63918,0,0
+"Rayleigh & Wickford",77870,0,0
+"Reading East",74651,0,0
+"Reading West",72302,0,0
+"Redcar",64825,0,0
+"Redditch",65529,0,0
+"Reigate",73429,0,0
+"Rhondda",51809,0,0
+"Ribble Valley",77873,0,0
+"Richmond Park",77297,0,0
+"Richmond (Yorks)",83451,0,0
+"Rochdale",79170,0,0
+"Rochester & Strood",79000,0,0
+"Rochford & Southend East",71935,0,0
+"Romford",72594,0,0
+"Romsey & Southampton North",66519,0,0
+"Rossendale & Darwen",84011,0,0
+"Rotherham",63698,0,0
+"Rother Valley",74275,0,0
+"Rugby",79557,0,0
+"Ruislip, Northwood & Pinner",73219,0,0
+"Runnymede & Weybridge",73744,0,0
+"Rushcliffe",73294,0,0
+"Rutland & Melton",79789,0,0
+"Saffron Walden",80615,0,0
+"Salford & Eccles",74290,0,0
+"Salisbury",69590,0,0
+"Scarborough & Whitby",73511,0,0
+"Scunthorpe",64010,0,0
+"Sedgefield",62860,0,0
+"Sefton Central",67746,0,0
+"Selby & Ainsty",76082,0,0
+"Sevenoaks",70741,0,0
+"Sheffield Brightside & Hillsborough",73090,0,0
+"Sheffield Central",77014,0,0
+"Sheffield Hallam",73658,0,0
+"Sheffield Heeley",69265,0,0
+"Sheffield South East",70422,0,0
+"Sherwood",73334,0,0
+"Shipley",70466,0,0
+"Shrewsbury & Atcham",76460,0,0
+"Shropshire North",78910,0,0
+"Sittingbourne & Sheppey",76018,0,0
+"Skipton & Ripon",76243,0,0
+"Sleaford & North Hykeham",88188,0,0
+"Slough",86366,0,0
+"Solihull",77251,0,0
+"Somerset North",80115,0,0
+"Somerset North East",69380,0,0
+"Somerton & Frome",83527,0,0
+"Southampton Itchen",72309,0,0
+"Southampton Test",70285,0,0
+"Southend West",66876,0,0
+"South Holland & The Deepings",77015,0,0
+"Southport",67328,0,0
+"South Ribble",76489,0,0
+"South Shields",62730,0,0
+"Spelthorne",71592,0,0
+"Stafford",68705,0,0
+"Staffordshire Moorlands",63104,0,0
+"Staffordshire South",84243,0,0
+"St Albans",72507,0,0
+"Stalybridge & Hyde",69081,0,0
+"St Austell & Newquay",76607,0,0
+"Stevenage",70597,0,0
+"St Helens North",75262,0,0
+"St Helens South & Whiston",77720,0,0
+"St Ives",65570,0,0
+"Stockport",63931,0,0
+"Stockton North",66126,0,0
+"Stockton South",75109,0,0
+"Stoke-on-Trent Central",62250,0,0
+"Stoke-on-Trent North",72689,0,0
+"Stoke-on-Trent South",68788,0,0
+"Stone",67339,0,0
+"Stourbridge",69077,0,0
+"Stratford-on-Avon",70914,0,0
+"Streatham",78673,0,0
+"Stretford & Urmston",69490,0,0
+"Stroud",80522,0,0
+"Suffolk Central & Ipswich North",78782,0,0
+"Suffolk Coastal",78782,0,0
+"Suffolk South",73220,0,0
+"Suffolk West",76197,0,0
+"Sunderland Central",72933,0,0
+"Surrey East",79654,0,0
+"Surrey Heath",79515,0,0
+"Surrey South West",77050,0,0
+"Sussex Mid",79520,0,0
+"Sutton & Cheam",69160,0,0
+"Sutton Coldfield",74956,0,0
+"Swansea East",58011,0,0
+"Swansea West",58776,0,0
+"Swindon North",81005,0,0
+"Swindon South",73956,0,0
+"Tamworth",71912,0,0
+"Tatton",64512,0,0
+"Taunton Deane",81830,0,0
+"Telford",66166,0,0
+"Tewkesbury",78500,0,0
+"Thanet North",70504,0,0
+"Thanet South",70182,0,0
+"Thirsk & Malton",77451,0,0
+"Thornbury & Yate",65884,0,0
+"Thurrock",77569,0,0
+"Tiverton & Honiton",76270,0,0
+"Tonbridge & Malling",74877,0,0
+"Tooting",76778,0,0
+"Torbay",76259,0,0
+"Torfaen",61896,0,0
+"Totnes",68630,0,0
+"Tottenham",70809,0,0
+"Truro & Falmouth",73601,0,0
+"Tunbridge Wells",73429,0,0
+"Twickenham",80242,0,0
+"Tynemouth",77523,0,0
+"Tyneside North",79286,0,0
+"Uxbridge & Ruislip South",70634,0,0
+"Vale of Clwyd",56505,0,0
+"Vale of Glamorgan",72187,0,0
+"Vauxhall",81698,0,0
+"Wakefield",70521,0,0
+"Wallasey",65495,0,0
+"Walsall North",67080,0,0
+"Walsall South",67743,0,0
+"Walthamstow",67289,0,0
+"Wansbeck",63273,0,0
+"Wantage",83516,0,0
+"Warley",63740,0,0
+"Warrington North",72632,0,0
+"Warrington South",85566,0,0
+"Warwick & Leamington",71570,0,0
+"Warwickshire North",70152,0,0
+"Washington & Sunderland West",68188,0,0
+"Watford",84270,0,0
+"Waveney",80171,0,0
+"Wealden",80252,0,0
+"Weaver Vale",68407,0,0
+"Wellingborough",77127,0,0
+"Wells",79405,0,0
+"Welwyn Hatfield",73264,0,0
+"Wentworth & Dearne",74283,0,0
+"West Bromwich East",63641,0,0
+"West Bromwich West",65533,0,0
+"West Ham",90634,0,0
+"Westminster North",62346,0,0
+"Westmorland & Lonsdale",65857,0,0
+"Weston-Super-Mare",79493,0,0
+"Wigan",76068,0,0
+"Wiltshire North",67858,0,0
+"Wiltshire South West",73030,0,0
+"Wimbledon",65853,0,0
+"Winchester",74119,0,0
+"Windsor",74119,0,0
+"Wirral South",56956,0,0
+"Wirral West",55377,0,0
+"Witham",67090,0,0
+"Witney",79767,0,0
+"Woking",74287,0,0
+"Wokingham",77881,0,0
+"Wolverhampton North East",61073,0,0
+"Wolverhampton South East",62561,0,0
+"Wolverhampton South West",60375,0,0
+"Worcester",71003,0,0
+"Worcestershire Mid",73069,0,0
+"Worcestershire West",73415,0,0
+"Workington",58672,0,0
+"Worsley & Eccles South",72174,0,0
+"Worthing East & Shoreham",74272,0,0
+"Worthing West",75617,0,0
+"Wrekin, The",65942,0,0
+"Wrexham",50992,0,0
+"Wycombe",76371,0,0
+"Wyre Forest",77451,0,0
+"Wyre & Preston North",70697,0,0
+"Wythenshawe & Sale East",75980,0,0
+"Yeovil",82446,0,0
+"Ynys Mon",80604,0,0
+"York Central",75351,0,0
+"York Outer",78561,0,0
+"Yorkshire East",81030,0,0
