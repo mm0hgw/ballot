@@ -1,23 +1,3 @@
-baseDir <- 'test/pics/fingerprints3/'
-
-system(paste('mkdir','-p',baseDir))
-GE2010 <- splitBallot(get.ballot(ls.ballotTag('GB.2010')))
-GE2015 <- splitBallot(get.ballot(ls.ballotTag('GB.2015')))
-GE2010[[1]] <- sbAbstainers(GE2010[[1]])
-GE2015[[1]] <- sbAbstainers(GE2015[[1]])
-names(GE2010)[1] <- 'Abstainers'
-names(GE2015)[1] <- 'Abstainers'
-bList <- list(GE2010,GE2015)
-
-parties <- intersect(names(GE2010),names(GE2015))
-
-print(parties)
-
-sbTags <- ls.ballotTag('GB')
-sbNames <- sapply(sbTags,as.character)
-names(bList)<-sbTags
-names(bList) <- sbNames
-
 do.party <- function(party,baseDir,bList){
 	sbList <- lapply(bList,'[[',party)
 	if(any(sapply(sbList,sbSum)==0))
@@ -147,4 +127,36 @@ do.party <- function(party,baseDir,bList){
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
 
+baseDir <- 'test/pics/fingerprints3/'
+system(paste('mkdir','-p',baseDir))
+GE2010 <- splitBallot(get.ballot(ls.ballotTag('GB.2010')))
+GE2015 <- splitBallot(get.ballot(ls.ballotTag('GB.2015')))
+GE2010[[1]] <- sbAbstainers(GE2010[[1]])
+GE2015[[1]] <- sbAbstainers(GE2015[[1]])
+names(GE2010)[1] <- 'Abstainers'
+names(GE2015)[1] <- 'Abstainers'
+bList <- list(GE2010,GE2015)
+parties <- intersect(names(GE2010),names(GE2015))
+sbTags <- ls.ballotTag('GB')
+sbNames <- sapply(sbTags,as.character)
+names(bList) <- sbTags
+names(bList) <- sbNames
 lapply(parties,do.party,baseDir,bList)
+
+baseDir <- 'test/pics/fingerprints4/'
+system(paste('mkdir','-p',baseDir))
+GE2010 <- splitBallot(get.ballot(ls.ballotTag('Ireland.2010')))
+GE2015 <- splitBallot(get.ballot(ls.ballotTag('Ireland.2015')))
+GE2010[[1]] <- sbAbstainers(GE2010[[1]])
+GE2015[[1]] <- sbAbstainers(GE2015[[1]])
+names(GE2010)[1] <- 'Abstainers'
+names(GE2015)[1] <- 'Abstainers'
+bList <- list(GE2010,GE2015)
+parties <- intersect(names(GE2010),names(GE2015))
+sbTags <- ls.ballotTag('Ireland')
+sbNames <- sapply(sbTags,as.character)
+names(bList) <- sbTags
+names(bList) <- sbNames
+lapply(parties,do.party,baseDir,bList)
+
+
