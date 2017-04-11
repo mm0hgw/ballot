@@ -56,7 +56,7 @@ do.party <- function(party,baseDir,bList){
 	if(buildPackageLoaded)gitAdd(print(testFile))
 	lapply(seq_along(sbList),
 		function(i){
-			sb <- print(sbList[[i]])
+			sb <- (sbList[[i]])
 			if(sbSum(sb)>0){
 				sample <- sbCalculateSample(sb)
 				y1 <- (names(bList)[i])
