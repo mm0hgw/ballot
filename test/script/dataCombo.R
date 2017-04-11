@@ -24,72 +24,74 @@ fingerprint <- function(z){
 		function(i){
 			party <- z.sbNames[i]
 			z.chisq <- get.chisq(z,party)
-			j <- which.max(z.chisq)
-			maxch <- z.chisq[j]
+			jList <- head(n=7,order(z.chisq,decreasing=TRUE))
+			maxch <- z.chisq[jList]
 			rm(z.chisq)
 			z.sb <- z.sbList[[i]]
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
-			testFile <- paste(sep='',
-				'test/pics/dc/',z,'_',z.combo$i[j],'_',
-				gsub(' ','.',z.sbNames[i]),'_density.png'
-			)
-			testPng(testFile)
-			sb <- z.dc$dGen(j)
-			sample <- sbCalculateSample(sb)
-			csvFile <- paste(sep='',
-				'test/pics/dc/',z,'_',z.combo$i[j],'_',
-				gsub(' ','.',z.sbNames[i]),'_results.csv'
-			)
-			write.csv(
-				cbind(z.dc$dGen(j),sample)[order(sample,decreasing=TRUE),],
-				file=csvFile
-			)
-			if(buildPackageLoaded)gitAdd(print(csvFile))
-			col<-sample_to_color(sample)
-			ord <- order(sample)
-			subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
-			dObj <- density (sample)
-			plot(dObj,
-				main=paste(get.bTitle(z),z.combo$i[j],z.sbNames[i],
-					'Chisq:',format(maxch,digits=5)
-				),
-				sub=subTitle
-			)
-			lines(dObj$x,
-				dnorm(dObj$x,
-					mean=sbPopMean(sb),
-					sd=sbPopSd(sb)
-				),
-				lty=2				
-			)
-			points(
-				do.call(rbind,
-					lapply(seq_along(sample),
-						function(i){
-							i <- which.min(abs(dObj$x-sample[i]))
-							c(x=dObj$x[i],
-								y=dObj$y[i]
-							)
-						}
-					)
-				),
-				col=col,
-				pch=1,
-				lwd=5
-			)
-			dev.off()
-			if(buildPackageLoaded)gitAdd(print(testFile))
-			testFile <- paste(sep='',
-				'test/pics/dc/',z,'_',z.combo$i[j],'_',
-				gsub(' ','.',z.sbNames[i]),'_spatial.png'
-			)
-			testPng(testFile)
-			par(mar=rep(0,4))
-			sp<-z.sp.dc$dGen(j)
-			sp::plot(z.sp,border='grey')
-			sp::plot(sp,border='black',col=col,add=TRUE)
-			dev.off()
-			if(buildPackageLoaded)gitAdd(print(testFile))
+			for(j in jList){
+				testFile <- paste(sep='',
+					'test/pics/dc/',z,'_',z.combo$i[j],'_',
+					gsub(' ','.',z.sbNames[i]),'_density.png'
+				)
+				testPng(testFile)
+				sb <- z.dc$dGen(j)
+				sample <- sbCalculateSample(sb)
+				csvFile <- paste(sep='',
+					'test/pics/dc/',z,'_',z.combo$i[j],'_',
+					gsub(' ','.',z.sbNames[i]),'_results.csv'
+				)
+				write.csv(
+					cbind(z.dc$dGen(j),sample)[order(sample,decreasing=TRUE),],
+					file=csvFile
+				)
+				if(buildPackageLoaded)gitAdd(print(csvFile))
+				col<-sample_to_color(sample)
+				ord <- order(sample)
+				subTitle <- paste(collapse=', ',elemNames[z.combo$Gen(j)[ord]])
+				dObj <- density (sample)
+				plot(dObj,
+					main=paste(get.bTitle(z),z.combo$i[j],z.sbNames[i],
+						'Chisq:',format(maxch,digits=5)
+					),
+					sub=subTitle
+				)
+				lines(dObj$x,
+					dnorm(dObj$x,
+						mean=sbPopMean(sb),
+						sd=sbPopSd(sb)
+					),
+					lty=2				
+				)
+				points(
+					do.call(rbind,
+						lapply(seq_along(sample),
+							function(i){
+								i <- which.min(abs(dObj$x-sample[i]))
+								c(x=dObj$x[i],
+									y=dObj$y[i]
+								)
+							}
+						)
+					),
+					col=col,
+					pch=1,
+					lwd=5
+				)
+				dev.off()
+				if(buildPackageLoaded)gitAdd(print(testFile))
+				testFile <- paste(sep='',
+					'test/pics/dc/',z,'_',z.combo$i[j],'_',
+					gsub(' ','.',z.sbNames[i]),'_spatial.png'
+				)
+				testPng(testFile)
+				par(mar=rep(0,4))
+				sp<-z.sp.dc$dGen(j)
+				sp::plot(z.sp,border='grey')
+				sp::plot(sp,border='black',col=col,add=TRUE)
+				dev.off()
+				if(buildPackageLoaded)gitAdd(print(testFile))
+			}
 		}
 	)
 }
