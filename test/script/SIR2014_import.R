@@ -32,7 +32,9 @@ KS2016_job2 <- list('US.KS.4th.2016.Pres',
 )
 
 KS2017.ballot <- read.csv('test/data/KS2017.csv')
-KS2017.ballot <- cbind(N=KS2016.ballot[rMask,'N'],KS2017.ballot)
+rownames(KS2017.ballot) <- KS2017.ballot[,1]
+KS2017.ballot[,1] <- KS2016.ballot[rMask,'N']
+colnames(KS2017.ballot)[1] <- 'N'
 KS2017_job <- list('US.KS.4th.2017.Rep',
 	ballot=KS2017.ballot,
 	bRegionTag='KS2010.4th',
