@@ -24,7 +24,7 @@ fingerprint <- function(z){
 			zExplode <- strsplit(z,'.')[[1]]
 			zDir <- paste(sep='',
 				'test/pics/',
-				paste(sep='.',
+				paste(collapse='.',
 					zExplode[-seq(to=length(zExplode),length.out=2)]
 				),
 				'/dc/'
