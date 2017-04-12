@@ -65,7 +65,7 @@ regionTag('KS2010',
 )
 
 fourthRep <- c( 'Pawnee', 'Edwards', 'Kiowa', 'Comanche', 'Stafford',
-	'Pratt', 'Barber', 'Kingman', 'Harper', 'Harvey', 'Sedgewick', 'Sumner',
+	'Pratt', 'Barber', 'Kingman', 'Harper', 'Harvey', 'Sedgwick', 'Sumner',
 	'Butler', 'Cowley', 'Greenwood', 'Elk', 'Chautauqua'
 )
 mask<-fuzzyMatch(fourthRep,as.character(sp.layer$NAME10))
