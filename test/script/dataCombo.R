@@ -14,7 +14,6 @@ fingerprint <- function(z){
 	z.sp <- get.Spatial (z)
 	z.sp.dc <- ultraCombo::dataCombo(z.combo,z.sp)
 	oldMar <- par('mar')
-	system('mkdir -p test/pics/dc')
 	z.sbNames <- names(z.sbList)
 	require(mclapplyFunGen)
 	LAPPLYFUN <- get.lapply::get.lapply()
@@ -23,7 +22,14 @@ fingerprint <- function(z){
 	lapply(seq_along(z.sbList),
 		function(i){
 			zExplode <- strsplit(z,'.')[[1]]
-			zDir <- paste(sep='.',zExplode[-seq(to=length(zExplode),length.out=2)])
+			zDir <- paste(sep='',
+				'test/pics/',
+				paste(sep='.',
+					zExplode[-seq(to=length(zExplode),length.out=2)]
+				),
+				'/dc/'
+			)
+			system(paste('mkdir -p',zDir))
 			party <- z.sbNames[i]
 			z.chisq <- get.chisq(z,party)
 			jList <- head(n=7,order(z.chisq,decreasing=TRUE))
@@ -33,7 +39,7 @@ fingerprint <- function(z){
 			z.dc <- ultraCombo::dataCombo(z.combo,z.sb)
 			for(j in jList){
 				testFile <- paste(sep='',
-					'test/pics/',zDir,'dc/',z,'_',
+					zDir,z,'_',
 					gsub(' ','.',z.sbNames[i]),'_density_',z.combo$i[j],'.png'
 				)
 				testPng(testFile)
