@@ -33,7 +33,7 @@ KS2016_job2 <- list('US.KS.4th.2016.Pres',
 
 KS2017.ballot <- read.csv('test/data/KS2017.csv')
 rownames(KS2017.ballot) <- KS2017.ballot[,1]
-KS2017.ballot[,1] <- KS2016.ballot[rMask,'N']
+KS2017.ballot[,1] <- KS2016.ballot[KS2017.ballot[,1],'N']
 colnames(KS2017.ballot)[1] <- 'N'
 KS2017.ballot <- cbind(KS2017.ballot,V=rowSums(KS2017.ballot[,-1]))
 KS2017_job <- list('US.KS.4th.2017.Rep',
