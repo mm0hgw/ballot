@@ -64,6 +64,18 @@ regionTag('KS2010',
 	mask
 )
 
+fourthRep <- c( 'Pawnee', 'Edwards', 'Kiowa', 'Comanche', 'Stafford',
+	'Pratt', 'Barber', 'Kingman', 'Harper', 'Harvey', 'Sedgewick', 'Sumner',
+	'Butler', 'Cowley', 'Greenwood', 'Elk', 'Chautauqua'
+)
+mask<-fuzzymatch(fourthRep,as.character(sp.layer$NAME10))
+regionTag('KS2010.4th',
+	"Kansas 4th Representative by US census, 2010",
+	rLayerTag,
+	mask
+)
+
+
 rLayerTag <- 'UK.Unitary.Regions'
 sp.layer <- get.Spatial(rLayerTag)
 mask <- fuzzyMatch(rownames(elections$SIR2014),sp.layer$NAME)
