@@ -46,7 +46,7 @@ fingerprint <- function(z){
 				sb <- z.dc$dGen(j)
 				sample <- sbCalculateSample(sb)
 				csvFile <- paste(sep='',
-					'test/pics/',zDir,'dc/',z,'_',
+					zDir,z,'_',
 					gsub(' ','.',z.sbNames[i]),'_results_',z.combo$i[j],'.csv'
 				)
 				write.csv(
@@ -89,7 +89,7 @@ fingerprint <- function(z){
 				dev.off()
 				if(buildPackageLoaded)gitAdd(print(testFile))
 				testFile <- paste(sep='',
-					'test/pics/',zDir,'/dc/',z,'_',
+					zDir,z,'_',
 					gsub(' ','.',z.sbNames[i]),'_spatial_',z.combo$i[j],'.png'
 				)
 				testPng(testFile)
