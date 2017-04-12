@@ -21,7 +21,7 @@ fingerprint <- function(z){
 	par(mar=oldMar)
 	lapply(seq_along(z.sbList),
 		function(i){
-			zExplode <- strsplit(z,'.')[[1]]
+			zExplode <- strsplit(z,'\\.')[[1]]
 			zDir <- paste(sep='',
 				'test/pics/',
 				paste(collapse='.',
