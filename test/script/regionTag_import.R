@@ -68,7 +68,8 @@ fourthRep <- c( 'Pawnee', 'Edwards', 'Kiowa', 'Comanche', 'Stafford',
 	'Pratt', 'Barber', 'Kingman', 'Harper', 'Harvey', 'Sedgwick', 'Sumner',
 	'Butler', 'Cowley', 'Greenwood', 'Elk', 'Chautauqua'
 )
-mask<-fuzzyMatch(sort(fourthRep),as.character(sp.layer$NAME10))
+fourthRep <- sort(fourthRep)
+mask<-fuzzyMatch(fourthRep,as.character(sp.layer$NAME10))
 regionTag('KS2010.4th',
 	"Kansas 4th Representative by US census, 2010",
 	rLayerTag,
