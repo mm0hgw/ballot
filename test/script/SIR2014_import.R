@@ -5,6 +5,7 @@ SIR2014_job <- list('UK.Scotland.2014.SIR',
 	bTitle='Scottish Independence Referendum, 2014'
 )
 load('test/data/KS2012.ballot.rda')
+rownames(KS2012.ballot) <- gsub('Chautaqua','Chautauqua',rownames(KS2012.ballot))
 KS2012_job <- list('US.KS.2012.Pres',
 	ballot=KS2012.ballot,
 	bRegionTag='KS2010',
@@ -18,6 +19,7 @@ KS2012_job2 <- list('US.KS.4th.2012.Pres',
 )
 
 load('test/data/KS2016.ballot.rda')
+rownames(KS2016.ballot) <- gsub('Chautaqua','Chautauqua',rownames(KS2016.ballot))
 KS2016_job <- list('US.KS.2016.Pres',
 	ballot=KS2016.ballot,
 	bRegionTag='KS2010',
