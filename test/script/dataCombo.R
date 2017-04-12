@@ -60,7 +60,7 @@ fingerprint <- function(z){
 				dObj <- density (sample)
 				plot(dObj,
 					main=paste(get.bTitle(z),z.combo$i[j],z.sbNames[i],
-						'Chisq:',format(maxch,digits=5)
+						'Chisq:',maxch[which.max(j==jList)]
 					),
 					sub=subTitle
 				)
