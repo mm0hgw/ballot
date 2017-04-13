@@ -39,7 +39,7 @@ KS2017.ballot <- sortBallot(cbind(KS2017.ballot,V=rowSums(KS2017.ballot[,-1])))
 KS2017_job <- list('US.KS.4th.2017.Rep',
 	ballot=KS2017.ballot,
 	bRegionTag='KS2010.4th',
-	bTitle=KS2016.bTitle
+	bTitle='KS 2017 special congressional election'
 )
 
 do.call(ballotTag,SIR2014_job)
