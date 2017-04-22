@@ -132,6 +132,7 @@ do.region <- function(region,country='UK',ballot='Wm'){
 	baseDir <- paste(sep='','test/pics/',a,'/')
 	system(paste('mkdir','-p',baseDir))
 	sbTags <- grep(ballot,ls.ballotTag(a),value=TRUE)
+	print(sbTags)
 	bList <-lapply(sbTags,
 		function(x){
 			out <- splitBallot(get.ballot(x))
