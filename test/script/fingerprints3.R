@@ -127,7 +127,11 @@ do.party <- function(party,baseDir,bList){
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
 
-do.region <- function(region,country='UK',ballot='Wm'){
+do.region <- function(
+	region,
+	country='UK',
+	ballot='Wm'
+){
 	a <- paste(sep='.',country,gsub(' ','.',region))
 	baseDir <- paste(sep='','test/pics/',a,'/')
 	system(paste('mkdir','-p',baseDir))
@@ -162,6 +166,6 @@ regions <- unique(lapply(strsplit(ls.ballotTag('Wm'),'\\.'),
 	)
 )
 
-lapply(regions,do.region,'Wm')
+lapply(regions,do.region,,'UK','Wm')
 do.region('KS.4th','US','Pres')
 do.region('KS','US','Pres')
