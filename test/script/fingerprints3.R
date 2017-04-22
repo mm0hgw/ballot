@@ -166,6 +166,6 @@ regions <- unique(lapply(strsplit(ls.ballotTag('Wm'),'\\.'),
 	)
 )
 
-lapply(regions,do.region,,'UK','Wm')
+lapply(regions,do.region,'UK','Wm')
 do.region('KS.4th','US','Pres')
 do.region('KS','US','Pres')
