@@ -127,11 +127,11 @@ do.party <- function(party,baseDir,bList){
 	if(buildPackageLoaded)gitAdd(print(testFile))
 }
 
-do.region <- function(region,country='UK'){
+do.region <- function(region,country='UK',ballot='Wm'){
 	a <- paste(sep='.',country,gsub(' ','.',region))
 	baseDir <- paste(sep='','test/pics/',a,'/')
 	system(paste('mkdir','-p',baseDir))
-	sbTags <- ls.ballotTag(a)
+	sbTags <- grep(ballot,ls.ballotTag(a),value=TRUE)
 	bList <-lapply(sbTags,
 		function(x){
 			out <- splitBallot(get.ballot(x))
