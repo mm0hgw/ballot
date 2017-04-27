@@ -81,7 +81,7 @@ sbDensity <- function(sb, ...) {
     density(sbCalculateSample(sb, ...))
 }
 
-#'\tsbDensityPeakX
+#'sbDensityPeakX
 #' @inheritParams sbPopMean 
 #' @inheritParams sbChisqTest
 #' @return x location of density peak of sample of sub-ballot
@@ -93,7 +93,7 @@ sbDensityPeakX <- function(sb, ...) {
     d$x[which.max(d$y)]
 }
 
-#'\tsbDensityPeakY
+#'sbDensityPeakY
 #' @inheritParams sbPopMean 
 #' @inheritParams sbChisqTest
 #' @return y location of density peak of sample of sub-ballot
