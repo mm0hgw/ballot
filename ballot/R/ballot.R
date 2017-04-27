@@ -1,8 +1,8 @@
-#'\tBallot processing routines
+#'Ballot processing routines
 #'
-#'\t@author Dale Potter, \email{dale@@piratepress.org}
-#'\t
-#'\t@description Data operations for ballots.
+#'@author Dale Potter, \email{dale@@piratepress.org}
+#'
+#'@description Data operations for ballots.
 #'
 #' 
 #' @section ballot :
