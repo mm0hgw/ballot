@@ -60,7 +60,9 @@ valid.nb.subset <- function(x,i){
 		attr(out, j) <- attr(x, j)
 	}
 	class(out) <- 'nb'
-	if(attr(out,'sym')) # if parent object was symmetric
-		return(out) 		# child object must be symmetric.
+	# if parent object was symmetric
+	# child object must be symmetric.
+	if(attr(out,'sym')) 
+		return(out) 		
 	spdep::sym.attr.nb(out)
 }
