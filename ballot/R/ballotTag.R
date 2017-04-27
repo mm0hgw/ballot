@@ -46,7 +46,7 @@ print.ballotTag <- function(x,...){
 }
 
 #'@importFrom get.lapply get.lapply get.chunkSize
-#'@importFrom ultraCombo chunk.combo
+#'@importFrom ultraCombo comboChunk
 #'@method reportAndCollate ballotTag
 reportAndCollate.ballotTag <- function(
 	x,
@@ -63,7 +63,7 @@ reportAndCollate.ballotTag <- function(
 	while(i<=len){
 		sb<-sbList[[i]]
 		a<-LAPPLYFUN(
-			chunk.combo(
+			ultraCombo::comboChunk(
 				get.combo(get.bRegionTag(x)),
 				chunkSize
 			),

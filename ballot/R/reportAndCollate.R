@@ -3,7 +3,7 @@
 #'@param SBREPORTFUN a 'function' that takes a sub-ballot matrix and returns a report
 #'@param COLLATEFUN a 'function' that takes ... and returns collated results
 #'@param ... extra arguments for SBREPORTFUN
-#'@importFrom ultraCombo chunk.combo
+#'@importFrom ultraCombo comboChunk
 #'@export
 reportAndCollate <- function(
 	x,
@@ -16,7 +16,7 @@ reportAndCollate <- function(
 	stopifnot(is.function(COLLATEFUN))
 	LAPPLYFUN <- get.lapply()
 	chunkSize <- get.chunkSize()
-	comboList <- chunk.combo(get.combo(x),chunkSize)
+	comboList <- ultraCombo::comboChunk(get.combo(x),chunkSize)
 	z1 <- LAPPLYFUN(comboList,
 		function(combo){
 			lapply(seq(combo$len),
