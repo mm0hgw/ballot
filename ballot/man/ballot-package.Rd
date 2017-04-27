@@ -4,11 +4,9 @@
 \name{ballot-package}
 \alias{ballot}
 \alias{ballot-package}
-\title{\tBallot processing routines}
+\title{Ballot processing routines}
 \description{
-\t@author Dale Potter, \email{dale@piratepress.org}
-\t
-\t@description Data operations for ballots.
+Data operations for ballots.
 }
 \section{ballot }{
 
@@ -36,6 +34,5 @@ along with the registered elector count.
 }
 
 \author{
-\strong{Maintainer}: Dale \email{dale@piratepress.org} [copyright holder]
-
+Dale Potter, \email{dale@piratepress.org}
 }

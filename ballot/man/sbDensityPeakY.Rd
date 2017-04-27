@@ -2,7 +2,7 @@
 % Please edit documentation in R/subballot.R
 \name{sbDensityPeakY}
 \alias{sbDensityPeakY}
-\title{\tsbDensityPeakY}
+\title{sbDensityPeakY}
 \usage{
 sbDensityPeakY(sb, ...)
 }
@@ -15,5 +15,5 @@ sbDensityPeakY(sb, ...)
 y location of density peak of sample of sub-ballot
 }
 \description{
-\tsbDensityPeakY
+sbDensityPeakY
 }
