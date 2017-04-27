@@ -1,8 +1,8 @@
-#'	Ballot processing routines
+#'\tBallot processing routines
 #'
-#'	@author Dale Potter, \email{dale@@piratepress.org}
-#'	
-#'	@description Data operations for ballots.
+#'\t@author Dale Potter, \email{dale@@piratepress.org}
+#'\t
+#'\t@description Data operations for ballots.
 #'
 #' 
 #' @section ballot :
@@ -13,10 +13,10 @@
 #' the columns are various vote counts as reported 
 #' by the relevant authority. A column of registered 
 #' electorate is required to be the first column and 
-#' labelled "N" in accordance with the naming 
-#' conventions of "Spatial correlations in vote 
-#' statistics: a diffusive field model" (2010) 
-#' Borghesi & Bouchard. A "V" column of total votes 
+#' labelled 'N' in accordance with the naming 
+#' conventions of 'Spatial correlations in vote 
+#' statistics: a diffusive field model' (2010) 
+#' Borghesi & Bouchard. A 'V' column of total votes 
 #' cast is typically present. Columns for vote 
 #' totals by party would usually be present. 
 #'
