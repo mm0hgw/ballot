@@ -19,8 +19,8 @@
 "Aberavon",50838,0,0
 "Aberconwy",44593,0,0
 "Aberdeen North",64808,0,0
-"Aberdeenshire West & Kincardine",66110,0,0
 "Aberdeen South",64031,0,0
+"Aberdeenshire West & Kincardine",66110,0,0
 "Airdrie & Shotts",62364,0,0
 "Aldershot",71465,0,0
 "Aldridge-Brownhills",58909,0,0
@@ -58,8 +58,8 @@
 "Bedfordshire North East",78060,0,0
 "Bedfordshire South West",76559,0,0
 "Bermondsey & Old Southwark",77628,0,0
-"Berwickshire, Roxburgh & Selkirk",73826,0,0
 "Berwick-upon-Tweed",56578,0,0
+"Berwickshire, Roxburgh & Selkirk",73826,0,0
 "Bethnal Green & Bow",81243,0,0
 "Beverley & Holderness",79318,0,0
 "Bexhill & Battle",81032,0,0
@@ -96,8 +96,8 @@
 "Braintree",71163,0,0
 "Brecon & Radnorshire",53589,0,0
 "Brent Central",74046,0,0
-"Brentford & Isleworth",83546,0,0
 "Brent North",83896,0,0
+"Brentford & Isleworth",83546,0,0
 "Brentwood & Ongar",69309,0,0
 "Bridgend",58700,0,0
 "Bridgwater & Somerset West",82180,0,0
@@ -187,11 +187,11 @@
 "Delyn",53470,0,0
 "Denton & Reddish",66330,0,0
 "Derby North",71474,0,0
+"Derby South",70999,0,0
 "Derbyshire Dales",63376,0,0
 "Derbyshire Mid",66074,0,0
 "Derbyshire North East",71398,0,0
 "Derbyshire South",70608,0,0
-"Derby South",70999,0,0
 "Devizes",67379,0,0
 "Devon Central",71203,0,0
 "Devon East",73109,0,0
@@ -199,9 +199,9 @@
 "Devon South West",70813,0,0
 "Devon West & Torridge",77360,0,0
 "Dewsbury",78910,0,0
+"Don Valley",72597,0,0
 "Doncaster Central",72985,0,0
 "Doncaster North",71681,0,0
-"Don Valley",72597,0,0
 "Dorset Mid & Poole North",64660,0,0
 "Dorset North",73741,0,0
 "Dorset South",73360,0,0
@@ -216,19 +216,19 @@
 "Dundee East",65471,0,0
 "Dundee West",63013,0,0
 "Dunfermline & Fife West",73590,0,0
-"Durham, City of",68832,0,0
 "Durham North",67544,0,0
 "Durham North West",70350,0,0
+"Durham, City of",68832,0,0
 "Dwyfor Meirionnydd",45354,0,0
 "Ealing Central & Acton",70251,0,0
 "Ealing North",73104,0,0
 "Ealing Southall",66970,0,0
 "Easington",63879,0,0
-"Eastbourne",77840,0,0
 "East Ham",90674,0,0
 "East Kilbride, Strathaven & Lesmahagow",76534,0,0
-"Eastleigh",77436,0,0
 "East Lothian",73348,0,0
+"Eastbourne",77840,0,0
+"Eastleigh",77436,0,0
 "Eddisbury",72100,0,0
 "Edinburgh East",60945,0,0
 "Edinburgh North & Leith",69207,0,0
@@ -306,9 +306,9 @@
 "Henley",73123,0,0
 "Hereford & Herefordshire South",72021,0,0
 "Herefordshire North",66946,0,0
+"Hertford & Stortford",78459,0,0
 "Hertfordshire North East",72200,0,0
 "Hertfordshire South West",78248,0,0
-"Hertford & Stortford",78459,0,0
 "Hertsmere",73057,0,0
 "Hexham",60360,0,0
 "Heywood & Middleton",80171,0,0
@@ -352,10 +352,10 @@
 "Leeds North West",65399,0,0
 "Leeds West",67453,0,0
 "Leicester East",72986,0,0
-"Leicestershire North West",71217,0,0
-"Leicestershire South",76633,0,0
 "Leicester South",77175,0,0
 "Leicester West",64900,0,0
+"Leicestershire North West",71217,0,0
+"Leicestershire South",76633,0,0
 "Leigh",75903,0,0
 "Lewes",68708,0,0
 "Lewisham Deptford",67058,0,0
@@ -401,14 +401,14 @@
 "Motherwell & Wishaw",66918,0,0
 "Na h-Eileanan an Iar (Western Isles)",21780,0,0
 "Neath",57295,0,0
+"New Forest East",72858,0,0
+"New Forest West",68332,0,0
 "Newark",71755,0,0
 "Newbury",79144,0,0
-"Newcastle-under-Lyme",69433,0,0
 "Newcastle upon Tyne Central",60507,0,0
 "Newcastle upon Tyne East",64487,0,0
 "Newcastle upon Tyne North",67110,0,0
-"New Forest East",72858,0,0
-"New Forest West",68332,0,0
+"Newcastle-under-Lyme",69433,0,0
 "Newport East",54437,0,0
 "Newport West",62111,0,0
 "Newton Abbot",69319,0,0
@@ -419,8 +419,8 @@
 "Norfolk South West",73758,0,0
 "Normanton, Pontefract & Castleford",82336,0,0
 "Northampton North",61850,0,0
-"Northamptonshire South",82033,0,0
 "Northampton South",63105,0,0
+"Northamptonshire South",82033,0,0
 "Norwich North",64814,0,0
 "Norwich South",73649,0,0
 "Nottingham East",58705,0,0
@@ -463,15 +463,15 @@
 "Renfrewshire East",66249,0,0
 "Rhondda",51554,0,0
 "Ribble Valley",77789,0,0
-"Richmond Park",77751,0,0
 "Richmond (Yorks)",80563,0,0
+"Richmond Park",77751,0,0
 "Rochester & Strood",73758,0,0
 "Rochford & Southend East",71467,0,0
 "Romford",71306,0,0
 "Romsey & Southampton North",68157,0,0
 "Ross, Skye & Lochaber",51836,0,0
-"Rotherham",63563,0,0
 "Rother Valley",72847,0,0
+"Rotherham",63563,0,0
 "Rugby",68914,0,0
 "Runnymede & Weybridge",72566,0,0
 "Rushcliffe",72955,0,0
@@ -503,25 +503,25 @@
 "Somerset North",77306,0,0
 "Somerset North East",67881,0,0
 "Somerton & Frome",81548,0,0
+"South Holland & The Deepings",76243,0,0
+"South Ribble",75822,0,0
+"South Shields",64084,0,0
 "Southampton Itchen",74532,0,0
 "Southampton Test",71931,0,0
 "Southend West",66918,0,0
-"South Holland & The Deepings",76243,0,0
 "Southport",67200,0,0
-"South Ribble",75822,0,0
-"South Shields",64084,0,0
 "Spelthorne",70479,0,0
+"St Albans",70058,0,0
+"St Austell & Newquay",75284,0,0
+"St Helens North",74985,0,0
+"St Helens South & Whiston",77975,0,0
+"St Ives",66944,0,0
 "Stafford",70667,0,0
 "Staffordshire Moorlands",62137,0,0
 "Staffordshire South",73849,0,0
-"St Albans",70058,0,0
 "Stalybridge & Hyde",69081,0,0
-"St Austell & Newquay",75284,0,0
 "Stevenage",68937,0,0
-"St Helens North",74985,0,0
-"St Helens South & Whiston",77975,0,0
 "Stirling",66080,0,0
-"St Ives",66944,0,0
 "Stockport",62879,0,0
 "Stockton North",66752,0,0
 "Stockton South",73840,0,0
@@ -623,8 +623,8 @@
 "Wrekin, The",65544,0,0
 "Wrexham",50872,0,0
 "Wycombe",74175,0,0
-"Wyre Forest",76713,0,0
 "Wyre & Preston North",70201,0,0
+"Wyre Forest",76713,0,0
 "Wythenshawe & Sale East",79923,0,0
 "Yeovil",82314,0,0
 "Ynys Mon",50075,0,0

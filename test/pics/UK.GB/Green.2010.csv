@@ -357,8 +357,8 @@
 "Bassetlaw",76513,0,0
 "Bedfordshire North East",78060,0,0
 "Bedfordshire South West",76559,0,0
-"Berwickshire, Roxburgh & Selkirk",73826,0,0
 "Berwick-upon-Tweed",56578,0,0
+"Berwickshire, Roxburgh & Selkirk",73826,0,0
 "Bexhill & Battle",81032,0,0
 "Birkenhead",62773,0,0
 "Birmingham Erdington",66405,0,0
@@ -422,13 +422,13 @@
 "Delyn",53470,0,0
 "Denton & Reddish",66330,0,0
 "Derby North",71474,0,0
+"Derby South",70999,0,0
 "Derbyshire Mid",66074,0,0
 "Derbyshire North East",71398,0,0
 "Derbyshire South",70608,0,0
-"Derby South",70999,0,0
+"Don Valley",72597,0,0
 "Doncaster Central",72985,0,0
 "Doncaster North",71681,0,0
-"Don Valley",72597,0,0
 "Dorset Mid & Poole North",64660,0,0
 "Dover",71833,0,0
 "Dudley North",60838,0,0
@@ -438,9 +438,9 @@
 "Dunbartonshire West",66086,0,0
 "Dundee West",63013,0,0
 "Dunfermline & Fife West",73590,0,0
-"Durham, City of",68832,0,0
 "Durham North",67544,0,0
 "Durham North West",70350,0,0
+"Durham, City of",68832,0,0
 "Dwyfor Meirionnydd",45354,0,0
 "Easington",63879,0,0
 "Eastbourne",77840,0,0
@@ -479,8 +479,8 @@
 "Hemel Hempstead",72752,0,0
 "Hemsworth",75542,0,0
 "Hereford & Herefordshire South",72021,0,0
-"Hertfordshire South West",78248,0,0
 "Hertford & Stortford",78459,0,0
+"Hertfordshire South West",78248,0,0
 "Hexham",60360,0,0
 "Heywood & Middleton",80171,0,0
 "Houghton & Sunderland South",68729,0,0
@@ -551,8 +551,8 @@
 "Rochdale",78952,0,0
 "Romsey & Southampton North",68157,0,0
 "Rossendale & Darwen",73229,0,0
-"Rotherham",63563,0,0
 "Rother Valley",72847,0,0
+"Rotherham",63563,0,0
 "Rutherglen & Hamilton West",76408,0,0
 "Rutland & Melton",77185,0,0
 "Salford & Eccles",75483,0,0
@@ -569,15 +569,15 @@
 "Solihull",76288,0,0
 "Somerset North",77306,0,0
 "Somerton & Frome",81548,0,0
-"Southport",67200,0,0
 "South Ribble",75822,0,0
+"Southport",67200,0,0
 "Spelthorne",70479,0,0
-"Staffordshire Moorlands",62137,0,0
-"Staffordshire South",73849,0,0
 "St Austell & Newquay",75284,0,0
-"Stevenage",68937,0,0
 "St Helens North",74985,0,0
 "St Helens South & Whiston",77975,0,0
+"Staffordshire Moorlands",62137,0,0
+"Staffordshire South",73849,0,0
+"Stevenage",68937,0,0
 "Stockton North",66752,0,0
 "Stockton South",73840,0,0
 "Stoke-on-Trent Central",61003,0,0
@@ -625,8 +625,8 @@
 "Wrekin, The",65544,0,0
 "Wrexham",50872,0,0
 "Wycombe",74175,0,0
-"Wyre Forest",76713,0,0
 "Wyre & Preston North",70201,0,0
+"Wyre Forest",76713,0,0
 "Wythenshawe & Sale East",79923,0,0
 "Yeovil",82314,0,0
 "Ynys Mon",50075,0,0
