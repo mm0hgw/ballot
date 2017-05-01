@@ -35,7 +35,7 @@ get.combo.regionTag <- function(x) {
     if (!file.exists(fileName)) {
         nb <- get.nb(x)
         n <- length(nb)
-        combo <- growCombo(nb)
+        combo <- growCombo(nb,7)
         assign(dataName, combo, envir = tmpEnv)
         xzSave(file = fileName, list = dataName, envir = tmpEnv)
     } else {
@@ -76,7 +76,9 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     LAPPLYFUN <- get.lapply()
     chunkSize <- get.chunkSize()
     while (combo$k < k) {
-        combo <- do.call(union.combo, LAPPLYFUN(comboChunk(combo, chunkSize), function(combo) {
+        combo <- do.call(union.combo, 
+        LAPPLYFUN(comboChunk(combo, chunkSize), 
+        function(combo) {
             i <- 1
             out <- ultraCombo(vector(), n, combo$k + 1)
             while (i <= combo$len) {
@@ -92,56 +94,3 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     combo
 }
 
-growCombo2 <- function(nb, k = 7, seeds = 0) {
-    k <- as.integer(k)
-    seeds <- as.integer(seeds)
-    cat(paste("nb length:", length(nb), "k", k, "seeds", paste(collapse = ",", seeds), 
-        "\n"))
-    stopifnot(inherits(nb, "nb"))
-    stopifnot(is.integer(k))
-    stopifnot(length(k) == 1)
-    stopifnot(k >= 0)
-    stopifnot(is.integer(seeds))
-    stopifnot(sum(duplicated(seeds)) == 0)
-    stopifnot(all(seeds == 0) || all(seeds > 0) || all(seeds < 0))
-    n <- length(nb)
-    if (k == 0) 
-        return(ultraCombo(1, n, k))
-    if (length(seeds) == 1 && seeds[1] == 0) 
-        seeds <- seq(n)
-    if (any(seeds < 0)) 
-        seeds <- setdiff(seq(n), -seeds)
-    combo <- ultraCombo::ultraCombo(seeds, n, 1)
-    LAPPLYFUN <- get.lapply()
-    chunkSize <- get.chunkSize()
-    
-    seeds <- seeds[sapply(seeds, function(x) length(nb[[x]]))]
-    do.call(union.combo, LAPPLYFUN(seeds, growCombo2thread, nb = nb, k = k))
-}
-
-
-growCombo2thread <- function(nb, k, seeds) {
-    n <- length(nb)
-    revCombnGen <- ultraCombo::revCombnGG(n)
-    comboList <- vector("list", k)
-    comboList[[1]] <- seeds
-    out <- ultraCombo::ultraCombo(vector(), n, k)
-    while (length(comboList[[1]]) != 0) {
-        i <- which.max(sapply(comboList, length) == 0)
-        while (i <= k) {
-            j <- sapply(comboList[seq(1, i - 1)], "[[", 1)
-            comboList[[i]] <- group.nb(nb, j)
-            i <- i + 1
-        }
-        out <- union.combo(revCombnGen(do.call(rbind, lapply(comboList[[k]], function(x) {
-            c(sapply(comboList[seq(k - 1)], "[[", 1), x)
-        }))), out)
-        comboList[[k]] <- vector()
-        i <- k
-        while (i > 1 && length(comboList[[i]]) == 0) {
-            i <- i - 1
-            comboList[[i]] <- comboList[[i]][-1]
-        }
-    }
-    out
-}
