@@ -35,7 +35,8 @@ get.combo.regionTag <- function(x) {
     if (!file.exists(fileName)) {
         nb <- get.nb(x)
         n <- length(nb)
-        combo <- growCombo(nb,7)
+        combo <- growCombo(nb)
+        print(combo)
         assign(dataName, combo, envir = tmpEnv)
         xzSave(file = fileName, list = dataName, envir = tmpEnv)
     } else {
