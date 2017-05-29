@@ -33,5 +33,7 @@ load('test/data/elections.RData')
 SIR <- elections$SIR2014[,-1]
 colnames(SIR)[1]<-'N'
 sbList <- c(SIR_turnout,splitBallot(SIR))
-plotSbList(sbList,tag=ls.ballotTag('SIR'))
+plotSbList(SIR_turnout,tag=ls.ballotTag('SIR'))
+fileOffset<-length(SIR_turnout)
+plotSbList(splitBallot(SIR),fileOffset,tag=ls.ballotTag('SIR'))
 
