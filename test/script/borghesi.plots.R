@@ -22,17 +22,16 @@ gitAdd(print(filename))
 if(!is.null(tag)){
 filename <- paste(sep='',borghesiDir,'/borghesi-spatial',i+fileOffset,'.png')
 png(filename)
-spatialPlot(tag,sbCalculateSample(sb,norm=TRUE)
+spatialPlot(tag,sbCalculateSample(sb,norm=TRUE))
 dev.off()
 gitAdd(print(filename))
 }
 })
 }
 
-plotSbList(SIR_turnout)
-fileOffset <- length (SIR_turnout)
 load('test/data/elections.RData')
 SIR <- elections$SIR2014[,-1]
 colnames(SIR)[1]<-'N'
-plotSbList(splitBallot(SIR),fileOffset)
+sbList <- c(SIR_turnout,splitBallot(SIR))
+plotSbList(sbList,tag=ls.ballotTag('SIR'))
 
