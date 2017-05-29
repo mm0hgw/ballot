@@ -14,7 +14,7 @@ filename <- paste(sep='',borghesiDir,'/borghesi',i+fileOffset,'.png')
 sb <- sbList[[i]]
 d <- sbDensity(sb)
 dy <- dnorm(d$x,mean=sbPopMean(sb),sd=sbPopSd(sb))
-png(filename)
+testPng(filename)
 plot(d,main=names(sbList)[i])
 lines(d$x,dy,lty=2)
 dev.off()
