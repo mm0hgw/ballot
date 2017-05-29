@@ -15,7 +15,7 @@ sb <- sbList[[i]]
 d <- sbDensity(sb)
 dy <- dnorm(d$x,mean=sbPopMean(sb),sd=sbPopSd(sb))
 png(filename)
-plot(d,main=names(SIR_turnout)[i])
+plot(d,main=names(sbList)[i])
 lines(d$x,dy,lty=2)
 dev.off()
 gitAdd(print(filename))
