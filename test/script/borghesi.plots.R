@@ -2,12 +2,12 @@
 library(buildPackage)
 library(ballot)
 
-borghesiDir <-'test/pics/fingerprints/borghesi'
+borghesiDir <-'test/pics/borghesi'
 
 system(paste('mkdir -p',borghesiDir))
 SIR_turnout <- dget('test/data/Scotland2')[4:6]
 
-plotSbList <-function(sbList,fileOffset=0){
+plotSbList <-function(sbList,fileOffset=0,tag=NULL){
 lapply(seq_along(sbList),
 function(i){
 filename <- paste(sep='',borghesiDir,'/borghesi',i+fileOffset,'.png')
@@ -19,6 +19,13 @@ plot(d,main=names(sbList)[i])
 lines(d$x,dy,lty=2)
 dev.off()
 gitAdd(print(filename))
+if(!is.null(tag)){
+filename <- paste(sep='',borghesiDir,'/borghesi-spatial',i+fileOffset,'.png')
+png(filename)
+spatialPlot(tag,sbCalculateSample(sb,norm=TRUE)
+dev.off()
+gitAdd(print(filename))
+}
 })
 }
 
