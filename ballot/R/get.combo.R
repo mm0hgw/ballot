@@ -77,9 +77,7 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     LAPPLYFUN <- get.lapply()
     chunkSize <- get.chunkSize()
     while (combo$k < k) {
-        combo <- do.call(union.combo, 
-        LAPPLYFUN(comboChunk(combo, chunkSize), 
-        function(combo) {
+        combo <- do.call(union.combo, LAPPLYFUN(comboChunk(combo, chunkSize), function(combo) {
             i <- 1
             out <- ultraCombo(vector(), n, combo$k + 1)
             while (i <= combo$len) {
