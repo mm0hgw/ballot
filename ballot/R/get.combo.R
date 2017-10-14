@@ -85,7 +85,9 @@ growCombo <- function(nb, k = 7, seeds = 0) {
                   x), function(z) c(z, x))), n))
                 i <- i + 1
             }
-            print(out$i)
+            print(out)
+            print(chooseZ(out$n,out$k))
+            summary(out$i)
             out
         }))
     }
