@@ -104,4 +104,4 @@ fingerprint <- function(z){
 	)
 }
 
-lapply(ls.ballotTag(),fingerprint)
+lapply(ls.ballotTag()[seq(-5,-6)],fingerprint)
