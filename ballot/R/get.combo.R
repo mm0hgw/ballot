@@ -87,7 +87,7 @@ growCombo <- function(nb, k = 7, seeds = 0) {
             }
             print(out)
             print(gmp::chooseZ(out$n,out$k))
-            summary(out$i)
+            print(summary(out$i))
             out
         }))
     }
