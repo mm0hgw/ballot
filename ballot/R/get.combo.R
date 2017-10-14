@@ -94,3 +94,4 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     combo$i <- sort(combo$i)
     combo
 }
+
