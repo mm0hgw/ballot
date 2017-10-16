@@ -79,10 +79,12 @@ growCombo <- function(nb, k = 7, seeds = 0) {
         combo <- do.call(union.combo, LAPPLYFUN(comboChunk(combo, chunkSize), function(combo) {
             i <- 1
             out <- ultraCombo(vector(), n, combo$k + 1)
+            print(out)
             while (i <= combo$len) {
                 x <- combo$Gen(i)
                 out <- union.combo(out, ultraCombo::revCombnG(do.call(rbind, lapply(group.nb(nb, 
                   x), function(z) c(z, x))), n))
+                print(out)
                 i <- i + 1
             }
             print(out)
@@ -90,6 +92,7 @@ growCombo <- function(nb, k = 7, seeds = 0) {
             print(summary(out$i))
             out
         }))
+        
     }
     combo$i <- sort(combo$i)
     combo
