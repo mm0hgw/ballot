@@ -5,6 +5,7 @@ lapply( ls.ballotTag(),
 		png(fileName)
 		freqPlot(tag)
 		dev.off()
+		if(buildPackageLoaded)gitAdd(print(fileName))
 	}
 ) 
 
