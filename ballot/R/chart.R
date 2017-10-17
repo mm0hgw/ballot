@@ -23,7 +23,7 @@ freqPlot <- function(x, ...) {
     if (!("xlim" %in% names(arg))) 
         arg$xlim <- c(0, 1)
     if (!("ylim" %in% names(arg))) {
-        arg$ylim <- do.call(range, lapply(fList, "[", "freq"))
+        arg$ylim <- c(0,1)
     }
     arg$x <- 0
     arg$type <- "n"
