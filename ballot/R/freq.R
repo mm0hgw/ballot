@@ -20,7 +20,7 @@ get.freq <- function(x, i = 1) {
         get(dataName, envir = tmpEnv)
     } else {
         tmpEnv <- new.env()
-        freq <- reportAndCollate(x, sbPointsBelowPopMean, plyr::count)
+        freq <- plyr::count(reportAndCollate(x, sbPointsBelowPopMean, c))
         print(freq)
         assign(dataName, freq, envir = tmpEnv)
         save(list = dataName, file = fileName, envir = tmpEnv)
