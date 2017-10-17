@@ -20,6 +20,7 @@ freqPlot <- function(x, ...) {
     }
     names(slice) <- colnames(get.ballot(x))[slice + 1]
     fList <- lapply(slice, get.freq, x = x)
+    f2List <- lapply(fList, function(i)cbind(x=fList[[i]]$x/7,y=fList[[i]]$freq/sum(fList[[i]]$freq)))
     if (!("xlim" %in% names(arg))) 
         arg$xlim <- c(0, 1)
     if (!("ylim" %in% names(arg))) {
@@ -27,12 +28,12 @@ freqPlot <- function(x, ...) {
     }
     arg$x <- 0
     arg$type <- "n"
-    print(fList)
+    print(f2List)
     print(arg)
     do.call(plot, arg)
-    len <- length(fList)
+    len <- length(f2List)
     col <- seq(len) + 1
-    lapply(seq(len), function(z) lines(x = fList[[z]]$x/7, y = fList[[z]]$freq/get.combo(x)$len, 
+    lapply(seq(len), function(z) lines(x = f2List[[z]]$x/7, y = f2List[[z]]$freq/get.combo(x)$len, 
         col = col[z], pch = col[z], lwd = 3))
     print('o')
     leg <- gsub("^V$", "Overall Turnout", names(fList))
