@@ -20,7 +20,7 @@ freqPlot <- function(x, ...) {
     }
     names(slice) <- colnames(get.ballot(x))[slice + 1]
     fList <- lapply(slice, get.freq, x = x)
-    f2List <- lapply(fList, function(i)cbind(x=fList[[i]]$x/7,y=fList[[i]]$freq/sum(fList[[i]]$freq)))
+    f2List <- lapply(fList, function(i) cbind(x = fList[[i]]$x/7, y = fList[[i]]$freq/sum(fList[[i]]$freq)))
     if (!("xlim" %in% names(arg))) 
         arg$xlim <- c(0, 1)
     if (!("ylim" %in% names(arg))) {
