@@ -25,8 +25,9 @@ freqPlot <- function(x, ...) {
     if (!("ylim" %in% names(arg))) {
         arg$ylim <- do.call(range, lapply(fList, "[", "freq"))
     }
+    print(fList)
     print(arg)
-    do.call(sp::plot, arg)
+    do.call(plot, arg)
     len <- length(fList)
     col <- seq(len) + 1
     lapply(seq(len), function(x) lines(x = fList$x/7, y = fList$freq/(get.combo(x)$len), 
