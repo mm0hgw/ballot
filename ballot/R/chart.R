@@ -32,8 +32,8 @@ freqPlot <- function(x, ...) {
     do.call(plot, arg)
     len <- length(fList)
     col <- seq(len) + 1
-    lapply(seq(len), function(y) lines(x = fList[[y]]$x/7, y = fList[[y]]$freq/(get.combo(x)$len), 
-        col = col[x], pch = col[x], lwd = 3))
+    lapply(seq(len), function(z) lines(x = fList[[z]]$x/7, y = fList[[z]]$freq/get.combo(x)$len, 
+        col = col[z], pch = col[z], lwd = 3))
     print('o')
     leg <- gsub("^V$", "Overall Turnout", names(fList))
     print('o')
