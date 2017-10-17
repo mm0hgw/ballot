@@ -83,7 +83,6 @@ growCombo <- function(nb, k = 7, seeds = 0) {
                 x <- combo$Gen(i)
                 out <- union.combo(out, ultraCombo::revCombnG(do.call(rbind, lapply(group.nb(nb, 
                   x), function(z) c(z, x))), n))
-                print(out)
                 i <- i + 1
             }
             out
