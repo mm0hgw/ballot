@@ -73,23 +73,19 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     if (any(seeds < 0)) 
         seeds <- setdiff(seq(n), -seeds)
     combo <- ultraCombo(seeds, n, 1)
-    LAPPLYFUN <- lapply  #get.lapply()
+    LAPPLYFUN <- get.lapply()
     chunkSize <- get.chunkSize()
     while (combo$k < k) {
         combo <- do.call(union.combo, LAPPLYFUN(comboChunk(combo, chunkSize), function(combo) {
             i <- 1
             out <- ultraCombo(vector(), n, combo$k + 1)
-            print(out)
             while (i <= combo$len) {
                 x <- combo$Gen(i)
-                out <- union.combo(out, ultraCombo::revCombnG(do.call(rbind, print(lapply(group.nb(nb, 
-                  x), function(z) c(z, x)))), n))
+                out <- union.combo(out, ultraCombo::revCombnG(do.call(rbind, lapply(group.nb(nb, 
+                  x), function(z) c(z, x))), n))
                 print(out)
                 i <- i + 1
             }
-            print(out)
-            print(gmp::chooseZ(out$n, out$k))
-            print(summary(out$i))
             out
         }))
         
