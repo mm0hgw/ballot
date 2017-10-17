@@ -82,8 +82,8 @@ growCombo <- function(nb, k = 7, seeds = 0) {
             print(out)
             while (i <= combo$len) {
                 x <- combo$Gen(i)
-                out <- union.combo(out, ultraCombo::revCombnG(do.call(rbind, lapply(group.nb(nb, 
-                  x), function(z) c(z, x))), n))
+                out <- union.combo(out, ultraCombo::revCombnG(do.call(rbind, lapply(print(group.nb(nb, 
+                  x), function(z) c(z, x)))), n))
                 print(out)
                 i <- i + 1
             }
@@ -97,4 +97,3 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     combo$i <- sort(combo$i)
     combo
 }
-
