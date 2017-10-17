@@ -25,6 +25,7 @@ freqPlot <- function(x, ...) {
     if (!("ylim" %in% names(arg))) {
         arg$ylim <- do.call(range, lapply(fList, "[", "freq"))
     }
+    arg$x <- NULL
     print(fList)
     print(arg)
     do.call(plot, arg)
