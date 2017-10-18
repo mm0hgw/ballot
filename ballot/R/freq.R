@@ -5,7 +5,7 @@ get.freq <- function(x) {
     cat(paste("get.freq", x, "\n"))
     x <- as.ballotTag(x)
     ballot <- get.ballot(x)
-    dataName <- paste(sep='',x,'_freq')
+    dataName <- paste(sep = "", x, "_freq")
     fileName <- paste(sep = "", ballotDir, dataName, ".rda")
     print(fileName)
     if (file.exists(fileName)) {

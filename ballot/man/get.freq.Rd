@@ -4,12 +4,10 @@
 \alias{get.freq}
 \title{get.freq}
 \usage{
-get.freq(x, i = 1)
+get.freq(x)
 }
 \arguments{
 \item{x}{a 'ballotTag'}
-
-\item{i}{an 'integer' index of sb}
 }
 \description{
 get.freq
