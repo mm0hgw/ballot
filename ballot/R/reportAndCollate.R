@@ -17,7 +17,6 @@ reportAndCollate <- function(x, sb = get.ballot(x), SBREPORTFUN = sbPopMean, COL
             SBREPORTFUN(sb[combo$Gen(i), ], ...)
         })
     })
-    print(z1)
     z2 <- do.call(c, z1)
     z3 <- do.call(COLLATEFUN, z2)
     z3
