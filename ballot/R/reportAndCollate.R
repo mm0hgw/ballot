@@ -10,7 +10,7 @@ reportAndCollate <- function(x, sb=get.ballot(x), SBREPORTFUN=sbPopMean, COLLATE
     stopifnot(is.function(COLLATEFUN))
     LAPPLYFUN <- get.lapply()
     chunkSize <- get.chunkSize()
-    comboList <- ultraCombo::comboChunk(get.combo(x), chunkSize)
+    comboList <- ultraCombo::comboChunk(get.combo(get.bRegionTag(x)), chunkSize)
     z1 <- LAPPLYFUN(comboList, function(combo) {
         lapply(seq(combo$len), function(i) {
             SBREPORTFUN(sb[combo$Gen(i), ], ...)
