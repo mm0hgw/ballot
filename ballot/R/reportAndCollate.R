@@ -5,7 +5,8 @@
 #'@param ... extra arguments for SBREPORTFUN
 #'@importFrom ultraCombo comboChunk
 #'@export
-reportAndCollate <- function(x, sb=get.ballot(x), SBREPORTFUN=sbPopMean, COLLATEFUN=c, ...) {
+reportAndCollate <- function(x, sb = get.ballot(x), SBREPORTFUN = sbPopMean, COLLATEFUN = c, 
+    ...) {
     stopifnot(is.function(SBREPORTFUN))
     stopifnot(is.function(COLLATEFUN))
     LAPPLYFUN <- get.lapply()

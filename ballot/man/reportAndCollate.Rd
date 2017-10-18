@@ -4,7 +4,8 @@
 \alias{reportAndCollate}
 \title{reportAndCollate}
 \usage{
-reportAndCollate(sb, SBREPORTFUN, COLLATEFUN = c, ...)
+reportAndCollate(x, sb = get.ballot(x), SBREPORTFUN = sbPopMean,
+  COLLATEFUN = c, ...)
 }
 \arguments{
 \item{sb}{a 'subballot' object}

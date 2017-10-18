@@ -14,8 +14,10 @@ get.freq <- function(x) {
         get(dataName, envir = tmpEnv)
     } else {
         tmpEnv <- new.env()
-		    sbList <- head(splitBallot(ballot), n=sum(colSums(ballot!=0)>nrow(ballot)/2)-1)
-		    freq <- lapply(lapply(sbList, reportAndCollate, x=x, sbPointsBelowPopMean, c),plyr::count)
+        sbList <- head(splitBallot(ballot), n = sum(colSums(ballot != 0) > nrow(ballot)/2) - 
+            1)
+        freq <- lapply(lapply(sbList, reportAndCollate, x = x, sbPointsBelowPopMean, 
+            c), plyr::count)
         print(freq)
         assign(dataName, freq, envir = tmpEnv)
         save(list = dataName, file = fileName, envir = tmpEnv)
