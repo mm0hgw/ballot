@@ -4,10 +4,10 @@
 \alias{reportAndCollate}
 \title{reportAndCollate}
 \usage{
-reportAndCollate(x, SBREPORTFUN, COLLATEFUN, ...)
+reportAndCollate(sb, SBREPORTFUN, COLLATEFUN = c, ...)
 }
 \arguments{
-\item{x}{a 'ballotTag' object}
+\item{sb}{a 'subballot' object}
 
 \item{SBREPORTFUN}{a 'function' that takes a sub-ballot matrix and returns a report}
 
