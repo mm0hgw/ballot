@@ -31,6 +31,6 @@ source('test/script/fingerprints.R')
 source('test/script/fingerprints3.R')
 source('test/script/dataCombo.R')
 #source('test/script/dataCombo2.R')
-source('test/script/freq.R')
+#source('test/script/freq.R')
 
 if(buildPackageLoaded)buildPackage::gitPush("test")
