@@ -197,5 +197,5 @@ sbBorghesiPlot <- function(sb,norm=F,...){
 	ylim <- range(model,d$y)
 	plot(d,ylim=ylim,...)
 	lines(x=d$x,y=model,lty=2)
-	legend('topright',legend=c('measurement','expectation'),lty=c(1,2)
+	legend('topright',legend=c('measurement','expectation'),lty=c(1,2))
 }
