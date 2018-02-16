@@ -6,6 +6,9 @@
 \usage{
 sbBorghesiPlot(sb, norm = F, ...)
 }
+\arguments{
+\item{...}{extra arguments for plot function}
+}
 \description{
 sbBorgesiPlot
 }
