@@ -183,6 +183,9 @@ sbAbstainers <- function(sb) {
 }
 
 #'sbBorgesiPlot
+#'@inheritParams sbCalculateSample
+#'@param ... extra arguments for plot function
+#'@export
 sbBorghesiPlot <- function(sb,norm=F,...){
     stopifnot(is.valid.subballot(sb))
 	if(normalise==T){
