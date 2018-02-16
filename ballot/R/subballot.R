@@ -183,14 +183,10 @@ sbAbstainers <- function(sb) {
 }
 
 #'sbBorgesiPlot
-<<<<<<< HEAD
 #'@inheritParams sbCalculateSample
 #'@param ... extra arguments for plot function
 #'@export
-sbBorghesiPlot <- function(sb,norm=F,...){
-=======
 sbBorghesiPlot <- function(sb, norm = F, ...) {
->>>>>>> branch 'dev' of git@github.com:mm0hgw/ballot.git
     stopifnot(is.valid.subballot(sb))
     if (normalise == T) {
         pmean <- 0
