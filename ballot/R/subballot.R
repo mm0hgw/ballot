@@ -182,3 +182,20 @@ sbAbstainers <- function(sb) {
     out
 }
 
+#'sbBorgesiPlot
+sbBorghesiPlot <- function(sb,norm=F,...){
+    stopifnot(is.valid.subballot(sb))
+	if(normalise==T){
+		pmean <- 0
+		psd <- 1
+	}else{
+	pmean <- sbPopMean(sb)
+	psd <- sbPopSd(sb)
+	}
+	d <- sbDensity(sb,norm=norm)
+	model <- dnorm(d$x,mean=pmean,sd=psd)
+	ylim <- range(model,d$y)
+	plot(d,ylim=ylim,...)
+	lines(x=d$x,y=model,lty=2)
+	legend('topright',legend=c('measurement','expectation'),lty=c(1,2)
+}
