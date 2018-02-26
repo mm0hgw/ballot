@@ -7,6 +7,10 @@
 sbBorghesiPlot(sb, norm = F, ...)
 }
 \arguments{
+\item{sb}{A sub-ballot}
+
+\item{norm}{'logical' value. Default FALSE. Whether sample is to be normalised.}
+
 \item{...}{extra arguments for plot function}
 }
 \description{
