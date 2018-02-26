@@ -221,10 +221,17 @@ sbPnorm <- function(sb) {
 #'sbKsTest
 #' @inheritParams sbPopMean
 #'@param ... extra parameters for ks.test()
-#'@param y the distribution or measurement to test against. Default is a normal distribution with population mean and population standard deviation from sb. 
+#'@param y the distribution or measurement to test against. Default is pnorm() 
 #'@importFrom stats ks.test
 #'@export
-sbKsTest <- function(sb,     y = sbPnorm(sb)
-,...) {
-    ks.test(sbCalculateSample(sb), y,...)
+sbKsTest <- function(sb, y = pnorm, ...) {
+    ks.test(sbCalculateSample(sb,norm=T), y,...)
+}
+
+#' sbShapiroTest
+#' @inheritParams sbPopMean
+#'@importFrom stats ks.test
+#'@export
+sbShapiroTest <- function(sb){
+	shapiro.test(sbCalculateSample(sb,norm=T))
 }
