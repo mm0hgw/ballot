@@ -207,23 +207,23 @@ sbBorghesiPlot <- function(sb, norm = F, ...) {
 #'sbPnorm
 #' @inheritParams sbPopMean
 #'@export
-sbPnorm <- function(sb){
-mean <- sbPopMean(sb)
-sd <- sbPopSd(sb)
-function(...){
-args <- list(...)
-args$mean <- mean
-args$sd <- sd
-do.call(pnorm,args)
-}
+sbPnorm <- function(sb) {
+    mean <- sbPopMean(sb)
+    sd <- sbPopSd(sb)
+    function(...) {
+        args <- list(...)
+        args$mean <- mean
+        args$sd <- sd
+        do.call(pnorm, args)
+    }
 }
 
 
 #'sbKsTest
 #' @inheritParams sbPopMean
 #'@export
-sbKsTest <- function(sb,...){
-sample <- sbCalculateSample(sb)
-dist <- sbPnorm(sb)
-ks.test(sample,dist)
+sbKsTest <- function(sb, ...) {
+    sample <- sbCalculateSample(sb)
+    dist <- sbPnorm(sb)
+    ks.test(sample, dist)
 }
