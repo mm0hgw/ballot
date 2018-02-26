@@ -202,3 +202,28 @@ sbBorghesiPlot <- function(sb, norm = F, ...) {
     lines(x = d$x, y = model, lty = 2)
     legend("topright", legend = c("measurement", "expectation"), lty = c(1, 2))
 }
+
+
+#'sbPnorm
+#' @inheritParams sbPopMean
+#'@export
+sbPnorm <- function(sb){
+mean <- sbPopMean(sb)
+sd <- sbPopSd(sb)
+function(...){
+args <- list(...)
+args$mean <- mean
+args$sd <- sd
+do.call(pnorm,args)
+}
+}
+
+
+#'sbKsTest
+#' @inheritParams sbPopMean
+#'@export
+sbKsTest <- function(sb,...){
+sample <- sbCalculateSample(sb)
+dist <- sbPnorm(sb)
+ks.test(sample,dist)
+}
