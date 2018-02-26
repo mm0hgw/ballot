@@ -8,6 +8,8 @@ sbKsTest(sb, ...)
 }
 \arguments{
 \item{sb}{A sub-ballot}
+
+\item{...}{extra parameters for ks.test()}
 }
 \description{
 sbKsTest

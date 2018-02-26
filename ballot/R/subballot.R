@@ -226,5 +226,5 @@ sbPnorm <- function(sb) {
 sbKsTest <- function(sb, ...) {
     sample <- sbCalculateSample(sb)
     dist <- sbPnorm(sb)
-    ks.test(sample, dist,...)
+    ks.test(sample, dist, ...)
 }
