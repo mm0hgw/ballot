@@ -31,8 +31,7 @@ sbSampMean <- function(sb) {
     mean(sb[2]/sb[1])
 }
 
-#' @title sbCalculateSample
-#' @name calculateSample
+#' sbCalculateSample
 #' @description Calculate sample from sub-ballot
 #' @inheritParams sbPopMean
 #' @param norm 'logical' value. Default FALSE. Whether sample is to be normalised.
@@ -223,8 +222,7 @@ sbPnorm <- function(sb) {
 #'@param ... extra parameters for ks.test()
 #'@importFrom stats ks.test
 #'@export
-sbKsTest <- function(sb, ...) {
-    sample <- sbCalculateSample(sb)
-    dist <- sbPnorm(sb)
-    ks.test(sample, dist,...)
+sbKsTest <- function(sb,     dist = sbPnorm(sb)
+,...) {
+    ks.test(sbCalculateSample(sb), dist,...)
 }
