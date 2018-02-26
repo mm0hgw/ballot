@@ -223,7 +223,6 @@ sbPnorm <- function(sb) {
 #'@param y the distribution or measurement to test against. Default is a normal distribution with population mean and population standard deviation from sb. 
 #'@importFrom stats ks.test
 #'@export
-sbKsTest <- function(sb,     y = sbPnorm(sb)
-,...) {
-    ks.test(sbCalculateSample(sb), y,...)
+sbKsTest <- function(sb, y = sbPnorm(sb), ...) {
+    ks.test(sbCalculateSample(sb), y, ...)
 }

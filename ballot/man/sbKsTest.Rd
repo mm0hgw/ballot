@@ -4,10 +4,12 @@
 \alias{sbKsTest}
 \title{sbKsTest}
 \usage{
-sbKsTest(sb, ...)
+sbKsTest(sb, y = sbPnorm(sb), ...)
 }
 \arguments{
 \item{sb}{A sub-ballot}
+
+\item{y}{the distribution or measurement to test against. Default is a normal distribution with population mean and population standard deviation from sb.}
 
 \item{...}{extra parameters for ks.test()}
 }
