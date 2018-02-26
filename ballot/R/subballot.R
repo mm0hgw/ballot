@@ -225,13 +225,13 @@ sbPnorm <- function(sb) {
 #'@importFrom stats ks.test
 #'@export
 sbKsTest <- function(sb, y = pnorm, ...) {
-    ks.test(sbCalculateSample(sb,norm=T), y,...)
+    ks.test(sbCalculateSample(sb, norm = T), y, ...)
 }
 
 #' sbShapiroTest
 #' @inheritParams sbPopMean
 #'@importFrom stats ks.test
 #'@export
-sbShapiroTest <- function(sb){
-	shapiro.test(sbCalculateSample(sb,norm=T))
+sbShapiroTest <- function(sb) {
+    shapiro.test(sbCalculateSample(sb, norm = T))
 }
