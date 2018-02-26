@@ -41,10 +41,11 @@ sbCalculateSample <- function(sb, norm = FALSE) {
     stopifnot(is.valid.subballot(sb))
     stopifnot(is.logical(norm))
     if (norm == TRUE) {
-        normalise(sb[, 2]/sb[, 1], center = sbPopMean(sb))
+        out <- normalise(sb[, 2]/sb[, 1], center = sbPopMean(sb))
     } else {
-        sb[, 2]/sb[, 1]
+        out <- sb[, 2]/sb[, 1]
     }
+    out
 }
 
 #' sbChisqTest
