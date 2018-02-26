@@ -203,7 +203,6 @@ sbBorghesiPlot <- function(sb, norm = F, ...) {
     legend("topright", legend = c("measurement", "expectation"), lty = c(1, 2))
 }
 
-
 #'sbPnorm
 #' @inheritParams sbPopMean
 #'@importFrom stats pnorm
@@ -219,13 +218,13 @@ sbPnorm <- function(sb) {
     }
 }
 
-
 #'sbKsTest
 #' @inheritParams sbPopMean
+#'@param ... extra parameters for ks.test()
 #'@importFrom stats ks.test
 #'@export
 sbKsTest <- function(sb, ...) {
     sample <- sbCalculateSample(sb)
     dist <- sbPnorm(sb)
-    ks.test(sample, dist)
+    ks.test(sample, dist,...)
 }
