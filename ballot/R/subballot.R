@@ -208,15 +208,15 @@ sbBorghesiPlot <- function(sb, norm = F, ...) {
 #' @inheritParams sbPopMean
 #'@importFrom stats pnorm
 #'@export
-sbPnorm <- function(sb){
-mean <- sbPopMean(sb)
-sd <- sbPopSd(sb)
-function(...){
-args <- list(...)
-args$mean <- mean
-args$sd <- sd
-do.call(pnorm,args)
-}
+sbPnorm <- function(sb) {
+    mean <- sbPopMean(sb)
+    sd <- sbPopSd(sb)
+    function(...) {
+        args <- list(...)
+        args$mean <- mean
+        args$sd <- sd
+        do.call(pnorm, args)
+    }
 }
 
 
@@ -224,8 +224,8 @@ do.call(pnorm,args)
 #' @inheritParams sbPopMean
 #'@importFrom stats ks.test
 #'@export
-sbKsTest <- function(sb,...){
-sample <- sbCalculateSample(sb)
-dist <- sbPnorm(sb)
-ks.test(sample,dist)
+sbKsTest <- function(sb, ...) {
+    sample <- sbCalculateSample(sb)
+    dist <- sbPnorm(sb)
+    ks.test(sample, dist)
 }
