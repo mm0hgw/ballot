@@ -4,9 +4,9 @@ if(buildPackageLoaded)library(buildPackage)
 if(buildPackageLoaded)buildPackage("ballot",build=1)
 library(ballot)
 
-testSuffix <- '.png'
-rawTestFun <- png
-testFnParameters <- c(height=850,width=480)
+testSuffix <- '.pdf'
+rawTestFun <- pdf
+testFnParameters <- c(paper='a4')
 
 testFun <- function(...){
 	parameters <- as.list(c(...,testFnParameters))

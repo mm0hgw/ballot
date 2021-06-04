@@ -4,6 +4,12 @@ library(ballot)
 
 borghesiDir <-'test/pics/borghesi'
 
+sbSampleTable <- function(sb){
+	sample <- sbCalculateSample(sb)
+	out <- cbind(sb,sample=sample)
+	out[order(sample,decreasing=TRUE),]
+}
+
 system(paste('mkdir -p',borghesiDir))
 SIR_turnout <- dget('test/data/Scotland2')[4:6]
 
@@ -20,11 +26,11 @@ testFun(filename)
 plot(d,main=names(sbList)[i])
 lines(d$x,dy,lty=2)
 dev.off()
-write.csv(file=csvname,sb)
+write.csv(file=csvname,sbSampleTable(sb))
 gitAdd(print(c(filename,csvname)))
 if(!is.null(tag)){
 filename <- paste(sep='',borghesiDir,'/borghesi-spatial',i+fileOffset,testSuffix)
-png(filename)
+testFun(filename)
 spatialPlot(tag,sbCalculateSample(sb,norm=TRUE))
 dev.off()
 gitAdd(print(filename))
