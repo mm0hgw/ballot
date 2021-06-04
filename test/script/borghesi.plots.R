@@ -10,7 +10,9 @@ SIR_turnout <- dget('test/data/Scotland2')[4:6]
 plotSbList <-function(sbList,fileOffset=0,tag=NULL){
 lapply(seq_along(sbList),
 function(i){
-filename <- paste(sep='',borghesiDir,'/borghesi',i+fileOffset,testSuffix)
+filePrefix <- paste(sep='',borghesiDir,'/borghesi',i+fileOffset)
+filename <- paste(sep='',filePrefix,testSuffix)
+csvname <- paste(sep='',filePrefix,'.csv')
 sb <- sbList[[i]]
 d <- sbDensity(sb)
 dy <- dnorm(d$x,mean=sbPopMean(sb),sd=sbPopSd(sb))
@@ -18,7 +20,8 @@ testFun(filename)
 plot(d,main=names(sbList)[i])
 lines(d$x,dy,lty=2)
 dev.off()
-gitAdd(print(filename))
+write.csv(file=csvname,sb)
+gitAdd(print(c(filename,csvname)))
 if(!is.null(tag)){
 filename <- paste(sep='',borghesiDir,'/borghesi-spatial',i+fileOffset,testSuffix)
 png(filename)
