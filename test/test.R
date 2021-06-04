@@ -6,7 +6,7 @@ library(ballot)
 
 testSuffix <- '.pdf'
 rawTestFun <- pdf
-testFnParamaters <- c(paper='a4r')
+testFnParameters <- c(paper='a4r')
 
 testFun <- function(...){
 	parameters <- c(...,testFnParameters)
