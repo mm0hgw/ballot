@@ -4,9 +4,9 @@ if(buildPackageLoaded)library(buildPackage)
 if(buildPackageLoaded)buildPackage("ballot",build=1)
 library(ballot)
 
-testSuffix <- '.svg'
-rawTestFun <- svg
-testFnParameters <- vector()
+testSuffix <- '.png'
+rawTestFun <- png
+testFnParameters <- c(height=850,width=480)
 
 testFun <- function(...){
 	parameters <- as.list(c(...,testFnParameters))
