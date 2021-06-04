@@ -4,8 +4,14 @@ if(buildPackageLoaded)library(buildPackage)
 if(buildPackageLoaded)buildPackage("ballot",build=1)
 library(ballot)
 
-testPng <- function(...){
-	png(...,width=750,height=750)
+testSuffix <- '.pdf'
+rawTestFun <- pdf
+testFnParamaters <- c(paper='a4r',)
+
+
+testFun <- function(...){
+	parameters <- c(...,testFnParameters)
+	do.call(rawTestFun,parameters)
 }
 
 require(mclapplyFunGen)
@@ -25,11 +31,11 @@ if(length(ls.ballotTag())==0)
 
 source('test/script/basic.R')
 source('test/script/borghesi.plots.R')
-source('test/script/spatial.R')
-source('test/script/fingerprints.R')
+#source('test/script/spatial.R')
+#source('test/script/fingerprints.R')
 #source('test/script/fingerprints2.R')
-source('test/script/fingerprints3.R')
-source('test/script/dataCombo.R')
+#source('test/script/fingerprints3.R')
+#source('test/script/dataCombo.R')
 #source('test/script/dataCombo2.R')
 #source('test/script/freq.R')
 

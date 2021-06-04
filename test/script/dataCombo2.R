@@ -33,7 +33,7 @@ fingerprint <- function(z){
 			arg$xlab <- 'Fractional Turnout'
 			arg$xlim <- dListXlim(dList)
 			arg$ylim <- dListYlim(dList)
-			testPng(testFile)
+			testFun(testFile)
 			do.call(plot,arg)
 			lapply(seq(dc$len),
 				function(x){

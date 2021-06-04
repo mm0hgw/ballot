@@ -17,12 +17,12 @@ lapply(ls.ballotTag(),
 				}
 				testFile <- paste(sep='',
 					'test/pics/spatial/',gsub(' ','.',name),'_ballotTag_test_',
-					ballotTagName,'.png'
+					ballotTagName,testSuffix
 				)
 				a<-strsplit(x,'\\.')[[1]]
 				year<-a[length(a)-1]
 				title <- paste(sep=', ',name,year)
-				testPng(testFile)
+				testFun(testFile)
 				spatialPlot(x,
 					sample=sbCalculateSample(sb,norm=TRUE),
 					main=title

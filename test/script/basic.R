@@ -4,7 +4,7 @@ lapply(ls.layerTag(),
 	function(layerTagName){
 		cat('layer plot',layerTagName,'\n')
 		testFile <- paste(sep='','test/pics/layers/',layerTagName,'_layerTag_test.png')
-		testPng(testFile)
+		testFun(testFile)
 		plot(layerTag(layerTagName))
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
@@ -17,7 +17,7 @@ lapply(ls.regionTag(),
 	function(regionTagName){
 		cat('region plot',regionTagName,'\n')
 		testFile <- paste(sep='','test/pics/regions/',regionTagName,'_regionTag_test.png')
-		testPng(testFile)
+		testFun(testFile)
 		plot(regionTag(regionTagName))
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
@@ -35,7 +35,7 @@ lapply(ls.ballotTag(),
 		)
 		a<-strsplit(x,'\\.')[[1]]
 		year<-a[length(a)-1]
-		testPng(testFile)
+		testFun(testFile)
 		plot(x,norm=FALSE)
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
@@ -44,7 +44,7 @@ lapply(ls.ballotTag(),
 		)
 		a<-strsplit(x,'\\.')[[1]]
 		year<-a[length(a)-1]
-		testPng(testFile)
+		testFun(testFile)
 		plot(x,norm=TRUE)
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))

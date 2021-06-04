@@ -40,9 +40,9 @@ fingerprint <- function(z){
 			for(j in jList){
 				testFile <- paste(sep='',
 					zDir,z,'_',
-					gsub(' ','.',z.sbNames[i]),'_density_',z.combo$i[j],'.png'
+					gsub(' ','.',z.sbNames[i]),'_density_',z.combo$i[j],testSuffix
 				)
-				testPng(testFile)
+				testFun(testFile)
 				sb <- z.dc$dGen(j)
 				sample <- sbCalculateSample(sb)
 				csvFile <- paste(sep='',
@@ -90,9 +90,9 @@ fingerprint <- function(z){
 				if(buildPackageLoaded)gitAdd(print(testFile))
 				testFile <- paste(sep='',
 					zDir,z,'_',
-					gsub(' ','.',z.sbNames[i]),'_spatial_',z.combo$i[j],'.png'
+					gsub(' ','.',z.sbNames[i]),'_spatial_',z.combo$i[j],testSuffix
 				)
-				testPng(testFile)
+				testFun(testFile)
 				par(mar=rep(0,4))
 				sp<-z.sp.dc$dGen(j)
 				sp::plot(z.sp,border='grey')

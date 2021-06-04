@@ -14,7 +14,7 @@ do.party <- function(party,baseDir,bList){
 	)
 	col <- seq_along(dList)+1
 	testFile <- paste(sep='',baseDir,gsub(' ','.',name),'_sample.png')
-	testPng(testFile)
+	testFun(testFile)
 	do.call(plot,arg)
 	lapply(seq_along(dList),
 		function(i){
@@ -67,8 +67,8 @@ do.party <- function(party,baseDir,bList){
 				csvTmp <- csvTmp[order(sample,decreasing=TRUE),]
 				write.csv(file=testFile,csvTmp)
 				if(buildPackageLoaded)gitAdd(print(testFile))			
-				testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,'.png')
-				testPng(testFile)
+				testFile <- paste(sep='',baseDir,gsub(' ','.',name),'.',year,testSuffix)
+				testFun(testFile)
 				tag <- names(bList)[i]
 				spatialPlot(tag,
 					sample= sbCalculateSample(sb,norm=FALSE),
@@ -92,7 +92,7 @@ do.party <- function(party,baseDir,bList){
 	)
 	col <- seq_along(dList)+1
 	testFile <- paste(sep='',baseDir,gsub(' ','.',name),'_norm.png')
-	testPng(testFile)
+	testFun(testFile)
 	do.call(plot,arg)
 	x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 	lines(x,dnorm(x),lty=2)

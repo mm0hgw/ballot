@@ -3,7 +3,7 @@ system('mkdir -p test/pics/layers/')
 lapply(ls.layerTag(),
 	function(layerTagName){
 		testFile <- paste(sep='','test/pics/layers/',layerTagName,'_layerTag_test.png')
-		testPng(testFile)
+		testFun(testFile)
 		plot(layerTag(layerTagName))
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
@@ -15,7 +15,7 @@ system('mkdir -p test/pics/regions/')
 lapply(ls.regionTag(),
 	function(regionTagName){
 		testFile <- paste(sep='','test/pics/regions/',regionTagName,'_regionTag_test.png')
-		testPng(testFile)
+		testFun(testFile)
 		plot(regionTag(regionTagName))
 		dev.off()
 		if(buildPackageLoaded)gitAdd(print(testFile))
@@ -37,11 +37,11 @@ lapply(ls.ballotTag(),
 				sb <- sbList[[i]]
 				testFile <- paste(sep='',
 					'test/pics/ballot/sp/',ballotTagName,'_ballotTag_test_',i,'_',
-					gsub(' ','.',name),'.png'
+					gsub(' ','.',name),testSuffix
 				)
 				title <- paste(sep=', ',name,year)
 				subTitle <- paste(sep='/',sbSum(sb),sbSumN(sb))
-				testPng(testFile)
+				testFun(testFile)
 				spatialPlot(x,
 					sample=as.integer(format(digits=3,sbCalculateSample(sb,norm=FALSE)*100)),
 					main=title, sub=subTitle
@@ -50,9 +50,9 @@ lapply(ls.ballotTag(),
 				if(buildPackageLoaded)gitAdd(print(testFile))
 #				testFile <- paste(sep='',
 #					'test/pics/freqPlot_',ballotTagName,'_',i,'_',
-#					gsub(' ','.',name),'.png'
+#					gsub(' ','.',name),testSuffix
 #				)
-#				testPng(testFile)
+#				testFun(testFile)
 #				freqPlot(x,i)
 #				dev.off()
 #				if(buildPackageLoaded)gitAdd(print(testFile))

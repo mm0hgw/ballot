@@ -15,7 +15,7 @@ do.sbList <- function(sbList,name){
 	)
 	col <- seq_along(dList)+1
 	testFile <- paste(sep='','test/pics/fingerprints/',name,'_sample.png')
-	testPng(testFile)
+	testFun(testFile)
 	do.call(plot,arg)
 	lapply(seq_along(dList),
 		function(i){
@@ -65,8 +65,8 @@ do.sbList <- function(sbList,name){
 			csvTmp <- csvTmp[order(sample,decreasing=TRUE),]
 			write.csv(file=testFile,csvTmp)
 			if(buildPackageLoaded)gitAdd(print(testFile))			
-			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,'.png')
-			testPng(testFile)
+			testFile <- paste(sep='','test/pics/fingerprints/',name,'.',year,testSuffix)
+			testFun(testFile)
 			tag <- ls.ballotTag(paste(sep='.','Scotland',year))
 			spatialPlot(tag,
 				sample= sbCalculateSample(sb,norm=FALSE),
@@ -89,7 +89,7 @@ do.sbList <- function(sbList,name){
 	)
 	col <- seq_along(dList)+1
 	testFile <- paste(sep='','test/pics/fingerprints/',name,'_norm.png')
-	testPng(testFile)
+	testFun(testFile)
 	do.call(plot,arg)
 	x <- seq(arg$xlim[1],arg$xlim[2],length.out=256)
 	lines(x,dnorm(x),lty=2)
