@@ -9,7 +9,7 @@ rawTestFun <- pdf
 testFnParameters <- c(paper='a4r')
 
 testFun <- function(...){
-	parameters <- c(...,testFnParameters)
+	parameters <- as.list(c(...,testFnParameters))
 	do.call(rawTestFun,parameters)
 }
 
