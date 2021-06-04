@@ -26,8 +26,8 @@ get.chisq.ballotTag <- function(x, party = "V") {
     if (file.exists(dataFile)) {
         load(dataFile, envir = tmpEnv)
     } else {
-        LAPPLYFUN <- get.lapply::get.lapply()
-        chunkSize <- get.lapply::get.chunkSize()
+        LAPPLYFUN <- getLapply::getLapply()
+        chunkSize <- getLapply::get.chunkSize()
         z.combo <- get.combo(x)
         if (party %in% c("!V", "Abstainers")) {
             z.sb <- sbAbstainers(splitBallot(get.ballot(x))[["V"]])

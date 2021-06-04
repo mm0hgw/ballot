@@ -4,9 +4,11 @@
 \alias{sbReportGen}
 \title{sbReportGen}
 \usage{
-sbReportGen(SBREPORTFUNS = list(chisqTest = sbChisqTest, popMean = sbPopMean,
-  popSd = sbPopSd, densityPeakX = sbDensityPeakX, densityPeakY = sbDensityPeakY,
-  skewness = sbSkewness, kurtosis = sbKurtosis))
+sbReportGen(
+  SBREPORTFUNS = list(chisqTest = sbChisqTest, popMean = sbPopMean, popSd = sbPopSd,
+    densityPeakX = sbDensityPeakX, densityPeakY = sbDensityPeakY, skewness = sbSkewness,
+    kurtosis = sbKurtosis)
+)
 }
 \arguments{
 \item{SBREPORTFUNS}{a list of functions}

@@ -30,10 +30,10 @@ splitCoords <- function(i.coords, j.coords, i, j) {
 queenLinkFun <- function(i.coords, j.coords) {
     i.coords <- matrix(i.coords, ncol = 2)
     j.coords <- matrix(j.coords, ncol = 2)
-    
+
     coordsList <- list()
     coordsList[[1]] <- list(i = seq(nrow(i.coords)), j = seq(nrow(j.coords)))
-    
+
     while (length(coordsList) > 0) {
         # print(summary(coordsList))
         n <- length(coordsList)
@@ -77,7 +77,7 @@ readPolyCoords <- function(sp, i) {
 #'@param LINKFUN a 'function' to determine link status.
 #'@export
 poly2nb.funk <- function(sp, LINKFUN = queenLinkFun) {
-    LAPPLYFUN <- get.lapply()
+    LAPPLYFUN <- getLapply()
     n <- length(sp@polygons)
     lapply(seq(n), function(i) {
         i.coords <- readPolyCoords(sp, i)

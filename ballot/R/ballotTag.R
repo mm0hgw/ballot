@@ -40,11 +40,11 @@ print.ballotTag <- function(x, ...) {
     invisible(x)
 }
 
-#'@importFrom get.lapply get.lapply get.chunkSize
+#'@importFrom getLapply getLapply get.chunkSize
 #'@importFrom ultraCombo comboChunk
 #'@method reportAndCollate ballotTag
 reportAndCollate.ballotTag <- function(x, SBREPORTFUN, COLLATEFUN, ...) {
-    LAPPLYFUN <- get.lapply()
+    LAPPLYFUN <- getLapply()
     chunkSize <- get.chunkSize()
     sbList <- splitBallot(get.ballot(x))
     len <- length(sbList)

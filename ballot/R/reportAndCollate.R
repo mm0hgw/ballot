@@ -9,7 +9,7 @@ reportAndCollate <- function(x, sb = get.ballot(x), SBREPORTFUN = sbPopMean, COL
     ...) {
     stopifnot(is.function(SBREPORTFUN))
     stopifnot(is.function(COLLATEFUN))
-    LAPPLYFUN <- get.lapply()
+    LAPPLYFUN <- getLapply()
     chunkSize <- get.chunkSize()
     comboList <- ultraCombo::comboChunk(get.combo(get.bRegionTag(x)), chunkSize)
     z1 <- LAPPLYFUN(comboList, function(combo) {

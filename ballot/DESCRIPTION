@@ -4,8 +4,8 @@ Version: 0.0.0.9005
 Authors@R: person("Dale",  email = "dale@piratepress.org", role = c("aut", "cre", "cph"))
 Description: Code for running tests on ballots.
 Depends: R (>= 3.3.2)
-Imports: ultraCombo, moments, plyr, fields, sp, get.lapply, rgdal, spdep, dplyr
+Imports: ultraCombo, moments, plyr, fields, sp, getLapply, rgdal, spdep, dplyr
 Suggests: mclapplyFunGen
 License: GPL-2
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1

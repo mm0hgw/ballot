@@ -48,7 +48,7 @@ get.combo.regionTag <- function(x) {
 
 #'growCombo
 #'@importFrom ultraCombo ultraCombo comboChunk union.combo revCombnG
-#'@importFrom get.lapply get.lapply get.chunkSize
+#'@importFrom getLapply getLapply get.chunkSize
 #'@param nb an 'nb' object
 #'@param k an 'integer' scalar. The k value to which to expand. Default is 7
 #'@param seeds an 'integer' vector. The indices of the elements to expand. Default is all.
@@ -73,7 +73,7 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     if (any(seeds < 0)) 
         seeds <- setdiff(seq(n), -seeds)
     combo <- ultraCombo(seeds, n, 1)
-    LAPPLYFUN <- get.lapply()
+    LAPPLYFUN <- getLapply()
     chunkSize <- get.chunkSize()
     while (combo$k < k) {
         combo <- do.call(union.combo, LAPPLYFUN(comboChunk(combo, chunkSize), function(combo) {
@@ -87,7 +87,7 @@ growCombo <- function(nb, k = 7, seeds = 0) {
             }
             out
         }))
-        
+
     }
     combo$i <- sort(combo$i)
     combo

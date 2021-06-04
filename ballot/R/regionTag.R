@@ -34,7 +34,7 @@ print.regionTag <- function(x, ...) {
 
 #'@method plot regionTag
 plot.regionTag <- function(x, ...) {
-    
+
     sp <- get.Spatial(x)
     nb <- get.nb(x)
     sp::plot(sp, border = "grey", main = get.rTitle(x))

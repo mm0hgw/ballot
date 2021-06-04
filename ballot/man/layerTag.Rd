@@ -4,8 +4,15 @@
 \alias{layerTag}
 \title{layerTag}
 \usage{
-layerTag(x, lTitle = NULL, refInfo = NULL, dsn = NULL, layer = NULL,
-  textLinks = NULL, linkSearchCol = NULL)
+layerTag(
+  x,
+  lTitle = NULL,
+  refInfo = NULL,
+  dsn = NULL,
+  layer = NULL,
+  textLinks = NULL,
+  linkSearchCol = NULL
+)
 }
 \arguments{
 \item{x}{a 'layerTag'}
