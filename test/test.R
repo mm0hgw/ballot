@@ -10,6 +10,7 @@ testFnParameters <- c(width=360,height=640)
 
 testFun <- function(...){
 	parameters <- as.list(c(...,testFnParameters))
+	print(parameters)
 	do.call(rawTestFun,parameters)
 }
 
