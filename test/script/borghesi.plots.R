@@ -22,7 +22,7 @@ csvname <- paste(sep='',filePrefix,'.csv')
 sb <- sbList[[i]]
 d <- sbDensity(sb)
 dy <- dnorm(d$x,mean=sbPopMean(sb),sd=sbPopSd(sb))
-testFun(filename)
+testFun(filename=filename)
 plot(d,main=names(sbList)[i])
 lines(d$x,dy,lty=2)
 dev.off()
