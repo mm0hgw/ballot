@@ -36,7 +36,9 @@ layerTag <- function(x, lTitle = NULL, refInfo = NULL, dsn = NULL, layer = NULL,
 
 if (!exists("tmpEnv")) tmpEnv <- new.env()
 
+#'format.layerTag
 #'@method format layerTag
+#'@export
 format.layerTag <- function(x, ...) {
     paste(sep = "", get.lTitle(x), "\nlayerTag ", x, " of shapefile layer ", get.layer(x), 
         "\n")
