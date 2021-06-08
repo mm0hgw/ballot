@@ -36,7 +36,7 @@ print.regionTag <- function(x, ...) {
     invisible(x)
 }
 
-#'@plot.regionTag
+#'plot.regionTag
 #'@method plot regionTag
 #'@export
 plot.regionTag <- function(x, ...) {

@@ -28,10 +28,10 @@ do.import <- function() {
 
 if (length(ls.ballotTag()) == 0) do.import()
 
-source("test/script/basic.R")
-# source('test/script/borghesi.plots.R') source('test/script/spatial.R')
-# source('test/script/fingerprints.R') source('test/script/fingerprints2.R')
-# source('test/script/fingerprints3.R') source('test/script/dataCombo.R')
-# source('test/script/dataCombo2.R') source('test/script/freq.R')
+# source('test/script/basic.R') source('test/script/borghesi.plots.R')
+# source('test/script/spatial.R') source('test/script/fingerprints.R')
+# source('test/script/fingerprints2.R') source('test/script/fingerprints3.R')
+# source('test/script/dataCombo.R') source('test/script/dataCombo2.R')
+# source('test/script/freq.R')
 
 # if(buildPackageLoaded)buildPackage::gitPush('test')

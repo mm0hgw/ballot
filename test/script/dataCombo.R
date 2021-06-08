@@ -33,16 +33,17 @@ fingerprint <- function(z) {
         z.dc <- ultraCombo::dataCombo(z.combo, z.sb)
         for (j in jList) {
             testFile <- paste(sep = "", zDir, z, "_", gsub(" ", ".", z.sbNames[i]), 
-                "_density_", z.combo$i[j], testSuffix)
-            testFun(testFile)
+                "_density_", z.combo$i[j])
+            if ("pdf" == outputType) 
+                pdf(paste0(testFile, ".pdf"), paper = pdfPaper)
+            if ("png" == outputType) 
+                png(paste0(testFile, ".png"), height = pngHeight, width = pngWidth)
             sb <- z.dc$dGen(j)
             sample <- sbCalculateSample(sb)
             csvFile <- paste(sep = "", zDir, z, "_", gsub(" ", ".", z.sbNames[i]), 
                 "_results_", z.combo$i[j], ".csv")
             write.csv(cbind(z.dc$dGen(j), sample)[order(sample, decreasing = TRUE), 
                 ], file = csvFile)
-            if (buildPackageLoaded) 
-                gitAdd(print(csvFile))
             col <- sample_to_color(sample)
             ord <- order(sample)
             subTitle <- paste(collapse = ", ", elemNames[z.combo$Gen(j)[ord]])
@@ -56,18 +57,17 @@ fingerprint <- function(z) {
                 c(x = dObj$x[i], y = dObj$y[i])
             })), col = col, pch = 1, lwd = 5)
             dev.off()
-            if (buildPackageLoaded) 
-                gitAdd(print(testFile))
             testFile <- paste(sep = "", zDir, z, "_", gsub(" ", ".", z.sbNames[i]), 
-                "_spatial_", z.combo$i[j], testSuffix)
-            testFun(testFile)
+                "_spatial_", z.combo$i[j])
+            if ("pdf" == outputType) 
+                pdf(paste0(testFile, ".pdf"), paper = pdfPaper)
+            if ("png" == outputType) 
+                png(paste0(testFile, ".png"), height = pngHeight, width = pngWidth)
             par(mar = rep(0, 4))
             sp <- z.sp.dc$dGen(j)
             sp::plot(z.sp, border = "grey")
             sp::plot(sp, border = "black", col = col, add = TRUE)
             dev.off()
-            if (buildPackageLoaded) 
-                gitAdd(print(testFile))
         }
     })
 }
