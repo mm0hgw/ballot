@@ -23,7 +23,9 @@ ballotTag <- function(x, ballot = NULL, bTitle = NULL, bRegionTag = NULL) {
     out
 }
 
+#'format.ballotTag
 #'@method format ballotTag
+#'@export
 format.ballotTag <- function(x, ...) {
     o <- paste(sep = "\n\t", "", get.bTitle(x), paste(rep("-", nchar(get.bTitle(x))), 
         collapse = ""))
@@ -34,15 +36,19 @@ format.ballotTag <- function(x, ...) {
     paste(collapse = "\n", o)
 }
 
+#'print.ballotTag
 #'@method print ballotTag
+#'@export
 print.ballotTag <- function(x, ...) {
     cat(format(x, ...))
     invisible(x)
 }
 
+#'reportAndCollate.ballotTag
 #'@importFrom getLapply getLapply getChunkSize
 #'@importFrom ultraCombo comboChunk
 #'@method reportAndCollate ballotTag
+#'@export
 reportAndCollate.ballotTag <- function(x, SBREPORTFUN, COLLATEFUN, ...) {
     LAPPLYFUN <- getLapply()
     chunkSize <- getChunkSize()
@@ -89,9 +95,11 @@ as.ballotTag <- function(x) {
     ballotTag(x)
 }
 
+#'plot.ballotTag
 #'@method plot ballotTag
 #'@importFrom graphics legend lines
 #'@importFrom sp plot
+#'@export
 plot.ballotTag <- function(x, ...) {
     # cat(paste('plot.ballotTag',x,'\n'))
     arg <- densityArgList(...)

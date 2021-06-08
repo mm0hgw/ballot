@@ -20,19 +20,25 @@ regionTag <- function(x, rTitle = NULL, rLayerTag = NULL, rMask = NULL) {
     x
 }
 
+#'format.regionTag
 #'@method format regionTag
+#'@export
 format.regionTag <- function(x, ...) {
     paste(sep = "", get.rTitle(x), "\nregionTag ", x, " of ", length(get.rMask(x)), 
         " elements\n")
 }
 
+#'print.regionTag
 #'@method print regionTag
+#'@export
 print.regionTag <- function(x, ...) {
     cat(format(x, ...))
     invisible(x)
 }
 
+#'@plot.regionTag
 #'@method plot regionTag
+#'@export
 plot.regionTag <- function(x, ...) {
 
     sp <- get.Spatial(x)
@@ -65,8 +71,11 @@ as.regionTag <- function(x) {
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.regionTag <- function(pattern = ".*") {
-    grep(pattern, gsub("\\.rLayerTag$", "", ls(envir = regionEnv, pattern = "\\.rLayerTag$")), 
-        value = TRUE)
+    lapply(grep(pattern, gsub("\\.rLayerTag$", "", ls(envir = regionEnv, pattern = "\\.rLayerTag$")), 
+        value = TRUE), function(x) {
+        class(x) <- c("regionTag", "character")
+        x
+    })
 }
 
 #'set.rTitle

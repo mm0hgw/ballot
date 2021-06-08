@@ -36,20 +36,26 @@ layerTag <- function(x, lTitle = NULL, refInfo = NULL, dsn = NULL, layer = NULL,
 
 if (!exists("tmpEnv")) tmpEnv <- new.env()
 
+#'format.layerTag
 #'@method format layerTag
+#'@export
 format.layerTag <- function(x, ...) {
     paste(sep = "", get.lTitle(x), "\nlayerTag ", x, " of shapefile layer ", get.layer(x), 
         "\n")
 }
 
+#'print.layerTag
 #'@method print layerTag
+#'@export
 print.layerTag <- function(x, ...) {
     cat(format(x, ...))
     invisible(x)
 }
 
+#'plot.layerTag
 #'@importFrom sp plot
 #'@method plot layerTag
+#'@export
 plot.layerTag <- function(x, ...) {
     cat("plot.layerTag", x, "\n")
     sp <- get.Spatial(x)
@@ -80,8 +86,13 @@ as.layerTag <- function(x) {
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.layerTag <- function(pattern = ".*") {
-    as.layerTag(grep(pattern, gsub("\\.layer$", "", ls(envir = layerEnv, pattern = "\\.layer$")), 
-        value = TRUE))
+    x <- grep(pattern, gsub("\\.layer$", "", ls(envir = layerEnv, pattern = "\\.layer$")), 
+        value = TRUE)
+    lapply(x, function(y) {
+        class(y) <- c("layerTag", "character")
+        y
+    })
+
 }
 
 #'ls.layers
