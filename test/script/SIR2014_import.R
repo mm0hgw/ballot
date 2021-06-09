@@ -16,17 +16,16 @@ KS2016_job <- list("US.KS.2016.Pres", ballot = KS2016.ballot, bRegionTag = "KS20
 KS2016_job2 <- list("US.KS.4th.2016.Pres", ballot = KS2016.ballot[rMask, ], bRegionTag = "KS2010.4th", 
     bTitle = KS2016.bTitle)
 
-KS2017.ballot <- read.csv("test/data/KS2017.csv")
-rownames(KS2017.ballot) <- KS2017.ballot[, 1]
-KS2017.ballot[, 1] <- KS2016.ballot[fourthRep, "N"]
-colnames(KS2017.ballot)[1] <- "N"
-KS2017.ballot <- sortBallot(cbind(KS2017.ballot, V = rowSums(KS2017.ballot[, -1])))
-KS2017_job <- list("US.KS.4th.2017.Rep", ballot = KS2017.ballot, bRegionTag = "KS2010.4th", 
-    bTitle = "KS 2017 special congressional election")
+# KS2017.ballot <- read.csv('test/data/KS2017.csv') rownames(KS2017.ballot) <-
+# KS2017.ballot[, 1] KS2017.ballot[, 1] <- KS2016.ballot[fourthRep, 'N']
+# colnames(KS2017.ballot)[1] <- 'N' KS2017.ballot <-
+# sortBallot(cbind(KS2017.ballot, V = rowSums(KS2017.ballot[, -1]))) KS2017_job
+# <- list('US.KS.4th.2017.Rep', ballot = KS2017.ballot, bRegionTag =
+# 'KS2010.4th', bTitle = 'KS 2017 special congressional election')
 
 do.call(ballotTag, SIR2014_job)
 do.call(ballotTag, KS2012_job)
 do.call(ballotTag, KS2016_job)
 do.call(ballotTag, KS2012_job2)
 do.call(ballotTag, KS2016_job2)
-do.call(ballotTag, KS2017_job)
+# do.call(ballotTag, KS2017_job)

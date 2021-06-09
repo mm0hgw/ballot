@@ -7,16 +7,15 @@ KS2012[[1]] <- sbAbstainers(KS2012[[1]])
 KS2016[[1]] <- sbAbstainers(KS2016[[1]])
 names(KS2012)[1] <- "Abstainers"
 names(KS2016)[1] <- "Abstainers"
-bList <- list(KS2012, KS2016)
 
 parties <- intersect(names(KS2012), names(KS2016))
 
-bList
+bList <- sbTags <- ls.ballotTag("KS")
 
-sbTags <- ls.ballotTag("KS")
 sbNames <- sapply(sbTags, as.character)
-names(bList) <- sbTags
 names(bList) <- sbNames
+
+print(bList)
 
 do.party <- function(party, baseDir, bList) {
     sbList <- lapply(bList, "[[", party)
