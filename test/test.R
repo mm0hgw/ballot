@@ -1,13 +1,13 @@
-buildPackageLoaded <- requireNamespace("buildPackage")
+# buildPackageLoaded <- requireNamespace('buildPackage')
 
-if (buildPackageLoaded) library(buildPackage)
+# if (buildPackageLoaded) library(buildPackage)
 # if(buildPackageLoaded)buildPackage('ballot',build=1)
 library(ballot)
 
-outputType <- "png"
-pngHeight <- 1680
-pngWidth <- 720
-pdfPaper <- "a4"
+if (!exists('outputType')) outputType <- "png"
+if (!exists('pngHeight')) pngHeight <- 1680
+if (!exists('pngWidth')) pngWidth <- 720
+if (!exists('pdfPaper')) pdfPaper <- "a4"
 
 require(mclapplyFunGen)
 
@@ -23,10 +23,18 @@ do.import <- function() {
 
 if (length(ls.ballotTag()) == 0) do.import()
 
-source("test/script/basic.R")
-source("test/script/borghesi.plots.R")
-source("test/script/spatial.R")
-source("test/script/fingerprints.R")
+do.basicTestPlot <- function() {
+    source("test/script/basic.R")
+}
+
+do.indyrefPlots <- function() {
+    source("test/script/borghesi.plots.R")
+    source("test/script/fingerprints.R")
+}
+
+do.SpatialPlots <- function() {
+    source("test/script/Spatial.R")
+}
 # source('test/script/fingerprints2.R') source('test/script/fingerprints3.R')
 # source('test/script/dataCombo.R') source('test/script/dataCombo2.R')
 # source('test/script/freq.R')

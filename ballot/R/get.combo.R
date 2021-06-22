@@ -10,7 +10,7 @@ get.combo <- function(x) {
 #'@method get.combo character
 #'@export
 get.combo.character <- function(x) {
-    # cat(paste('get.combo.character',x,'\n'))
+    cat(paste("get.combo.character", x, "\n"))
     get.combo(as.regionTag(x))
 }
 
@@ -19,7 +19,7 @@ get.combo.character <- function(x) {
 #'@method get.combo ballotTag
 #'@export
 get.combo.ballotTag <- function(x) {
-    # cat(paste('get.combo.ballotTag',x,'\n'))
+    cat(paste("get.combo.ballotTag", x, "\n"))
     get.combo(get.bRegionTag(x))
 }
 
@@ -28,7 +28,7 @@ get.combo.ballotTag <- function(x) {
 #'@inheritParams get.combo
 #'@export
 get.combo.regionTag <- function(x) {
-    # cat(paste('get.combo.regionTag',x,'\n'))
+    cat(paste("get.combo.regionTag", x, "\n"))
     tmpEnv <- new.env()
     dataName <- paste(sep = "", x, ".combo")
     fileName <- paste(sep = "", regionDir, x, ".combo.rda")
@@ -56,8 +56,8 @@ get.combo.regionTag <- function(x) {
 growCombo <- function(nb, k = 7, seeds = 0) {
     k <- as.integer(k)
     seeds <- as.integer(seeds)
-    cat(paste("nb length:", length(nb), "k", k, "seeds", paste(collapse = ",", seeds), 
-        "\n"))
+    cat(paste("growCombo nb length:", length(nb), "k", k, "seeds", paste(collapse = ",", 
+        seeds), "\n"))
     stopifnot(inherits(nb, "nb"))
     stopifnot(is.integer(k))
     stopifnot(length(k) == 1)
@@ -65,6 +65,7 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     stopifnot(is.integer(seeds))
     stopifnot(sum(duplicated(seeds)) == 0)
     stopifnot(all(seeds == 0) || all(seeds > 0) || all(seeds < 0))
+    cat(paste("sanity checks passed\n"))
     n <- length(nb)
     if (k == 0) 
         return(ultraCombo(1, n, k))
@@ -76,11 +77,16 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     LAPPLYFUN <- getLapply()
     chunkSize <- getChunkSize()
     while (combo$k < k) {
-        combo <- do.call(union.combo, LAPPLYFUN(comboChunk(combo, chunkSize), function(combo) {
+        print(combo)
+        chunks <- comboChunk(combo)
+        print(chunks)
+        combo <- do.call(union.combo, LAPPLYFUN(chunks, function(combo) {
+            print(combo)
             i <- 1
             out <- ultraCombo(vector(), n, combo$k + 1)
             while (i <= combo$len) {
                 x <- combo$Gen(i)
+                print(x)
                 out <- union.combo(out, ultraCombo::revCombnG(do.call(rbind, lapply(group.nb(nb, 
                   x), function(z) c(z, x))), n))
                 i <- i + 1

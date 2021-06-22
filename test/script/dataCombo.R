@@ -16,8 +16,8 @@ fingerprint <- function(z) {
     oldMar <- par("mar")
     z.sbNames <- names(z.sbList)
     require(mclapplyFunGen)
-    LAPPLYFUN <- get.lapply::get.lapply()
-    chunkSize <- get.lapply::get.chunkSize()
+    LAPPLYFUN <- getLapply::getLapply()
+    chunkSize <- getLapply::getChunkSize()
     par(mar = oldMar)
     lapply(seq_along(z.sbList), function(i) {
         zExplode <- strsplit(z, "\\.")[[1]]

@@ -8,7 +8,9 @@ get.chisq <- function(x, party = "V") {
     UseMethod("get.chisq", x)
 }
 
+#'get.chisq.character
 #'@method get.chisq character
+#'@export
 get.chisq.character <- function(x, party = "V") {
     x1 <- strsplit(x, " ")[[1]]
     x2 <- as.ballotTag(x1[1])
@@ -18,7 +20,9 @@ get.chisq.character <- function(x, party = "V") {
     return(get.chisq(x2, party))
 }
 
+#'get.chisq.ballotTag
 #'@method get.chisq ballotTag
+#'@export
 get.chisq.ballotTag <- function(x, party = "V") {
     dataName <- paste(sep = ".", x, gsub(" ", ".", party), "chisq")
     dataFile <- paste(sep = "", ballotDir, dataName, ".rda")
