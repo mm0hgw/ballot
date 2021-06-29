@@ -5,7 +5,7 @@ multi.nb <- function(x, ...) {
 }
 
 #'multi.nb.numeric
-#'@import multiUnion multiUnion
+#'@importFrom multiUnion multiUnion
 #'@method multi.nb numeric
 #'@export
 multi.nb.numeric <- function(x, nb) {
@@ -16,7 +16,7 @@ multi.nb.numeric <- function(x, nb) {
 }
 
 #'multi.nb.integer
-#'@import multiUnion multiUnion
+#'@importFrom multiUnion multiUnion
 #'@method multi.nb integer
 #'@export
 multi.nb.integer <- function(x, nb) {
@@ -27,7 +27,7 @@ multi.nb.integer <- function(x, nb) {
 }
 
 #'multi.nb.ultraCombo
-#'@import ultraCombo revCombnGG union.combo
+#'@importFrom ultraCombo revCombnGG union.combo
 #'@method multi.nb ultraCombo
 #'@export
 multi.nb.ultraCombo <- function(x, nb) {
