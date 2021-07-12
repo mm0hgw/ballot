@@ -188,7 +188,7 @@ sbAbstainers <- function(sb) {
 #'@export
 sbBorghesiPlot <- function(sb, norm = F, ...) {
     stopifnot(is.valid.subballot(sb))
-    if (normalise == T) {
+    if (norm == T) {
         pmean <- 0
         psd <- 1
     } else {
