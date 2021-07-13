@@ -44,6 +44,7 @@ sortBallot <- function(b) {
 #' @export
 splitBallot <- function(ballot) {
     x <- seq(ncol(ballot))[-1]
+    x <- x[colSums(ballot[, x]) != 0]
     sblist <- lapply(x, function(y) {
         ballot[, c(1, y)]
     })

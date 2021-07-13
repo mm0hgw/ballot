@@ -48,14 +48,17 @@ sbCalculateSample <- function(sb, norm = FALSE) {
     out
 }
 
-#' sbChisqTest
+#' sbSimpleTest
+#' A simple test developed for fast computation.
 #' @inheritParams sbPopMean
 #' @param ... extra arguments passed on to density function.
-#' @return chisq test result of sample of sub-ballot
+#' @return simple test result of sample of sub-ballot
 #' @importFrom stats density dnorm
 #' @export
-sbChisqTest <- function(sb, ...) {
+sbSimpleTest <- function(sb, ...) {
     stopifnot(is.valid.subballot(sb))
+    if (any(sb[, 2] == 0)) 
+        return(NA)
     d <- density(sbCalculateSample(sb, norm = TRUE), ...)
     y1 <- d$y
     y2 <- dnorm(d$x)
@@ -72,7 +75,7 @@ sbPointsBelowPopMean <- function(sb) {
 
 #'sbDensity
 #' @inheritParams sbPopMean 
-#' @inheritParams sbChisqTest
+#' @inheritParams sbSimpleTest
 #' @return x location of density peak of sample of sub-ballot
 #' @importFrom stats density
 #' @export
@@ -83,7 +86,7 @@ sbDensity <- function(sb, ...) {
 
 #'sbDensityPeakX
 #' @inheritParams sbPopMean 
-#' @inheritParams sbChisqTest
+#' @inheritParams sbSimpleTest
 #' @return x location of density peak of sample of sub-ballot
 #' @importFrom stats density
 #' @export
@@ -95,7 +98,7 @@ sbDensityPeakX <- function(sb, ...) {
 
 #'sbDensityPeakY
 #' @inheritParams sbPopMean 
-#' @inheritParams sbChisqTest
+#' @inheritParams sbSimpleTest
 #' @return y location of density peak of sample of sub-ballot
 #' @importFrom stats density
 #' @export
@@ -142,7 +145,7 @@ sbDensityGen <- function(norm = TRUE, ...) {
 #'sbReportGen
 #'@param SBREPORTFUNS a list of functions
 #'@export
-sbReportGen <- function(SBREPORTFUNS = list(chisqTest = sbChisqTest, popMean = sbPopMean, 
+sbReportGen <- function(SBREPORTFUNS = list(simpleTest = sbSimpleTest, popMean = sbPopMean, 
     popSd = sbPopSd, densityPeakX = sbDensityPeakX, densityPeakY = sbDensityPeakY, 
     skewness = sbSkewness, kurtosis = sbKurtosis)) {
     function(sb) {

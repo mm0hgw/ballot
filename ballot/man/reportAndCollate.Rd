@@ -4,22 +4,14 @@
 \alias{reportAndCollate}
 \title{reportAndCollate}
 \usage{
-reportAndCollate(
-  x,
-  sb = get.ballot(x),
-  SBREPORTFUN = sbPopMean,
-  COLLATEFUN = c,
-  ...
-)
+reportAndCollate(x, key = "!V", SBREPORTFUN = sbSimpleTest, COLLATEFUN = c)
 }
 \arguments{
-\item{sb}{a 'subballot' object}
-
 \item{SBREPORTFUN}{a 'function' that takes a sub-ballot matrix and returns a report}
 
-\item{COLLATEFUN}{a 'function' that takes ... and returns collated results}
+\item{COLLATEFUN}{a 'function' that collates results}
 
-\item{...}{extra arguments for SBREPORTFUN}
+\item{sb}{a 'subballot' object}
 }
 \description{
 reportAndCollate

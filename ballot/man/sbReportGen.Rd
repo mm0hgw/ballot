@@ -5,7 +5,7 @@
 \title{sbReportGen}
 \usage{
 sbReportGen(
-  SBREPORTFUNS = list(chisqTest = sbChisqTest, popMean = sbPopMean, popSd = sbPopSd,
+  SBREPORTFUNS = list(simpleTest = sbSimpleTest, popMean = sbPopMean, popSd = sbPopSd,
     densityPeakX = sbDensityPeakX, densityPeakY = sbDensityPeakY, skewness = sbSkewness,
     kurtosis = sbKurtosis)
 )

@@ -10,7 +10,7 @@ get.combo <- function(x) {
 #'@method get.combo character
 #'@export
 get.combo.character <- function(x) {
-    cat(paste("get.combo.character", x, "\n"))
+    # cat(paste('get.combo.character', x, '\n'))
     get.combo(as.regionTag(x))
 }
 
@@ -19,7 +19,7 @@ get.combo.character <- function(x) {
 #'@method get.combo ballotTag
 #'@export
 get.combo.ballotTag <- function(x) {
-    cat(paste("get.combo.ballotTag", x, "\n"))
+    # cat(paste('get.combo.ballotTag', x, '\n'))
     get.combo(get.bRegionTag(x))
 }
 
@@ -28,7 +28,7 @@ get.combo.ballotTag <- function(x) {
 #'@inheritParams get.combo
 #'@export
 get.combo.regionTag <- function(x) {
-    cat(paste("get.combo.regionTag", x, "\n"))
+    # cat(paste('get.combo.regionTag', x, '\n'))
     tmpEnv <- new.env()
     dataName <- paste(sep = "", x, ".combo")
     fileName <- paste(sep = "", regionDir, x, ".combo.rda")
@@ -56,8 +56,8 @@ get.combo.regionTag <- function(x) {
 growCombo <- function(nb, k = 7, seeds = 0) {
     k <- as.integer(k)
     seeds <- as.integer(seeds)
-    cat(paste("growCombo nb length:", length(nb), "k", k, "seeds", paste(collapse = ",", 
-        seeds), "\n"))
+    # cat(paste('growCombo nb length:', length(nb), 'k', k, 'seeds', paste(collapse =
+    # ',', seeds), '\n'))
     stopifnot(inherits(nb, "nb"))
     stopifnot(is.integer(k))
     stopifnot(length(k) == 1)

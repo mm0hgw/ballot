@@ -1,23 +1,20 @@
+abstainStrings <- c("!V", "Abstainers")
+
 #'reportAndCollate
 #'@param sb a 'subballot' object
 #'@param SBREPORTFUN a 'function' that takes a sub-ballot matrix and returns a report
-#'@param COLLATEFUN a 'function' that takes ... and returns collated results
-#'@param ... extra arguments for SBREPORTFUN
-#'@importFrom ultraCombo comboChunk
+#'@param COLLATEFUN a 'function' that collates results
+#'@importFrom getLapply forkBombGen
+#'@importFrom ultraCombo dataCombo
 #'@export
-reportAndCollate <- function(x, sb = get.ballot(x), SBREPORTFUN = sbPopMean, COLLATEFUN = c, 
-    ...) {
-    stopifnot(is.function(SBREPORTFUN))
-    stopifnot(is.function(COLLATEFUN))
-    LAPPLYFUN <- getLapply()
-    chunkSize <- getChunkSize()
-    comboList <- ultraCombo::comboChunk(get.combo(get.bRegionTag(x)), chunkSize)
-    z1 <- LAPPLYFUN(comboList, function(combo) {
-        lapply(seq(combo$len), function(i) {
-            SBREPORTFUN(sb[combo$Gen(i), ], ...)
-        })
-    })
-    z2 <- do.call(c, z1)
-    z3 <- do.call(COLLATEFUN, z2)
-    z3
+reportAndCollate <- function(x, key = "!V", SBREPORTFUN = sbSimpleTest, COLLATEFUN = c) {
+    stopifnot(is.function(SBREPORTFUN) || is.primitive(SBREPORTFUN))
+    stopifnot(is.function(COLLATEFUN) || is.primitive(COLLATEFUN))
+    ballot <- get.ballot(x)
+    stopifnot(length(key) == 1 && key %in% colnames(ballot) || key %in% abstainStrings)
+    if (key %in% abstainStrings) 
+        sb <- sbAbstainers(ballot[, c("N", "V")]) else sb <- ballot[, c("N", key)]
+    dc <- dataCombo(get.combo(x), sb, SBREPORTFUN)
+    dcForkBomb <- forkBombGen(dc$dGen, COLLATEFUN = COLLATEFUN)
+    dcForkBomb(seq_along(dc))
 }
