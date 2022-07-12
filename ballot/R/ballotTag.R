@@ -11,9 +11,9 @@ ballotTag <- function(x, ballot = NULL, bTitle = NULL, bRegionTag = NULL) {
         bRegionTag <- as.regionTag(bRegionTag)
         set.bRegionTag(x, bRegionTag)
     }
-    if (!is.null(ballot)) 
+    if (!is.null(ballot))
         set.ballot(x, sortBallot(ballot))
-    if (!is.null(bTitle)) 
+    if (!is.null(bTitle))
         set.bTitle(x, bTitle)
     stopifnot(exists.ballot(x))
     stopifnot(exists.bTitle(x))
@@ -27,10 +27,10 @@ ballotTag <- function(x, ballot = NULL, bTitle = NULL, bRegionTag = NULL) {
 #'@method format ballotTag
 #'@export
 format.ballotTag <- function(x, ...) {
-    o <- paste(sep = "\n\t", "", get.bTitle(x), paste(rep("-", nchar(get.bTitle(x))), 
+    o <- paste(sep = "\n\t", "", get.bTitle(x), paste(rep("-", nchar(get.bTitle(x))),
         collapse = ""))
     o <- c(o, paste("ballotTag object of", x))
-    if (!is.null(get.bRegionTag(x))) 
+    if (!is.null(get.bRegionTag(x)))
         o <- c(o, paste("based on", get.bRegionTag(x), "bRegionTag set"))
     o <- c(o, paste("covers", nrow(get.ballot(x)), "electoral areas"), "")
     paste(collapse = "\n", o)
@@ -44,38 +44,6 @@ print.ballotTag <- function(x, ...) {
     invisible(x)
 }
 
-#'reportAndCollate.ballotTag
-#'@importFrom getLapply getLapply getChunkSize
-#'@importFrom ultraCombo comboChunk
-#'@method reportAndCollate ballotTag
-#'@export
-reportAndCollate.ballotTag <- function(x, SBREPORTFUN, COLLATEFUN, ...) {
-    LAPPLYFUN <- getLapply()
-    chunkSize <- getChunkSize()
-    sbList <- splitBallot(get.ballot(x))
-    len <- length(sbList)
-    out <- list()
-    i <- 1
-    while (i <= len) {
-        sb <- sbList[[i]]
-        a <- LAPPLYFUN(ultraCombo::comboChunk(get.combo(get.bRegionTag(x)), chunkSize), 
-            function(combo) {
-                j <- 1
-                out <- list()
-                while (j <= combo$len) {
-                  out <- c(out, SBREPORTFUN(sb[combo$Gen(j), ], ...))
-                  j <- j + 1
-                }
-                out
-            })
-        b <- do.call(c, a)
-        out[[i]] <- do.call(COLLATEFUN, b)
-        i <- i + 1
-    }
-    names(out) <- names(sbList)
-    out
-}
-
 #'is.ballotTag
 #'@param x an 'object' for testing
 #'@export
@@ -87,10 +55,10 @@ is.ballotTag <- function(x) {
 #'@param x a 'character' or 'ballotTag'
 #'@export
 as.ballotTag <- function(x) {
-    if (length(x) > 1) 
+    if (length(x) > 1)
         return(sapply(x, as.ballotTag))
     # cat('as.ballotTag',x,'\n')
-    if (is.ballotTag(x)) 
+    if (is.ballotTag(x))
         return(x)
     ballotTag(x)
 }
@@ -103,7 +71,7 @@ as.ballotTag <- function(x) {
 plot.ballotTag <- function(x, ...) {
     # cat(paste('plot.ballotTag',x,'\n'))
     arg <- densityArgList(...)
-    if (!("main" %in% names(arg))) 
+    if (!("main" %in% names(arg)))
         arg$main <- paste("Density Plot,", get.bTitle(x))
     norm <- TRUE
     if ("norm" %in% names(arg)) {
@@ -116,7 +84,7 @@ plot.ballotTag <- function(x, ...) {
         arg$slice <- NULL
     }
     if (!("xlab" %in% names(arg))) {
-        ifelse(norm == TRUE, arg$xlab <- "Standard deviations from population mean", 
+        ifelse(norm == TRUE, arg$xlab <- "Standard deviations from population mean",
             arg$xlab <- "Proportional turnout")
     }
     sbList <- splitBallot(get.ballot(x))[slice]
@@ -128,7 +96,7 @@ plot.ballotTag <- function(x, ...) {
         sbList <- sbList[order(decreasing = TRUE, sapply(sbList, sbSum))]
     }
     dList <- lapply(sbList, function(x) sbDensity(x, norm = norm))
-    if (!("xlim" %in% names(arg))) 
+    if (!("xlim" %in% names(arg)))
         arg$xlim <- dListXlim(dList)
     if (!("ylim" %in% names(arg))) {
         arg$ylim <- dListYlim(dList)
@@ -139,10 +107,10 @@ plot.ballotTag <- function(x, ...) {
     lapply(seq(len), function(x) {
         lines(dList[[x]], col = col[x], lwd = 3)
     })
-    leg <- paste(sapply(sbList, function(sb) format(big.mark = ",", scientific = FALSE, 
+    leg <- paste(sapply(sbList, function(sb) format(big.mark = ",", scientific = FALSE,
         sbSum(sb))), gsub("^V$", "Abstainers", names(sbList)))
     if (norm == TRUE) {
-        leg <- c(paste(format(big.mark = ",", scientific = FALSE, sbSumN(sbList[[1]])), 
+        leg <- c(paste(format(big.mark = ",", scientific = FALSE, sbSumN(sbList[[1]])),
             "Gaussian"), leg)
         col <- c(1, col)
         dx <- seq(arg$xlim[1], arg$xlim[2], length.out = 512)
@@ -155,7 +123,7 @@ plot.ballotTag <- function(x, ...) {
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.ballotTag <- function(pattern = ".*") {
-    lapply(grep(pattern, gsub("\\.ballot$", "", ls(envir = ballotEnv, pattern = "\\.ballot$")), 
+    lapply(grep(pattern, gsub("\\.ballot$", "", ls(envir = ballotEnv, pattern = "\\.ballot$")),
         value = TRUE), as.ballotTag)
 }
 
@@ -180,13 +148,13 @@ set.bTitle <- function(x, bTitle) {
 #'@inheritParams get.bTitle
 #'@export
 set.ballot <- function(x, ballot) {
-    if (!is.valid.tag(x)) 
+    if (!is.valid.tag(x))
         stop(paste(sep = "", "set.ballot bad tag", x))
     if (!is.valid.ballot(ballot, x)) {
         print(ballot)
         stop(paste(sep = "", "set.ballot bad ballot"))
     }
-    if (nrow(ballot) != length(get.nb(get.bRegionTag(x)))) 
+    if (nrow(ballot) != length(get.nb(get.bRegionTag(x))))
         stop("set.ballot ballot doesn't match region")
     x <- paste(sep = "", x, ".ballot")
     assign(x, ballot, envir = ballotEnv)

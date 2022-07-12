@@ -12,8 +12,10 @@ reportAndCollate <- function(x, key = "!V", SBREPORTFUN = sbSimpleTest, COLLATEF
     stopifnot(is.function(COLLATEFUN) || is.primitive(COLLATEFUN))
     ballot <- get.ballot(x)
     stopifnot(length(key) == 1 && key %in% colnames(ballot) || key %in% abstainStrings)
-    if (key %in% abstainStrings) 
-        sb <- sbAbstainers(ballot[, c("N", "V")]) else sb <- ballot[, c("N", key)]
+    if (key %in% abstainStrings) {
+        key[key == "!V"] <- Abstainers
+        sb <- sbAbstainers(ballot[, c("N", "V")])
+    } else sb <- ballot[, c("N", key)]
     dc <- dataCombo(get.combo(x), sb, SBREPORTFUN)
     dcForkBomb <- forkBombGen(dc$dGen, COLLATEFUN = COLLATEFUN)
     dcForkBomb(seq_along(dc))

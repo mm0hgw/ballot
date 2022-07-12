@@ -21,33 +21,43 @@ get.simpleTest.character <- function(x, ...) {
 #'@importFrom ultraCombo dataCombo
 #'@importFrom getLapply forkBombGen
 #'@export
-get.simpleTest.ballotTag <- function(x, grepFilter = NULL, ...) {
+get.simpleTest.ballotTag <- function(x, x.parties = NULL, ...) {
     x.combo <- get.combo(x)
     x.b <- get.ballot(x)
-    x.parties <- colnames(x.b)[-1]
-    x.parties <- x.parties[colSums(x.b[, -1]) != 0]
-    if ("V" %in% x.parties) 
-        x.parties[x.parties == "V"] <- "Abstainers"
-    if (!is.null(grepFilter)) 
-        x.parties <- grep(grepFilter, x.parties, value = TRUE)
-    print(x.parties)
+    x.parties <- get.parties(x, x.parties)
+    # print(x.parties)
     x.simpleTest <- lapply(x.parties, function(party) {
-        cat(paste0("Processing ", party))
-        dataName <- paste(sep = ".", x, party, "simpleTest")
+        # cat(paste0('Processing ', party))
+        dataName <- paste(sep = ".", x, gsub(" ", ".", party), "simpleTest")
         dataFile <- paste(sep = "", ballotDir, dataName, ".rda")
         tmpEnv <- new.env()
         if (file.exists(dataFile)) {
-            cat(" ... found in cache\n")
+            # cat(' ... found in cache\n')
             load(dataFile, envir = tmpEnv)
         } else {
-            cat(" ... not fouud, building")
+            # cat(' ... not found, building')
             partyTest <- reportAndCollate(x, party)
             assign(dataName, partyTest, envir = tmpEnv)
             xzSave(list = ls(tmpEnv), file = dataFile, envir = tmpEnv)
-            cat(" ... built\n")
+            # cat(' ... built\n')
         }
         get(dataName, envir = tmpEnv)
     })
     names(x.simpleTest) <- x.parties
-    invisible(x.simpleTest)
+    x.simpleTest
+}
+
+#'get.parties
+#'@export
+get.parties <- function(x, x.parties = NULL) {
+    x.b <- get.ballot(x)
+    if (is.null(x.parties)) {
+        x.parties <- colnames(x.b)[-1]
+        x.parties <- x.parties[colSums(x.b[, -1]) != 0]
+    } else {
+        stopifnot(all(x.parties %in% c(colnames(x.b)[-1], abstainStrings)))
+    }
+    if ("V" %in% x.parties)
+        x.parties[x.parties == "V"] <- "Abstainers"
+    x.parties
 }

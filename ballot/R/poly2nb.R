@@ -45,7 +45,7 @@ queenLinkFun <- function(i.coords, j.coords) {
         }
         if (min(pointCount) > 1) {
             # cat('splitting\n')
-            coordsList <- c(coordsList, splitCoords(i.coords, j.coords, coordsList[[n]]$i, 
+            coordsList <- c(coordsList, splitCoords(i.coords, j.coords, coordsList[[n]]$i,
                 coordsList[[n]]$j))
             coordsList[[n]] <- NULL
             next
@@ -53,14 +53,14 @@ queenLinkFun <- function(i.coords, j.coords) {
         # cat('testing\n')
         x <- which.min(sapply(coordsList[[n]], length))
         if (x == 1) {
-            if (any(i.coords[coordsList[[n]]$i, 1] %in% j.coords[coordsList[[n]]$j, 
-                1] & i.coords[coordsList[[n]]$i, 2] %in% j.coords[coordsList[[n]]$j, 
-                2])) 
+            if (any(i.coords[coordsList[[n]]$i, 1] %in% j.coords[coordsList[[n]]$j,
+                1] & i.coords[coordsList[[n]]$i, 2] %in% j.coords[coordsList[[n]]$j,
+                2]))
                 return(TRUE)
         } else {
-            if (any(j.coords[coordsList[[n]]$j, 1] %in% i.coords[coordsList[[n]]$i, 
-                1] & j.coords[coordsList[[n]]$j, 2] %in% i.coords[coordsList[[n]]$i, 
-                2])) 
+            if (any(j.coords[coordsList[[n]]$j, 1] %in% i.coords[coordsList[[n]]$i,
+                1] & j.coords[coordsList[[n]]$j, 2] %in% i.coords[coordsList[[n]]$i,
+                2]))
                 return(TRUE)
         }
         coordsList[[n]] <- NULL

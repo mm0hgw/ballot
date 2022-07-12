@@ -23,9 +23,9 @@ nb.del <- function(nb, links) {
         b <- x[2]
         nb[[a]] <<- sort(setdiff(nb[[a]], b))
         nb[[b]] <<- sort(setdiff(nb[[b]], a))
-        if (length(nb[[a]]) == 0) 
+        if (length(nb[[a]]) == 0)
             nb[[a]] <<- 0L
-        if (length(nb[[b]]) == 0) 
+        if (length(nb[[b]]) == 0)
             nb[[b]] <<- 0L
     })
     sym.attr.nb(nb)

@@ -8,7 +8,7 @@
 #'@export
 group.nb <- function(nb, subset) {
     stopifnot(valid.nb.subset(nb, subset))
-    if (is.logical(subset)) 
+    if (is.logical(subset))
         subset <- seq(length(nb))[subset]
     class(nb) <- "list"
     v1 <- unique(do.call(c, nb[subset]))
@@ -24,7 +24,7 @@ group.nb.test <- function(x, subset) {
     sp <- get.Spatial(x)
     nb <- group.nb(x)
     stopifnot(valid.nb.subset(nb, subset))
-    if (is.logical(subset)) 
+    if (is.logical(subset))
         subset <- seq(length(nb))[subset]
     n <- length(nb)
     plot(sp)

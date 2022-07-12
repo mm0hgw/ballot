@@ -7,21 +7,21 @@
 #'@inheritParams set.textLinks
 #'@inheritParams set.linkSearchCol
 #'@export
-layerTag <- function(x, lTitle = NULL, refInfo = NULL, dsn = NULL, layer = NULL, 
+layerTag <- function(x, lTitle = NULL, refInfo = NULL, dsn = NULL, layer = NULL,
     textLinks = NULL, linkSearchCol = NULL) {
     # cat('layerTag',x,'\n')
     stopifnot(is.valid.tag(x))
-    if (!is.null(dsn)) 
+    if (!is.null(dsn))
         set.dsn(x, dsn)
-    if (!is.null(lTitle)) 
+    if (!is.null(lTitle))
         set.lTitle(x, lTitle)
-    if (!is.null(refInfo)) 
+    if (!is.null(refInfo))
         set.refInfo(x, refInfo)
-    if (!is.null(layer)) 
+    if (!is.null(layer))
         set.layer(x, layer)
-    if (!is.null(linkSearchCol)) 
+    if (!is.null(linkSearchCol))
         set.linkSearchCol(x, linkSearchCol)
-    if (!is.null(textLinks)) 
+    if (!is.null(textLinks))
         set.textLinks(x, textLinks)
     stopifnot(exists.dsn(x))
     stopifnot(exists.lTitle(x))
@@ -40,7 +40,7 @@ if (!exists("tmpEnv")) tmpEnv <- new.env()
 #'@method format layerTag
 #'@export
 format.layerTag <- function(x, ...) {
-    paste(sep = "", get.lTitle(x), "\nlayerTag ", x, " of shapefile layer ", get.layer(x), 
+    paste(sep = "", get.lTitle(x), "\nlayerTag ", x, " of shapefile layer ", get.layer(x),
         "\n")
 }
 
@@ -75,9 +75,9 @@ is.layerTag <- function(x) {
 #'@param x a 'character' or 'regionTag'
 #'@export
 as.layerTag <- function(x) {
-    if (length(x) > 1) 
+    if (length(x) > 1)
         return(sapply(x, as.layerTag))
-    if (is.layerTag(x)) 
+    if (is.layerTag(x))
         return(x)
     layerTag(x)
 }
@@ -86,7 +86,7 @@ as.layerTag <- function(x) {
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.layerTag <- function(pattern = ".*") {
-    x <- grep(pattern, gsub("\\.layer$", "", ls(envir = layerEnv, pattern = "\\.layer$")), 
+    x <- grep(pattern, gsub("\\.layer$", "", ls(envir = layerEnv, pattern = "\\.layer$")),
         value = TRUE)
     lapply(x, function(y) {
         class(y) <- c("layerTag", "character")
@@ -113,8 +113,8 @@ ls.layers <- function(x) {
 #'@export
 set.lTitle <- function(x, lTitle) {
     if (is.valid.tag(x) && is.valid.tag(lTitle)) {
-        if (exists.lTitle(x)) 
-            if (get.lTitle(x) == lTitle) 
+        if (exists.lTitle(x))
+            if (get.lTitle(x) == lTitle)
                 return(lTitle)
         x <- paste(sep = "", x, ".lTitle")
         assign(x, lTitle, envir = layerEnv)
@@ -133,8 +133,8 @@ set.dsn <- function(x, dsn) {
     x <- paste(sep = "", x, ".dsn")
     stopifnot(is.character(dsn))
     stopifnot(length(list.files(path = dsn, pattern = ".shp")) > 0)
-    if (exists.dsn(x)) 
-        if (get.dsn(x) == dsn) 
+    if (exists.dsn(x))
+        if (get.dsn(x) == dsn)
             return(dsn)
     assign(x, dsn, envir = layerEnv)
     save.layerEnv()
@@ -147,8 +147,8 @@ set.dsn <- function(x, dsn) {
 #'@export
 set.layer <- function(x, layer) {
     if (is.valid.tag(x) && (layer %in% ls.layers(x))) {
-        if (exists.layer(x)) 
-            if (get.layer(x) == layer) 
+        if (exists.layer(x))
+            if (get.layer(x) == layer)
                 return(layer)
         x <- paste(sep = "", x, ".layer")
         assign(x, layer, envir = layerEnv)
@@ -164,8 +164,8 @@ set.layer <- function(x, layer) {
 #'@export
 set.refInfo <- function(x, refInfo) {
     if (is.valid.tag(x) && is.valid.tag(refInfo)) {
-        if (exists.refInfo(x)) 
-            if (get.refInfo(x) == refInfo) 
+        if (exists.refInfo(x))
+            if (get.refInfo(x) == refInfo)
                 return(refInfo)
         x <- paste(sep = "", x, ".refInfo")
         assign(x, refInfo, envir = layerEnv)
@@ -180,8 +180,8 @@ set.refInfo <- function(x, refInfo) {
 #'@param linkSearchCol a reference to the field of the shapefile referenced by #'@export
 set.linkSearchCol <- function(x, linkSearchCol) {
     if (is.valid.tag(x)) {
-        if (exists.linkSearchCol(x)) 
-            if (get.linkSearchCol(x) == linkSearchCol) 
+        if (exists.linkSearchCol(x))
+            if (get.linkSearchCol(x) == linkSearchCol)
                 return(linkSearchCol)
         x <- paste(sep = "", x, ".linkSearchCol")
         assign(x, linkSearchCol, envir = layerEnv)
@@ -198,9 +198,9 @@ set.linkSearchCol <- function(x, linkSearchCol) {
 set.textLinks <- function(x, textLinks) {
     if (is.valid.tag(x) && is.character(textLinks)) {
         if (length(textLinks)%%2 == 0 || textLinks == "") {
-            if (exists.textLinks(x)) 
-                if (length(get.textLinks(x)) == length(textLinks) && all(get.textLinks(x) == 
-                  textLinks)) 
+            if (exists.textLinks(x))
+                if (length(get.textLinks(x)) == length(textLinks) && all(get.textLinks(x) ==
+                  textLinks))
                   return(textLinks)
             x <- paste(sep = "", x, ".textLinks")
             assign(x, textLinks, envir = layerEnv)

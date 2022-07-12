@@ -5,7 +5,7 @@
 freqPlot <- function(x, ...) {
     cat(paste("freqPlot", x, "\n"))
     arg <- list(...)
-    if (!("main" %in% names(arg))) 
+    if (!("main" %in% names(arg)))
         arg$main <- paste("Frequency Plot,", get.bTitle(x))
     slice <- seq(3)
     if ("slice" %in% names(arg)) {
@@ -22,7 +22,7 @@ freqPlot <- function(x, ...) {
     fList <- lapply(slice, get.freq, x = x)
     print(fList)
     f2List <- lapply(fList, function(i) cbind(x = i$x/7, y = i$freq/sum(i$freq)))
-    if (!("xlim" %in% names(arg))) 
+    if (!("xlim" %in% names(arg)))
         arg$xlim <- c(0, 1)
     if (!("ylim" %in% names(arg))) {
         arg$ylim <- c(0, 1)

@@ -7,11 +7,11 @@
 regionTag <- function(x, rTitle = NULL, rLayerTag = NULL, rMask = NULL) {
     # cat('regionTag',x,'\n')
     stopifnot(is.valid.tag(x))
-    if (!is.null(rTitle)) 
+    if (!is.null(rTitle))
         set.rTitle(x, rTitle)
-    if (!is.null(rLayerTag)) 
+    if (!is.null(rLayerTag))
         set.rLayerTag(x, rLayerTag)
-    if (!is.null(rMask)) 
+    if (!is.null(rMask))
         set.rMask(x, rMask)
     stopifnot(exists.rTitle(x))
     stopifnot(exists.rLayerTag(x))
@@ -24,7 +24,7 @@ regionTag <- function(x, rTitle = NULL, rLayerTag = NULL, rMask = NULL) {
 #'@method format regionTag
 #'@export
 format.regionTag <- function(x, ...) {
-    paste(sep = "", get.rTitle(x), "\nregionTag ", x, " of ", length(get.rMask(x)), 
+    paste(sep = "", get.rTitle(x), "\nregionTag ", x, " of ", length(get.rMask(x)),
         " elements\n")
 }
 
@@ -58,7 +58,7 @@ is.regionTag <- function(x) {
 #'@param x a 'regionTag' or 'character'
 #'@export
 as.regionTag <- function(x) {
-    if (length(x) > 1) 
+    if (length(x) > 1)
         return(sapply(x, as.regionTag))
     if (is.regionTag(x)) {
         x
@@ -71,7 +71,7 @@ as.regionTag <- function(x) {
 #'@param pattern a 'character' pattern to grep.
 #'@export
 ls.regionTag <- function(pattern = ".*") {
-    lapply(grep(pattern, gsub("\\.rLayerTag$", "", ls(envir = regionEnv, pattern = "\\.rLayerTag$")), 
+    lapply(grep(pattern, gsub("\\.rLayerTag$", "", ls(envir = regionEnv, pattern = "\\.rLayerTag$")),
         value = TRUE), function(x) {
         class(x) <- c("regionTag", "character")
         x
@@ -84,8 +84,8 @@ ls.regionTag <- function(pattern = ".*") {
 #'@export
 set.rTitle <- function(x, rTitle) {
     if (is.valid.tag(x) && is.valid.tag(rTitle)) {
-        if (exists.rTitle(x)) 
-            if (get.rTitle(x) == rTitle) 
+        if (exists.rTitle(x))
+            if (get.rTitle(x) == rTitle)
                 return(rTitle)
         x <- paste(sep = "", x, ".rTitle")
         assign(x, rTitle, envir = regionEnv)
@@ -118,9 +118,9 @@ exists.rTitle <- function(x) {
 set.rLayerTag <- function(x, rLayerTag) {
     if (is.valid.tag(x)) {
         rLayerTag <- as.layerTag(rLayerTag)
-        if (exists.rLayerTag(x)) 
-            if (get.rLayerTag(x) == rLayerTag && length(class(get.rLayerTag(x))) == 
-                length(class(rLayerTag)) && all(class(get.rLayerTag(x)) == class(rLayerTag))) 
+        if (exists.rLayerTag(x))
+            if (get.rLayerTag(x) == rLayerTag && length(class(get.rLayerTag(x))) ==
+                length(class(rLayerTag)) && all(class(get.rLayerTag(x)) == class(rLayerTag)))
                 return(rLayerTag)
         x <- paste(sep = "", x, ".rLayerTag")
         assign(x, rLayerTag, envir = regionEnv)
@@ -153,8 +153,8 @@ exists.rLayerTag <- function(x) {
 #'@export
 set.rMask <- function(x, rMask) {
     if (is.valid.tag(x)) {
-        if (exists.rMask(x)) 
-            if (length(get.rMask(x)) == length(rMask) && all(get.rMask(x) == rMask)) 
+        if (exists.rMask(x))
+            if (length(get.rMask(x)) == length(rMask) && all(get.rMask(x) == rMask))
                 return(rMask)
         sp <- get.Spatial(get.rLayerTag(x))
         sp[rMask, ]

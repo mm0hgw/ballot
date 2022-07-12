@@ -8,4 +8,4 @@ Imports: ultraCombo, moments, plyr, fields, sp, getLapply, rgdal, spdep, dplyr
 Suggests: mclapplyFunGen
 License: GPL-2
 LazyData: true
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.0

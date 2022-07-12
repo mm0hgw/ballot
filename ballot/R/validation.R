@@ -11,7 +11,7 @@ is.valid.ballot <- function(x, name = "") {
     !is.null(rownames(x)) || stop(paste(name, "rows not named"))
     !is.null(colnames(x)) || stop(paste(name, "columns not named"))
     colnames(x)[1] == "N" || stop(paste(name, "electorate (N) column not found"))
-    all(z <- x[, 1] != 0) || stop(paste(name, paste("0 detected as electorate in", 
+    all(z <- x[, 1] != 0) || stop(paste(name, paste("0 detected as electorate in",
         paste(collapse = ",", rownames(x)[z]))))
     # check for warning states
     if (any(is.na(x) != FALSE)) {
@@ -31,11 +31,11 @@ is.valid.ballot <- function(x, name = "") {
         }
         sumW <- rowSums(x[TRUE, -seq(2), drop = FALSE])
         if (any(z <- x[, 1] < sumW)) {
-            warning(paste(name, paste("sum(W) exceeds N in", paste(collapse = ",", 
+            warning(paste(name, paste("sum(W) exceeds N in", paste(collapse = ",",
                 rownames(x)[z]))))
         }
         if (any(z <- x[, 2] < sumW)) {
-            warning(paste(name, paste("sum(W) exceeds V in", paste(collapse = ",", 
+            warning(paste(name, paste("sum(W) exceeds V in", paste(collapse = ",",
                 rownames(x)[z]))))
         }
     }
@@ -49,7 +49,7 @@ is.valid.subballot <- function(x) {
     !is.null(rownames(x)) || stop("rows not named")
     !is.null(colnames(x)) || stop("columns not named")
     colnames(x)[1] == "N" || stop("electorate (N) column not found")
-    all(z <- x[, 1] != 0) || stop(paste("0 detected as electorate in", paste(collapse = ",", 
+    all(z <- x[, 1] != 0) || stop(paste("0 detected as electorate in", paste(collapse = ",",
         rownames(x)[z])))
     # check for warning states
     if (any(is.na(x) != FALSE)) {

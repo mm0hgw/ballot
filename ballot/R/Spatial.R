@@ -32,8 +32,8 @@ spatialPlot <- function(x, sample = NULL, center = NULL, ...) {
         q <- color_vector[i]
         lapply(p@Polygons, function(r) polygon(r@coords, col = q, border = NA))
     })
-    # image(1, leg, t(seq_along(leg)), col=sample_to_color(leg,n=4096), axes=FALSE,
-    # ylab='standard deviations from mean' ) axis(4)
+    # image(1, leg, t(seq_along(leg)), col=sample_to_color(leg,n=4096),
+    # axes=FALSE, ylab='standard deviations from mean' ) axis(4)
 }
 
 #'sample_to_color

@@ -56,8 +56,8 @@ get.combo.regionTag <- function(x) {
 growCombo <- function(nb, k = 7, seeds = 0) {
     k <- as.integer(k)
     seeds <- as.integer(seeds)
-    # cat(paste('growCombo nb length:', length(nb), 'k', k, 'seeds', paste(collapse =
-    # ',', seeds), '\n'))
+    # cat(paste('growCombo nb length:', length(nb), 'k', k, 'seeds',
+    # paste(collapse = ',', seeds), '\n'))
     stopifnot(inherits(nb, "nb"))
     stopifnot(is.integer(k))
     stopifnot(length(k) == 1)
@@ -67,11 +67,11 @@ growCombo <- function(nb, k = 7, seeds = 0) {
     stopifnot(all(seeds == 0) || all(seeds > 0) || all(seeds < 0))
     cat(paste("sanity checks passed\n"))
     n <- length(nb)
-    if (k == 0) 
+    if (k == 0)
         return(ultraCombo(1, n, k))
-    if (length(seeds) == 1 && seeds[1] == 0) 
+    if (length(seeds) == 1 && seeds[1] == 0)
         seeds <- seq(n)
-    if (any(seeds < 0)) 
+    if (any(seeds < 0))
         seeds <- setdiff(seq(n), -seeds)
     combo <- ultraCombo(seeds, n, 1)
     FUN <- function(y) multi.nb(y, nb)

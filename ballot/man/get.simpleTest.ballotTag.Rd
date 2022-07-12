@@ -4,7 +4,7 @@
 \alias{get.simpleTest.ballotTag}
 \title{get.simpleTest.ballotTag}
 \usage{
-\method{get.simpleTest}{ballotTag}(x, grepFilter = NULL, ...)
+\method{get.simpleTest}{ballotTag}(x, x.parties = NULL, ...)
 }
 \description{
 get.simpleTest.ballotTag

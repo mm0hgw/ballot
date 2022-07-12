@@ -1,5 +1,5 @@
 z <- ls.ballotTag("SIR")
-z
+
 fingerprint <- function(z) {
     z <- as.ballotTag(z)
     stopifnot(is.ballotTag(z))
@@ -72,4 +72,4 @@ fingerprint <- function(z) {
     })
 }
 
-lapply(ls.ballotTag()[seq(-5, -6)], fingerprint)
+lapply(z, fingerprint)

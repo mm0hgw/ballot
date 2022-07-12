@@ -9,7 +9,7 @@ multi.nb <- function(x, ...) {
 #'@method multi.nb numeric
 #'@export
 multi.nb.numeric <- function(x, nb) {
-    out <- do.call(multiUnion::multiUnion, lapply(x, function(y) setdiff(nb[[y]], 
+    out <- do.call(multiUnion::multiUnion, lapply(x, function(y) setdiff(nb[[y]],
         x)))
     # print(out)
     out
@@ -20,7 +20,7 @@ multi.nb.numeric <- function(x, nb) {
 #'@method multi.nb integer
 #'@export
 multi.nb.integer <- function(x, nb) {
-    out <- do.call(multiUnion::multiUnion, lapply(x, function(y) setdiff(nb[[y]], 
+    out <- do.call(multiUnion::multiUnion, lapply(x, function(y) setdiff(nb[[y]],
         x)))
     # print(out)
     out

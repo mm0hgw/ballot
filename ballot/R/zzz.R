@@ -10,11 +10,11 @@ ballotFile <- ".mm0hgw/ballotEnv.rda"
 ballotDir <- ".mm0hgw/ballotTag/"
 
 .onLoad <- function(libname, pkgname) {
-    if (!dir.exists(layerDir)) 
+    if (!dir.exists(layerDir))
         dir.create(layerDir, recursive = TRUE, showWarnings = FALSE)
-    if (!dir.exists(regionDir)) 
+    if (!dir.exists(regionDir))
         dir.create(regionDir, recursive = TRUE, showWarnings = FALSE)
-    if (!dir.exists(ballotDir)) 
+    if (!dir.exists(ballotDir))
         dir.create(ballotDir, recursive = TRUE, showWarnings = FALSE)
     xLoad(layerFile, envir = layerEnv)
     xLoad(regionFile, envir = regionEnv)

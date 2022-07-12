@@ -57,7 +57,7 @@ sbCalculateSample <- function(sb, norm = FALSE) {
 #' @export
 sbSimpleTest <- function(sb, ...) {
     stopifnot(is.valid.subballot(sb))
-    if (any(sb[, 2] == 0)) 
+    if (any(sb[, 2] == 0))
         return(NA)
     d <- density(sbCalculateSample(sb, norm = TRUE), ...)
     y1 <- d$y
@@ -145,8 +145,8 @@ sbDensityGen <- function(norm = TRUE, ...) {
 #'sbReportGen
 #'@param SBREPORTFUNS a list of functions
 #'@export
-sbReportGen <- function(SBREPORTFUNS = list(simpleTest = sbSimpleTest, popMean = sbPopMean, 
-    popSd = sbPopSd, densityPeakX = sbDensityPeakX, densityPeakY = sbDensityPeakY, 
+sbReportGen <- function(SBREPORTFUNS = list(simpleTest = sbSimpleTest, popMean = sbPopMean,
+    popSd = sbPopSd, densityPeakX = sbDensityPeakX, densityPeakY = sbDensityPeakY,
     skewness = sbSkewness, kurtosis = sbKurtosis)) {
     function(sb) {
         stopifnot(is.valid.subballot(sb))
@@ -181,7 +181,7 @@ sbAbstainers <- function(sb) {
     stopifnot(is.valid.subballot(sb))
     out <- sb[, seq(2)]
     out[, 2] <- sb[, 1] - sb[, 2]
-    colnames(out)[2] <- gsub("^!!", "", gsub("^", "!", colnames(sb)[2]))
+    colnames(out)[2] <- "Abstainers"
     out
 }
 

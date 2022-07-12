@@ -52,7 +52,7 @@ get.nb.layerTag <- function(x) {
     tmpEnv <- new.env()
     dataName <- paste(sep = "", x, ".nb")
     fileName <- paste(sep = "", layerDir, x, ".nb.rda")
-    if (!dir.exists(layerDir)) 
+    if (!dir.exists(layerDir))
         dir.create(layerDir, recursive = TRUE)
     if (!file.exists(fileName)) {
         sp <- get.Spatial(x)
